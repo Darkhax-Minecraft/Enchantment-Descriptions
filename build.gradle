@@ -1,0 +1,180 @@
+buildscript {
+
+    repositories {
+
+        jcenter()
+
+        maven {
+
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+
+        maven {
+
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
+    }
+}
+
+apply plugin: "maven"
+apply plugin: 'net.minecraftforge.gradle.forge'
+apply plugin: "com.matthewprenger.cursegradle"
+
+group = "net.darkhax.enchdesc"
+archivesBaseName = "EnchantmentDescriptions"
+version = getVersionFromJava(file("src/main/java/net/darkhax/enchdesc/lib/Constants.java"))
+
+//Defines the MC environment information.
+minecraft {
+
+    version = "1.10.2-12.18.1.2018"
+    runDir = "run"
+    mappings = "snapshot_20160518"
+    useDepAts = true
+}
+
+//Handles basic resources such as mcmod.info
+processResources {
+
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+
+        include 'mcmod.info'
+        expand 'version': project.version, 'mcversion': project.minecraft.version
+    }
+
+    from(sourceSets.main.resources.srcDirs) {
+
+        exclude 'mcmod.info'
+    }
+}
+
+//Pulls the build version from a Java file.
+String getVersionFromJava(File file) {
+
+    String release = "0";
+    String update = "0";
+    String patch = "0";
+
+    String build = System.getenv("BUILD_NUMBER") ? System.getenv("BUILD_NUMBER") : "0";
+    def outfile = "";
+    def ln = System.getProperty("line.separator")
+
+    String prefix = "public static final String VERSION_NUMBER = \"";
+    file.eachLine {
+        String s ->
+
+            String v = s.trim();
+
+        if (v.startsWith(prefix)) {
+
+            v = v.substring(prefix.length(), v.length() - 2);
+            String[] pts = v.split("\\.");
+
+            release = pts[0];
+            update = pts[1];
+            patch = pts[2];
+            s = s.replaceAll(".0\";", ".${build}\";");
+        }
+
+        outfile += (s + ln);
+    }
+
+    file.write(outfile);
+
+    return "1.10.2-$release.$update.$patch.$build";
+}
+
+//Creates the source jar.
+task sourcesJar(type: Jar, dependsOn: classes) {
+
+    from sourceSets.main.allSource
+    classifier = 'sources'
+}
+
+//Creates the JavaDoc jar.
+task javadocJar(type: Jar, dependsOn: javadoc) {
+
+    from javadoc.destinationDir
+    classifier = 'javadoc'
+}
+
+//Creates the deobfuscated jar.
+task deobfJar(type: Jar) {
+
+    from sourceSets.main.output
+    classifier = "deobf"
+}
+
+//Adds the deobf, source and javadoc jars to the build artifacts.
+artifacts {
+
+    archives deobfJar
+    archives sourcesJar
+    archives javadocJar
+}
+
+//Uploads the artifacts to the maven server.
+uploadArchives {
+
+    repositories {
+
+        mavenDeployer {
+
+            repository(url: "file:///var/www/html/maven")
+        }
+    }
+}
+
+task setCurseForgeInfo() {
+
+    project.ext.releaseType = "alpha";
+    project.ext.changelog = "All changes can be found here: https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/commits/master";
+}
+
+//Prevents incomplete JavaDocs from preventing a build on Java 8.
+if (JavaVersion.current().isJava8Compatible()) {
+
+    allprojects {
+
+        tasks.withType(Javadoc) {
+
+            options.addStringOption('Xdoclint:none', '-quiet')
+        }
+    }
+}
+
+//Provides the basic CurseForge upload details
+curseforge {
+
+    //Sets the API from the system environment, if available.
+    apiKey = System.getenv("curseForgeApiKey") ? System.getenv("curseForgeApiKey") : "0";
+
+    project {
+
+        //Sets the Project ID from the system environment, if available.
+        id = System.getenv("projectId") ? System.getenv("projectId") : "0";
+
+        releaseType = project.releaseType;
+        changelog = project.changelog;
+
+        addGameVersion "1.10.2"
+        
+        //Adds main jar, deobf jar, source jar, and javadoc jar to the upload.
+        mainArtifact(jar) {
+        }
+        
+        addArtifact(deobfJar)
+        addArtifact(sourcesJar)
+        addArtifact(javadocJar)
+    }
+}

@@ -1,0 +1,17 @@
+#IntelliJ IDEA
+*.class
+*.iml
+*.ipr
+*.iws
+out/
+
+#ForgeGradle
+build/
+.gradle/
+run/
+
+#Eclipse
+.classpath
+.metadata/
+.project
+.settings/
