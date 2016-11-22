@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.mojang.realmsclient.gui.ChatFormatting;
 
+import net.darkhax.enchdesc.lib.Constants;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.GameSettings;
@@ -105,13 +106,25 @@ public class TooltipHandler {
      */
     public static String getModName (IForgeRegistryEntry.Impl<?> registerable) {
         
-        final String modID = registerable.getRegistryName().getResourceDomain();
-        final ModContainer mod = Loader.instance().getIndexedModList().get(modID);
-        return mod != null ? mod.getName() : modID;
+    	if (registerable != null && registerable.getRegistryName() != null) {
+    		
+            final String modID = registerable.getRegistryName().getResourceDomain();
+            final ModContainer mod = Loader.instance().getIndexedModList().get(modID);
+            return mod != null ? mod.getName() : modID;
+    	}
+    	
+    	return "NULL";
     }
     
     public static String getTranslationKey(Enchantment enchant) {
         
-        return String.format("enchantment.%s.%s.desc", enchant.getRegistryName().getResourceDomain(), enchant.getRegistryName().getResourcePath());
+    	if (enchant != null) {
+
+    		Constants.LOG.info(enchant.getClass());
+    		
+    		if (enchant.getRegistryName() != null)
+    			return String.format("enchantment.%s.%s.desc", enchant.getRegistryName().getResourceDomain(), enchant.getRegistryName().getResourcePath());
+    	}
+    	return "enchantment. NULL";
     }
 }
