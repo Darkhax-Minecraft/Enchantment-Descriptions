@@ -34,3 +34,16 @@ enchantment.minecraft.lure.desc=Decreases the amount of time it takes for a fish
 enchantment.minecraft.depth_strider.desc=Increases movement speed while under water.
 enchantment.minecraft.frost_walker.desc=Freezes water under the player into cracked ice.
 enchantment.minecraft.mending.desc=Repairs the durability of armor and tools with EXP.
+
+#Ender Core
+enchantment.endercore.xpboost.desc=Mobs will drop more XP when killed.
+enchantment.endercore.autosmelt.desc=Things mined will automatically be smelted.
+
+#Extra Utilities 2
+enchantment.extrautils2.xu.kaboomerang.desc=Boomerang can break/harvest blocks.
+enchantment.extrautils2.xu.zoomerang.desc=Boomering moves faster.
+enchantment.extrautils2.xu.burnerang.desc=Boomerang does fire damage.
+enchantment.extrautils2.xu.bladerang.desc=Boomerang does extra damage.
+
+#Random Things
+enchantment.randomthings.magnetic.desc=Moves mined items a bit closer to you.
