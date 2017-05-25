@@ -34,6 +34,9 @@ enchantment.minecraft.lure.desc=Decreases the amount of time it takes for a fish
 enchantment.minecraft.depth_strider.desc=Increases movement speed while under water.
 enchantment.minecraft.frost_walker.desc=Freezes water under the player into cracked ice.
 enchantment.minecraft.mending.desc=Repairs the durability of armor and tools with EXP.
+enchantment.minecraft.binding_curse.desc=Prevents the enchanted item from being removed from an armor slot.
+enchantment.minecraft.vanishing_curse.desc=Destroyes the enchanted item if you die with it in your inventory.
+enchantment.minecraft.sweeping.desc=Increases the damage of sweeping attacks.
 
 #Ender Core
 enchantment.endercore.xpboost.desc=Mobs will drop more XP when killed.
