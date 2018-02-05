@@ -16,9 +16,6 @@ import net.minecraftforge.fml.relauncher.Side;
 @Mod(modid = Constants.MODID, name = Constants.MOD_NAME, version = "@VERSION@", certificateFingerprint = "@FINGERPRINT@")
 public class EnchantmentDescriptions {
 
-    @Mod.Instance(Constants.MODID)
-    public static EnchantmentDescriptions instance;
-
     @EventHandler
     public void preInit (FMLPreInitializationEvent event) {
 
