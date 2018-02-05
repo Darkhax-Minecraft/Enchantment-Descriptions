@@ -29,7 +29,7 @@ public class TooltipHandler {
     @SubscribeEvent
     public void onTooltipDisplayed (ItemTooltipEvent event) {
 
-        if (event.getItemStack() != null && event.getItemStack().getItem() instanceof ItemEnchantedBook) {
+        if (event.getItemStack().isEmpty() && event.getItemStack().getItem() instanceof ItemEnchantedBook) {
 
             final List<String> tooltip = event.getToolTip();
 
