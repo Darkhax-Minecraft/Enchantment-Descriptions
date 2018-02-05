@@ -4,8 +4,13 @@ import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
 
-public class ConfigurationHandler {
-
+public final class ConfigurationHandler {
+	
+	private ConfigurationHandler() {
+		
+		// Prevent people from constructing this, even though it's just me lol
+	}
+	
     /**
      * An instance of the Configuration object being used.
      */
