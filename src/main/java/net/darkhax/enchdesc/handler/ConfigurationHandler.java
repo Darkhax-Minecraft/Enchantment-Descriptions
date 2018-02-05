@@ -14,7 +14,7 @@ public class ConfigurationHandler {
     /**
      * Whether or not undocumented enchantments should be listed.
      */
-    public static boolean exploreMode = false;
+    private static boolean exploreMode = false;
 
     /**
      * Initializes the configuration file.
@@ -32,10 +32,18 @@ public class ConfigurationHandler {
      */
     public static void syncConfig () {
 
-        exploreMode = config.getBoolean("exploreMode", Configuration.CATEGORY_GENERAL, false, "Should the mod generate a list of enchantments from the instance that have no description?");
+        setExploreMode(config.getBoolean("exploreMode", Configuration.CATEGORY_GENERAL, false, "Should the mod generate a list of enchantments from the instance that have no description?"));
 
         if (config.hasChanged()) {
             config.save();
         }
     }
+    
+	public static boolean isExploreMode() {
+		return exploreMode;
+	}
+
+	public static void setExploreMode(boolean exploreMode) {
+		ConfigurationHandler.exploreMode = exploreMode;
+	}
 }

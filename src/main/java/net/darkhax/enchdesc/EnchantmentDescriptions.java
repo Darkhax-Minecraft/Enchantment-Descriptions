@@ -32,7 +32,7 @@ public class EnchantmentDescriptions {
     @EventHandler
     public void postInit (FMLPostInitializationEvent event) {
 
-        if (event.getSide().equals(Side.CLIENT) && ConfigurationHandler.exploreMode) {
+        if (event.getSide().equals(Side.CLIENT) && ConfigurationHandler.isExploreMode()) {
             for (final Enchantment enchant : Enchantment.REGISTRY) {
                 if (I18n.format(TooltipHandler.getTranslationKey(enchant)).startsWith("enchantment.")) {
                     Constants.LOG.info(String.format("Undefined enchantment from %s %s", TooltipHandler.getModName(enchant), TooltipHandler.getTranslationKey(enchant)));
