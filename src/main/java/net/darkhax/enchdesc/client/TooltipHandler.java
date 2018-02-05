@@ -35,8 +35,7 @@ public class TooltipHandler {
 
             if (GameSettings.isKeyDown(keyBindSneak)) {
 
-                final ItemEnchantedBook item = (ItemEnchantedBook) event.getItemStack().getItem();
-                final List<Enchantment> enchants = this.getEnchantments(item, event.getItemStack());
+                final List<Enchantment> enchants = this.getEnchantments(event.getItemStack());
 
                 for (final Enchantment enchant : enchants) {
 
@@ -77,9 +76,9 @@ public class TooltipHandler {
      * @param stack The stack to read the data from.
      * @return The list of enchantments stored on the stack.
      */
-    private List<Enchantment> getEnchantments (ItemEnchantedBook book, ItemStack stack) {
+    private List<Enchantment> getEnchantments (ItemStack stack) {
 
-        final NBTTagList enchTags = book.getEnchantments(stack);
+        final NBTTagList enchTags = ItemEnchantedBook.getEnchantments(stack);
         final List<Enchantment> enchantments = new ArrayList<>();
 
         if (enchTags != null) {
