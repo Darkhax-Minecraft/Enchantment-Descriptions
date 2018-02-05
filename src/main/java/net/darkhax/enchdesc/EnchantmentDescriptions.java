@@ -17,9 +17,9 @@ import net.minecraftforge.fml.relauncher.Side;
 
 @Mod(modid = "enchdesc", name = "Enchantment Descriptions", version = "@VERSION@", certificateFingerprint = "@FINGERPRINT@")
 public class EnchantmentDescriptions {
-	
+
     public static final Logger LOG = LogManager.getLogger("Enchantment Descriptions");
-    
+
     @EventHandler
     public void preInit (FMLPreInitializationEvent event) {
 

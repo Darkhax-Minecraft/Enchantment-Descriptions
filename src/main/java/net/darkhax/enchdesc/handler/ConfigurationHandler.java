@@ -5,12 +5,12 @@ import java.io.File;
 import net.minecraftforge.common.config.Configuration;
 
 public final class ConfigurationHandler {
-	
-	private ConfigurationHandler() {
-		
-		// Prevent people from constructing this, even though it's just me lol
-	}
-	
+
+    private ConfigurationHandler () {
+
+        // Prevent people from constructing this, even though it's just me lol
+    }
+
     /**
      * An instance of the Configuration object being used.
      */
@@ -43,12 +43,14 @@ public final class ConfigurationHandler {
             config.save();
         }
     }
-    
-	public static boolean isExploreMode() {
-		return exploreMode;
-	}
 
-	public static void setExploreMode(boolean exploreMode) {
-		ConfigurationHandler.exploreMode = exploreMode;
-	}
+    public static boolean isExploreMode () {
+
+        return exploreMode;
+    }
+
+    public static void setExploreMode (boolean exploreMode) {
+
+        ConfigurationHandler.exploreMode = exploreMode;
+    }
 }
