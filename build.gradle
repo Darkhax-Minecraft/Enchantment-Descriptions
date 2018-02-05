@@ -11,19 +11,24 @@ buildscript {
         
         maven {
 
-            url "https://plugins.gradle.org/m2/"
+            url 'https://plugins.gradle.org/m2/'
         }
     }
     
     dependencies {
     
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
-        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.9"
+        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.0.9'
     }
 }
 
 apply plugin: 'net.minecraftforge.gradle.forge'
-apply plugin: "com.matthewprenger.cursegradle"
+apply plugin: 'com.matthewprenger.cursegradle'
+apply plugin: 'maven-publish' 
+
+apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/markdown-git-changelog.gradle'
+apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/minecraft/artifacts.gradle'
+apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/minecraft/maven.gradle'
 
 version = "${mod_version}" + getBuildNumber()
 group = "${mod_group}"
@@ -39,11 +44,8 @@ minecraft {
     runDir = 'run'
     
     replace '@VERSION@', project.version
+    replace '@FINGERPRINT@', project.findProperty('signSHA1')
     replaceIn "${mod_class}.java"
-}
-
-dependencies {
-
 }
 
 processResources {
@@ -61,35 +63,6 @@ processResources {
     
         exclude 'mcmod.info'
     }
-    
-    from 'LICENSE'
-}
-
-// Taken from https://github.com/Inventory-Tweaks/inventory-tweaks/blob/develop/build.gradle
-def getGitChangelog = { ->
-    try {
-        def stdout = new ByteArrayOutputStream()
-        def gitHash = System.getenv('GIT_COMMIT')
-        def gitPrevHash = System.getenv('GIT_PREVIOUS_COMMIT')
-        def travisRange = System.getenv('TRAVIS_COMMIT_RANGE')
-        if(gitHash && gitPrevHash) {
-            exec {
-                commandLine 'git', 'log', '--pretty=tformat:- %s', '' + gitPrevHash + '...' + gitHash
-                standardOutput = stdout
-            }
-            return stdout.toString().trim()
-        } else if(travisRange) {
-            exec {
-                commandLine 'git', 'log', '--pretty=tformat:- %s', '' + travisRange
-                standardOutput = stdout
-            }
-            return stdout.toString().trim()
-        } else {
-            return "";
-        }
-    } catch(ignored) {
-        return "";
-    }
 }
 
 String getBuildNumber() {
@@ -97,6 +70,7 @@ String getBuildNumber() {
     return System.getenv('BUILD_NUMBER') ? System.getenv('BUILD_NUMBER') : System.getenv('TRAVIS_BUILD_NUMBER') ? System.getenv('TRAVIS_BUILD_NUMBER') : '0';
 }
 
+//Shuts up javadoc failures
 if (JavaVersion.current().isJava8Compatible()) {
 
     allprojects {
@@ -108,44 +82,67 @@ if (JavaVersion.current().isJava8Compatible()) {
     }
 }
 
-task createDeobf(type: Jar) {
-
-    from sourceSets.main.output
-    classifier = 'deobf'
-}
-
-task createSources(type: Jar, dependsOn: classes) {
-
-    from sourceSets.main.allSource
-    classifier = 'sources'
-}
-
-task createJavadoc(type: Jar, dependsOn: javadoc) {
-
-    from javadoc.destinationDir
-    classifier = 'javadoc'
-}
-
 curseforge {
 
-    apiKey = System.getenv('authCurse') ? System.getenv('authCurse') : '0';
+    apiKey = System.getenv('curse_auth') ? System.getenv('curse_auth') : 0 
+    def versions = "${curse_versions}".split(', ')
 
     project {
 
-        id = "${id_curse}"   
+        id = "${curse_project}"
         releaseType = 'alpha'
-        changelog = getGitChangelog()
+        changelog = getGitChangelog
         changelogType = 'markdown'
-        addGameVersion "${version_minecraft}"       
-        addArtifact(createDeobf)
-        addArtifact(createSources)
-        addArtifact(createJavadoc)
+
+        versions.each {
+
+            addGameVersion "${it}"
+        }
+
+        if (project.hasProperty('curse_requirements') || project.hasProperty('curse_optionals')) {
+
+            mainArtifact(jar) {
+
+                relations {
+
+                    if (project.hasProperty('curse_requirements')) {
+                        def requirements = "${curse_requirements}".split(', ')
+                        requirements.each {
+
+                            requiredLibrary "${it}"
+                        }
+                    }
+
+                    if (project.hasProperty('curse_optionals')) {
+                        def optionals = "${curse_optionals}".split(', ')
+                        optionals.each {
+
+                            optionalLibrary "${it}"
+                        }
+                    }
+                }
+            }
+        }
+
+        addArtifact(sourcesJar)
+        addArtifact(javadocJar)
+        addArtifact(deobfJar)
     }
 }
 
-artifacts {
+task signJar(type: SignJar, dependsOn: reobfJar) {
 
-    archives createDeobf
-    archives createSources
-    archives createJavadoc
+    onlyIf {
+    
+        project.hasProperty('keyStore')
+    }
+    
+    keyStore = project.findProperty('keyStore')
+    alias = project.findProperty('keyStoreAlias')
+    storePass = project.findProperty('keyStorePass')
+    keyPass = project.findProperty('keyStoreKeyPass')
+    inputFile = jar.archivePath
+    outputFile = jar.archivePath
 }
+
+build.dependsOn signJar
