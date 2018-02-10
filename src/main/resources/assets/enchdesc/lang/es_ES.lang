@@ -1,0 +1,52 @@
+#Descripciones de encantamientos Archivo de idioma Español
+
+#Enchantment Tooltip
+tooltip.enchdesc.name = Encantamiento
+tooltip.enchdesc.addedby = Agregado por
+tooltip.enchdesc.missing = No se encontró descripción. Pídale al autor de% s que agregue uno. La clave de localización es% s
+tooltip.enchdesc.activate = Presione% s% s% s para descripciones de encantamiento.
+
+#Descripciones de encantamiento de vanilla
+enchantment.minecraft.protection.desc = Reduce el daño de la mayoría de las fuentes.
+enchantment.minecraft.fire_protection.desc = Reduce los efectos del daño por fuego. También reduce el tiempo de combustión cuando se prende fuego.
+enchantment.minecraft.feather_falling.desc = Reduce el daño por caida y daño de teletransportacion de perlas de ender.
+enchantment.minecraft.blast_protection.desc = Reduce el daño de las explosiones y el retroceso de explosión.
+enchantment.minecraft.projectile_protection.desc = Reduce el daño de proyectiles como flechas y bolas de fuego.
+enchantment.minecraft.respiration.desc = Aumenta la cantidad de tiempo que el jugador puede pasar bajo el agua. También mejora la visión bajo el agua.
+enchantment.minecraft.aqua_affinity.desc = Aumenta la velocidad de la minería mientras está bajo el agua.
+enchantment.minecraft.thorns.desc = Causa daño a los enemigos cuando te atacan.
+enchantment.minecraft.sharpness.desc = Aumenta el daño del arma.
+enchantment.minecraft.smite.desc = Aumenta el daño contra mobs no muertos como zombies y esqueletos.
+enchantment.minecraft.bane_of_arthropods.desc = Aumenta el daño contra los artrópodos como las arañas y los SilverFish.
+enchantment.minecraft.knockback.desc = Aumenta la fuerza de retroceso del arma.
+enchantment.minecraft.fire_aspect.desc = Causa daño de fuego adicional cuando se usa para atacar a un mob.
+enchantment.minecraft.looting.desc = Los mobs dejaran caer más botín cuando mueran.
+enchantment.minecraft.efficiency.desc = Aumenta la velocidad de minería de la herramienta.
+enchantment.minecraft.silk_touch.desc = Permite la recopilación de bloques frágiles como el vidrio.
+enchantment.minecraft.unbreaking.desc = Hace que la herramienta pierda durabilidad a un ritmo más lento.
+enchantment.minecraft.fortune.desc = Algunos bloques como el carbón y el mineral de diamante pueden arrojar elementos adicionales.
+enchantment.minecraft.power.desc = Aumenta el daño de las flechas disparadas desde el arco.
+enchantment.minecraft.punch.desc = Aumenta la fuerza de retroceso de las flechas disparadas por el arco.
+enchantment.minecraft.flame.desc = Las flechas disparadas desde el arco causarán daño de fuego adicional.
+enchantment.minecraft.infinity.desc = Permite que el arco dispare flechas normales de forma gratuita. Debes tener al menos una flecha en el inventario para que esto funcione.
+enchantment.minecraft.luck_of_the_sea.desc = Aumenta la posibilidad de obtener un buen botín mientras pesca.
+enchantment.minecraft.lure.desc = Disminuye la cantidad de tiempo que le toma a un pez morder el anzuelo.
+enchantment.minecraft.depth_strider.desc = Aumenta la velocidad de movimiento mientras estes bajo el agua.
+enchantment.minecraft.frost_walker.desc = Congela el agua debajo del jugador en hielo agrietado.
+enchantment.minecraft.mending.desc = Repara la durabilidad de la armadura y las herramientas con EXP.
+enchantment.minecraft.binding_curse.desc = Impide que el objeto encantado se elimine de una ranura de armadura.
+enchantment.minecraft.vanishing_curse.desc = Destruye el objeto encantado si mueres con él en tu inventario.
+enchantment.minecraft.sweeping.desc = Aumenta el daño de los ataques de barrido.
+
+#Ender Core
+enchantment.endercore.xpboost.desc = Los mobs otorgan más XP cuando mueren.
+enchantment.endercore.autosmelt.desc = Los bloques minados se fundirán automáticamente.
+
+#Extra Utilities 2
+enchantment.extrautils2.xu.kaboomerang.desc = El Boomerang puede romper / cosechar bloques.
+enchantment.extrautils2.xu.zoomerang.desc = El Boomerang se mueve más rápido.
+enchantment.extrautils2.xu.burnerang.desc = El Boomerang hace daño de fuego.
+enchantment.extrautils2.xu.bladerang.desc = El Boomerang hace daño extra.
+
+#Cosas al azar
+enchantment.randomthings.magnetic.desc = Atrae los objetos minados un poco más cerca de ti.
