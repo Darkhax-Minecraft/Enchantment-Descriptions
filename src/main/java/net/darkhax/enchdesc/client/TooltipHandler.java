@@ -29,6 +29,11 @@ public class TooltipHandler {
     @SubscribeEvent
     public void onTooltipDisplayed (ItemTooltipEvent event) {
 
+        if (event.getEntityPlayer() == null) {
+
+            return;
+        }
+
         if (!event.getItemStack().isEmpty() && event.getItemStack().getItem() instanceof ItemEnchantedBook) {
 
             final List<String> tooltip = event.getToolTip();
@@ -108,7 +113,7 @@ public class TooltipHandler {
 
         if (registerable != null && registerable.getRegistryName() != null) {
 
-            final String modID = registerable.getRegistryName().getResourceDomain();
+            final String modID = registerable.getRegistryName().getPath();
             final ModContainer mod = Loader.instance().getIndexedModList().get(modID);
             return mod != null ? mod.getName() : modID;
         }
@@ -120,7 +125,7 @@ public class TooltipHandler {
 
         if (enchant != null && enchant.getRegistryName() != null) {
 
-            return String.format("enchantment.%s.%s.desc", enchant.getRegistryName().getResourceDomain(), enchant.getRegistryName().getResourcePath());
+            return String.format("enchantment.%s.%s.desc", enchant.getRegistryName().getNamespace(), enchant.getRegistryName().getPath());
         }
 
         return "NULL";
