@@ -19,7 +19,7 @@ buildscript {
     dependencies {
 
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
-        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.0.7"
+        classpath "gradle.plugin.com.matthewprenger:CurseGradle:1.1.0"
     }
 }
 
@@ -34,9 +34,9 @@ version = getVersionFromJava(file("src/main/java/net/darkhax/enchdesc/lib/Consta
 //Defines the MC environment information.
 minecraft {
 
-    version = "1.10.2-12.18.1.2018"
+    version = "1.10.2-12.18.3.2185"
     runDir = "run"
-    mappings = "snapshot_20160518"
+    mappings = "stable_29"
     useDepAts = true
 }
 
