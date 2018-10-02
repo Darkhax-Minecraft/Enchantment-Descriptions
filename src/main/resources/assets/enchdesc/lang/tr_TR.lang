@@ -1,0 +1,52 @@
+#Enchantment Descriptions Turkish Language File
+
+#Enchantment Tooltip
+tooltip.enchdesc.name=Büyü
+tooltip.enchdesc.addedby=Ekleyen
+tooltip.enchdesc.missing=Açıklama bulunamadı. Lütfen %s yapımcısının açıklama eklemesini isteyiniz. Lokalizasyon tuşu %s
+tooltip.enchdesc.activate= %s%s%s tuşuna basarak büyü açıklamalarını görün.
+
+#Vanilla Enchantment Descriptions
+enchantment.minecraft.protection.desc=Çoğu hasar türlerinden alınan hasarı azaltır. 
+enchantment.minecraft.fire_protection.desc=Ateş hasarının etkisini azaltır. Ayrıca yandığınızda yanma sürenizi azaltır.
+enchantment.minecraft.feather_falling.desc=Düşme hasarını ve Ender İncisi ile ışınlanma hasarını azaltır.
+enchantment.minecraft.blast_protection.desc=Patlamalardan gelen hasarı ve patlamalardan alınan itilme seviyesini azaltır.
+enchantment.minecraft.projectile_protection.desc=Ateş topu ve ok gibi mermi tipli cisimlerden gelen hasarı azaltır.
+enchantment.minecraft.respiration.desc=Oyuncunun su altında geçirebileceği süreyi uzatır. Ayrıca su altı görüşünüzü de artırır.
+enchantment.minecraft.aqua_affinity.desc=Su altında kazma hızınızı artırır.
+enchantment.minecraft.thorns.desc=Düşmanlar size saldırdığında onların da hasar almasını sağlar.
+enchantment.minecraft.sharpness.desc=Eşyanın hasarını artırır.
+enchantment.minecraft.smite.desc=Zombi ve İskelet türündeki canlılara verilen hasarı artırır.
+enchantment.minecraft.bane_of_arthropods.desc=Gümüşçün ve Örümcek gibi eklembacaklı canlılara verilen hasarı artırır.
+enchantment.minecraft.knockback.desc=Silahın itme gücünü artırır.
+enchantment.minecraft.fire_aspect.desc=Saldırılan canlıya ateş hasarı vermesini sağlar.
+enchantment.minecraft.looting.desc=Canavarlar öldürüldüğünde daha fazla ganimet düşürmesini sağlar.
+enchantment.minecraft.efficiency.desc=Eşyanın kazma hızını artırır.
+enchantment.minecraft.silk_touch.desc=Cam gibi kırılgan öğelerin alınabilmesini sağlar.
+enchantment.minecraft.unbreaking.desc=Eşyanın dayanıklılığının daha yavaş azalmasını sağlar.
+enchantment.minecraft.fortune.desc=Kömür ve elmas cevheri gibi bloklar daha fazla maden düşürebilmesini sağlar.
+enchantment.minecraft.power.desc=Yaydan atılan okların hasarını artırır.
+enchantment.minecraft.punch.desc=Yaydan atılan okların itme gücünü artırır.
+enchantment.minecraft.flame.desc=Yaydan atılan okların ateş hasarı vermesini sağlar. 
+enchantment.minecraft.infinity.desc=Hiç ok kaybetmeden ok atmanızı sağlar. En az bir adet oka sahip olmanız gerekir.
+enchantment.minecraft.luck_of_the_sea.desc=Balık tutarken daha fazla ganimet alabilmenizi sağlar.
+enchantment.minecraft.lure.desc=Balığın oltayı tutması için gereken süreyi azaltır.
+enchantment.minecraft.depth_strider.desc=Su altında iken gezinme hızınızı artırır.
+enchantment.minecraft.frost_walker.desc=Oyuncu suda gezinirken suyun yerine kırılgan buz yerleştirir.
+enchantment.minecraft.mending.desc=Tecrüpe puanı sayesinde eşyaların ve zırhların dayanıklılığını tamir eder.
+enchantment.minecraft.binding_curse.desc=Büyülenmiş eşyanızı zırh slotundan çıkarılmamasını sağlar.
+enchantment.minecraft.vanishing_curse.desc=O eşya envanterinizde iken öldüğünüzde o eşyanın yok olmasını sağlar. 
+enchantment.minecraft.sweeping.desc=Kenar saldırılarınızın hasarını artırır.
+
+#Ender Core
+enchantment.endercore.xpboost.desc=Canavarlar daha fazla tecrübe puanı düşürmesini sağlar.
+enchantment.endercore.autosmelt.desc=Kazılan madenlerin otomatik olarak pişirilmesini sağlar.
+
+#Extra Utilities 2
+enchantment.extrautils2.xu.kaboomerang.desc=Bumerangın blokları hasat etmesini/kırmasını sağlar.
+enchantment.extrautils2.xu.zoomerang.desc=Bumerang daha hızlı hareket eder.
+enchantment.extrautils2.xu.burnerang.desc=Bumerang ateş hasarı verir.
+enchantment.extrautils2.xu.bladerang.desc=Bumerang daha fazla hasar verir.
+
+#Random Things
+enchantment.randomthings.magnetic.desc=Kazılan şeylerin biraz daha yakınınıza gelmesini sağlar.
