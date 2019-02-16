@@ -113,7 +113,7 @@ public class TooltipHandler {
 
         if (registerable != null && registerable.getRegistryName() != null) {
 
-            final String modID = registerable.getRegistryName().getPath();
+            final String modID = registerable.getRegistryName().getNamespace();
             final ModContainer mod = Loader.instance().getIndexedModList().get(modID);
             return mod != null ? mod.getName() : modID;
         }
