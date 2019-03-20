@@ -1,0 +1,53 @@
+#Enchantment Descriptions English Language File
+
+#Enchantment Tooltip
+tooltip.enchdesc.name=Encantamento
+tooltip.enchdesc.addedby=Adicionado por
+tooltip.enchdesc.missing=Sem descrição encontrada. Por favor, peça o autor do %s para adicionar. A chave para localização é %s
+tooltip.enchdesc.activate=Prescione %s%s%s para visualizar a descrição do encantamento.
+
+#Vanilla Enchantment Descriptions
+enchantment.minecraft.protection.desc=Reduz a maior parte do dano. Nív. Máx. IV
+enchantment.minecraft.fire_protection.desc=Reduz o dano do fogo. Reduz o tempo pegando fogo. Nív. Máx. IV
+enchantment.minecraft.feather_falling.desc=Reduz o dano dos teleportes da ender pearl e dano de queda. Nív. Máx. IV
+enchantment.minecraft.blast_protection.desc=Reduz o dano e repulsão da explosão. Nív. Máx. IV
+enchantment.minecraft.projectile_protection.desc=Reduz o dano de projéteis, dano de flechas, ghast/blaze, bolas de fogo, etc. Nív. Máx. IV
+enchantment.minecraft.respiration.desc=Extende a respiração debaixo d'água. Aumenta a visão debaixo d'água. Nív. Máx. III
+enchantment.minecraft.aqua_affinity.desc=Aumenta a velocidade de mineração debaixo d'agua. Nív. Máx. I
+enchantment.minecraft.thorns.desc=Causa dano ao inimigo ao te atacar. Nív. Máx. III
+enchantment.minecraft.sharpness.desc=Aumenta o dano do item. Nív. Máx. V
+enchantment.minecraft.smite.desc=Aumenta o dano contra morto-vivos como esqueletos e zumbis. Nív. Máx. V
+enchantment.minecraft.bane_of_arthropods.desc=Aumenta o dano contra artrópodes como aranhas e silverfish. Nív. Máx. V
+enchantment.minecraft.knockback.desc=Aumenta a repulsão. Nív. Máx. II
+enchantment.minecraft.fire_aspect.desc=Coloca fogo em qualquer monstro ou jogador. Nív. Máx. II
+enchantment.minecraft.looting.desc=Mosntros droparam mais itens ao serem mortos. Nív. Máx. III
+enchantment.minecraft.efficiency.desc=Aumenta a velocidade de mineração. Nív. Máx. V
+enchantment.minecraft.silk_touch.desc=Permite a coleta de blocos frágeis como vidro e gelo. Nív. Máx. I
+enchantment.minecraft.unbreaking.desc=Aumenta a durabilidade do item. Nív. Máx. III
+enchantment.minecraft.fortune.desc=Aumenta a quantidade de itens dropados ao minerar blocos como carvão e diamante. Nív. Máx. III
+enchantment.minecraft.power.desc=Aumenta o dano da flecha em 25%. Nív. Máx. V
+enchantment.minecraft.punch.desc=Aumenta a força de repulsão das flechas disparadas pelo arco. Nív. Máx. II
+enchantment.minecraft.flame.desc=Flechas disparadas do arco causará dano de fogo adicional. Nív. Máx. I
+enchantment.minecraft.infinity.desc=Permite que o arco dispare flechas normais infinitamente. Você deve ter pelo menos uma flecha no inventário para que isso funcione. Nív. Máx. I
+
+enchantment.minecraft.luck_of_the_sea.desc=Aumenta a chance de conseguir um bom tesouro enquanto pesca. Nív. Máx. III
+enchantment.minecraft.lure.desc=Aumenta as chances de um peixe morder sua isca. Nív. Máx. III
+enchantment.minecraft.depth_strider.desc=Aumenta a velocidade na água. Nív. Máx. III
+enchantment.minecraft.frost_walker.desc=Congela a água embaixo do jogar. Nív. Máx. II
+enchantment.minecraft.mending.desc=Repara a durabilidade da armadura e ferramentas com EXP. Nív. Máx. I
+enchantment.minecraft.binding_curse.desc=Impede que o item encantado seja removido do slot da armadura.
+enchantment.minecraft.vanishing_curse.desc=Destrói o item encantado se você morrer com ele no seu inventário.
+enchantment.minecraft.sweeping.desc=Aumenta o dano de ataques amplos. Nív. Máx. III
+
+#Ender Core
+enchantment.endercore.xpboost.desc=Monstros droparam mais XP quando mortos.
+enchantment.endercore.autosmelt.desc=Coisas mineradas seram automaticamente derretidas.
+
+#Extra Utilities 2
+enchantment.extrautils2.xu.kaboomerang.desc=Boomerang pode quebrar/colher blocos.
+enchantment.extrautils2.xu.zoomerang.desc=Boomering move mais rápido.
+enchantment.extrautils2.xu.burnerang.desc=Boomerang causa dano de fogo.
+enchantment.extrautils2.xu.bladerang.desc=Boomerang causa dano extra.
+
+#Random Things
+enchantment.randomthings.magnetic.desc=Move itens minerado um pouco mais perto do jogador.
