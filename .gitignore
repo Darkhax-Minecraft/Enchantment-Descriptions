@@ -11,9 +11,9 @@ build/
 run/
 
 #Eclipse
-*.launch
 .classpath
 .metadata/
 .project
 .settings/
 /bin/
+*.launch
