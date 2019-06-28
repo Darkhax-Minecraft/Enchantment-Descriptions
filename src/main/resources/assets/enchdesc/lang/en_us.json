@@ -42,17 +42,7 @@
     "enchantment.minecraft.impaling.desc": "Increases damage to players and aquatic mobs.",
     "enchantment.minecraft.riptide.desc": "Allows the trident to launch the player forwards. Only works while in rain or water.",
     "enchantment.minecraft.channeling.desc": "Allows the trident to summon lightning bolts during thunderstorms.",
-
-    "_comment": "Ender Core",
-    "enchantment.endercore.xpboost.desc": "Mobs will drop more XP when killed.",
-    "enchantment.endercore.autosmelt.desc": "Things mined will automatically be smelted.",
-
-    "_comment": "Extra Utilities 2",
-    "enchantment.extrautils2.xu.kaboomerang.desc": "Boomerang can break/harvest blocks.",
-    "enchantment.extrautils2.xu.zoomerang.desc": "Boomering moves faster.",
-    "enchantment.extrautils2.xu.burnerang.desc": "Boomerang does fire damage.",
-    "enchantment.extrautils2.xu.bladerang.desc": "Boomerang does extra damage.",
-
-    "_comment": "Random Things",
-    "enchantment.randomthings.magnetic.desc": "Moves mined items a bit closer to you."
+	"enchantment.minecraft.multishot.desc": "Fires additional arrows in random directions.",
+	"enchantment.minecraft.quick_charge.desc": "Increases the reload speed of crossbows.",
+	"enchantment.minecraft.piercing.desc": "Allows projectiles to pierc through mobs."
 }
