@@ -16,6 +16,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.ModContainer;
@@ -26,7 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod(EnchantmentDescriptions.MOD_ID)
-@EventBusSubscriber(modid = EnchantmentDescriptions.MOD_ID)
+@EventBusSubscriber(modid = EnchantmentDescriptions.MOD_ID, value = Dist.CLIENT)
 public class EnchantmentDescriptions {
     
     public static final String MOD_ID = "enchdesc";
