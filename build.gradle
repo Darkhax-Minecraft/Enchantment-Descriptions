@@ -46,7 +46,7 @@ minecraft {
         client {
 		
             workingDirectory project.file('run')
-			taskName "${mod_name} Client"
+			taskName "${mod_name}".replaceAll("\\s","") + 'Client'
 
             mods {
                 enchdesc {
@@ -57,7 +57,7 @@ minecraft {
 
         server {
             workingDirectory project.file('run')
-			taskName "${mod_name} Server"
+			taskName "${mod_name}".replaceAll("\\s","") + 'Server'
 			
             mods {
                 enchdesc {
