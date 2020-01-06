@@ -1,5 +1,5 @@
 modLoader="javafml"
-loaderVersion="[29,)"
+loaderVersion="[30,)"
 issueTrackerURL="https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/issues"
 
 [[mods]]
@@ -16,13 +16,13 @@ ${mod_description}
 [[dependencies.enchdesc]]
     modId="forge"
     mandatory=true
-    versionRange="[29,)"
+    versionRange="[30,)"
     ordering="NONE"
     side="CLIENT"
 
 [[dependencies.enchdesc]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15]"
+    versionRange="[1.15.1]"
     ordering="NONE"
     side="CLIENT"
