@@ -40,10 +40,10 @@ public class EnchantmentDescriptions {
         if (event.getPlayer() != null && !event.getItemStack().isEmpty() && event.getItemStack().getItem() instanceof EnchantedBookItem) {
             
             final List<ITextComponent> tooltip = event.getToolTip();
-            final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.field_228046_af_;
+            final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.keyBindSneak;
             
             // Check if the sneak key is pressed down. If so show the descriptions.
-            if (InputMappings.isKeyDown(Minecraft.getInstance().func_228018_at_().getHandle(), keyBindSneak.getKey().getKeyCode())) {
+            if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
                 
                 final List<Enchantment> enchants = getEnchantments(event.getItemStack());
                 
