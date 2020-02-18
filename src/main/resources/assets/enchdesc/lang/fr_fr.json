@@ -1,5 +1,5 @@
 {
-	"_comment": "Fichier de langue Française",
+    "_comment": "Fichier de langue Française",
 
     "_comment": "Infobulle d'enchantement",
     "tooltip.enchdesc.name": "Enchantement",
@@ -7,7 +7,7 @@
     "tooltip.enchdesc.missing": "Aucune description trouvée. Merci de demander à l'auteur de %s d'en ajouter une. La clé de localisation est %s",
     "tooltip.enchdesc.activate": "Appuyez sur %s%s%s pour les descriptions d'enchantement.",
 
-    "_comment": "Descriptions d'enchantement vanille",
+    "_comment": "Descriptions d'enchantement vanilla",
     "enchantment.minecraft.protection.desc": "Réduit les dégâts de la plupart des sources.",
     "enchantment.minecraft.fire_protection.desc": "Réduit les effets des dégâts d'incendie. Réduit également le temps de combustion des flammes.",
     "enchantment.minecraft.feather_falling.desc": "Réduit les dégâts causés par la chute et les dégâts liés à la téléportation des perles.",
@@ -42,6 +42,9 @@
     "enchantment.minecraft.impaling.desc": "Augmente les dégâts infligés aux joueurs et aux créatures aquatiques.",
     "enchantment.minecraft.riptide.desc": "Permet au trident de lancer le joueur en avant. Ne fonctionne que sous la pluie ou dans l'eau.",
     "enchantment.minecraft.channeling.desc": "Permet au trident d'invoquer des éclairs pendant les orages.",
+    "enchantment.minecraft.multishot.desc": "Tire des flèches supplémentaires dans des directions aléatoires autour de la cible.",
+    "enchantment.minecraft.quick_charge.desc": "Diminue le temps nécessaire pour recharger l'arbalète.",
+    "enchantment.minecraft.piercing.desc": "Permet aux projectiles de transpercer les mobs."
 
     "_comment": "Ender Core",
     "enchantment.endercore.xpboost.desc": "Les mobs laisseront tomber plus d'XP lorsqu'ils seront tués.",
