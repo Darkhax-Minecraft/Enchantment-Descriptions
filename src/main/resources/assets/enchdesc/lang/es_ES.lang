@@ -3,8 +3,8 @@
 #Enchantment Tooltip
 tooltip.enchdesc.name = Encantamiento
 tooltip.enchdesc.addedby = Agregado por
-tooltip.enchdesc.missing = No se encontró descripción. Pídale al autor de% s que agregue uno. La clave de localización es% s
-tooltip.enchdesc.activate = Presione% s% s% s para descripciones de encantamiento.
+tooltip.enchdesc.missing = No se encontró descripción. Pídale al autor de %s que agregue uno. La clave de localización es %s
+tooltip.enchdesc.activate = Presione %s %s %s para descripciones de encantamiento.
 
 #Descripciones de encantamiento de vanilla
 enchantment.minecraft.protection.desc = Reduce el daño de la mayoría de las fuentes.
