@@ -93,7 +93,7 @@ public class EnchantmentDescriptions {
         catch (final Exception e) {
             
             event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").applyTextStyle(TextFormatting.RED));
-            this.log.error("Ran into issues displaying tooltip for {}", event.getItemStack().toString());
+            this.log.error("Ran into issues displaying tooltip for {}", event.getItemStack());
             this.log.catching(e);
         }
     }
