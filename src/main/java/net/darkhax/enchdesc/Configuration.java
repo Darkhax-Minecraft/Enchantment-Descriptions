@@ -17,13 +17,13 @@ public class Configuration {
     private final BooleanValue showOwner;
     private final BooleanValue requireKeybind;
     
-    public Configuration () {
-
+    public Configuration() {
+        
         final ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
-
+        
         builder.comment("General settings for the mod.");
         builder.push("general");
-
+        
         builder.comment("Should descriptions only be shown on enchanted books?");
         this.onlyEnchBooks = builder.define(ONLY_ENCH_BOOK, true);
         
@@ -41,27 +41,27 @@ public class Configuration {
         this.spec = builder.build();
     }
     
-    public ForgeConfigSpec getSpec() {
+    public ForgeConfigSpec getSpec () {
         
         return this.spec;
     }
     
-    public boolean onlyShowOnEnchantedBooks() {
+    public boolean onlyShowOnEnchantedBooks () {
         
-        return onlyEnchBooks.get();
+        return this.onlyEnchBooks.get();
     }
     
-    public boolean shouldAddNewlines() {
+    public boolean shouldAddNewlines () {
         
-        return newLines.get();
+        return this.newLines.get();
     }
     
-    public boolean shouldShowOwner() {
+    public boolean shouldShowOwner () {
         
-        return showOwner.get();
+        return this.showOwner.get();
     }
     
-    public boolean requiresKeybindPress() {
+    public boolean requiresKeybindPress () {
         
         return this.requireKeybind.get();
     }

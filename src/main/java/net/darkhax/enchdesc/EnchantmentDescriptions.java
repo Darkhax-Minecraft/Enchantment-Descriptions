@@ -1,6 +1,7 @@
 package net.darkhax.enchdesc;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 
 import javax.annotation.Nullable;
@@ -40,27 +41,28 @@ public class EnchantmentDescriptions {
     
     private final Configuration config = new Configuration();
     private final Logger log = LogManager.getLogger("Enchantment Descriptions");
+    
     public EnchantmentDescriptions() {
         
+        ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
         DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup));
     }
     
-    private void setup(FMLClientSetupEvent event) {
+    private void setup (FMLClientSetupEvent event) {
         
-        ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
         MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
     }
     
-    private void onLoadComplete(FMLLoadCompleteEvent event) {
+    private void onLoadComplete (FMLLoadCompleteEvent event) {
         
-        for (Enchantment ench : ForgeRegistries.ENCHANTMENTS) {
+        for (final Enchantment ench : ForgeRegistries.ENCHANTMENTS) {
             
             final String descKey = ench.getName() + ".desc";
             
             if (descKey.equals(I18n.format(descKey))) {
                 
-                log.error("The enchantment {} does not have a description. Please add one using the key {}", ench.getRegistryName(), descKey);
+                this.log.error("The enchantment {} does not have a description. Please add one using the key {}", ench.getRegistryName(), descKey);
             }
         }
     }
@@ -69,53 +71,54 @@ public class EnchantmentDescriptions {
         
         final ItemStack stack = event.getItemStack();
         
-        // Check if the player is not null, some people fire this event before things
-        // have been registered.
-        // Also check if the item is an enchanted book.
-        if (event.getPlayer() != null && !stack.isEmpty() && stack.getItem() instanceof EnchantedBookItem) {
+        // Only show on enchanted books. Can be configured to allow all items.
+        if (!stack.isEmpty() && (!this.config.onlyShowOnEnchantedBooks() || stack.getItem() instanceof EnchantedBookItem)) {
             
             final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.keyBindSneak;
             
-            // Check if the sneak key is pressed down. If so show the descriptions.
-            if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
+            if (!this.config.requiresKeybindPress() || InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
                 
-                final Iterator<Enchantment> enchants = EnchantmentHelper.getEnchantments(stack).keySet().iterator();
-                
-                // Add descriptions for all the enchantments.
-                while (enchants.hasNext()) {
-                    
-                    final Enchantment enchant = enchants.next();
-                    final ListIterator<ITextComponent> tooltips = event.getToolTip().listIterator();
-                    
-                    while (tooltips.hasNext()) {
-                        
-                        final ITextComponent component = tooltips.next();
-                        
-                        if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
-                            
-                            tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").applyTextStyle(TextFormatting.DARK_GRAY));
-                            
-                            final ModContainer mod = getOwner(enchant);
-                            
-                            if (mod != null) {
-                                
-                                tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + mod.getModInfo().getDisplayName()));
-                            }
-                            
-                            if (enchants.hasNext()) {
-                                
-                                tooltips.add(new StringTextComponent(""));
-                            }
-                            
-                            break;
-                        }
-                    }
-                }
+                this.insertDescriptionTooltips(event.getToolTip(), stack);
             }
             
-            // Let the player know they can press sneak to see stuff.
-            else {
+            else if (this.config.requiresKeybindPress()) {
+                
                 event.getToolTip().add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.activate", TextFormatting.LIGHT_PURPLE, I18n.format(keyBindSneak.getTranslationKey()), TextFormatting.GRAY)));
+            }
+        }
+    }
+    
+    private void insertDescriptionTooltips (List<ITextComponent> tips, ItemStack stack) {
+        
+        final Iterator<Enchantment> enchants = EnchantmentHelper.getEnchantments(stack).keySet().iterator();
+        
+        while (enchants.hasNext()) {
+            
+            final Enchantment enchant = enchants.next();
+            final ListIterator<ITextComponent> tooltips = tips.listIterator();
+            
+            while (tooltips.hasNext()) {
+                
+                final ITextComponent component = tooltips.next();
+                
+                if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
+                    
+                    tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").applyTextStyle(TextFormatting.DARK_GRAY));
+                    
+                    final ModContainer mod = getOwner(enchant);
+                    
+                    if (this.config.shouldShowOwner() && mod != null) {
+                        
+                        tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + mod.getModInfo().getDisplayName()));
+                    }
+                    
+                    if (this.config.shouldAddNewlines() && enchants.hasNext()) {
+                        
+                        tooltips.add(new StringTextComponent(""));
+                    }
+                    
+                    break;
+                }
             }
         }
     }
