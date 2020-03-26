@@ -4,11 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-import javax.annotation.Nullable;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import net.darkhax.bookshelf.util.ModUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
@@ -26,15 +25,9 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModContainer;
-import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod("enchdesc")
 public class EnchantmentDescriptions {
@@ -45,26 +38,7 @@ public class EnchantmentDescriptions {
     public EnchantmentDescriptions() {
         
         ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup));
-    }
-    
-    private void setup (FMLClientSetupEvent event) {
-        
-        MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed);
-        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
-    }
-    
-    private void onLoadComplete (FMLLoadCompleteEvent event) {
-        
-        for (final Enchantment ench : ForgeRegistries.ENCHANTMENTS) {
-            
-            final String descKey = ench.getName() + ".desc";
-            
-            if (descKey.equals(I18n.format(descKey))) {
-                
-                this.log.error("The enchantment {} does not have a description. Please add one using the key {}", ench.getRegistryName(), descKey);
-            }
-        }
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed));
     }
     
     private void onTooltipDisplayed (ItemTooltipEvent event) {
@@ -115,11 +89,12 @@ public class EnchantmentDescriptions {
                     
                     tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").applyTextStyle(TextFormatting.DARK_GRAY));
                     
-                    final ModContainer mod = getOwner(enchant);
+                    final ModContainer mod = ModUtils.getOwner(enchant);
                     
                     if (this.config.shouldShowOwner() && mod != null) {
                         
-                        tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + mod.getModInfo().getDisplayName()));
+                        final ITextComponent modName = ModUtils.getModName(mod).applyTextStyle(TextFormatting.BLUE);
+                        tooltips.add(new TranslationTextComponent("tooltip.enchdesc.addedby", modName).applyTextStyle(TextFormatting.DARK_GRAY));
                     }
                     
                     if (this.config.shouldAddNewlines() && enchants.hasNext()) {
@@ -131,22 +106,5 @@ public class EnchantmentDescriptions {
                 }
             }
         }
-    }
-    
-    /**
-     * Gets the ModContainer which owns a registered thing.
-     * 
-     * @param registerable The thing to get the owner of.
-     * @return The owner of the thing. Will be null if no owner can be found.
-     */
-    @Nullable
-    public static ModContainer getOwner (IForgeRegistryEntry<?> registerable) {
-        
-        if (registerable != null && registerable.getRegistryName() != null) {
-            
-            return ModList.get().getModContainerById(registerable.getRegistryName().getNamespace()).orElse(null);
-        }
-        
-        return null;
     }
 }

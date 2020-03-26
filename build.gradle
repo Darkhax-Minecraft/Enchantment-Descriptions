@@ -68,9 +68,19 @@ minecraft {
     }
 }
 
+repositories {
+
+    maven {
+
+        url 'http://maven.mcmoddev.com'
+    }
+}
+
 dependencies {
 
     minecraft "net.minecraftforge:forge:${forge_version}"
+    
+    compile fg.deobf("net.darkhax.bookshelf:Bookshelf-1.15.2:${bookshelf_version}")
 }
 
 jar {

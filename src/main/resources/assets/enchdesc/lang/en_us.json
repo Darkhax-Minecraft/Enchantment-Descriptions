@@ -2,8 +2,7 @@
     "_comment": "Enchantment Descriptions English Language File",
 
     "_comment": "Enchantment Tooltip",
-    "tooltip.enchdesc.name": "Enchantment",
-    "tooltip.enchdesc.addedby": "Added by",
+    "tooltip.enchdesc.addedby": "Added by: %s",
 	"tooltip.enchdesc.activate": "Press %s%s%s for enchantment descriptions.",
 	"enchdesc.fatalerror": "Error: See log file",
 
