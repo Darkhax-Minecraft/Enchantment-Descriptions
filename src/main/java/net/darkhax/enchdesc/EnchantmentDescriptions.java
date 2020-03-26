@@ -5,6 +5,9 @@ import java.util.ListIterator;
 
 import javax.annotation.Nullable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
@@ -18,20 +21,51 @@ import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.config.ModConfig.Type;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import net.minecraftforge.fml.event.lifecycle.FMLLoadCompleteEvent;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod("enchdesc")
-@EventBusSubscriber(modid = "enchdesc", value = Dist.CLIENT)
 public class EnchantmentDescriptions {
     
-    @SubscribeEvent
-    public static void onTooltipDisplayed (ItemTooltipEvent event) {
+    private final Configuration config = new Configuration();
+    private final Logger log = LogManager.getLogger("Enchantment Descriptions");
+    public EnchantmentDescriptions() {
+        
+        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup));
+    }
+    
+    private void setup(FMLClientSetupEvent event) {
+        
+        ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
+        MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed);
+        FMLJavaModLoadingContext.get().getModEventBus().addListener(this::onLoadComplete);
+    }
+    
+    private void onLoadComplete(FMLLoadCompleteEvent event) {
+        
+        for (Enchantment ench : ForgeRegistries.ENCHANTMENTS) {
+            
+            final String descKey = ench.getName() + ".desc";
+            
+            if (descKey.equals(I18n.format(descKey))) {
+                
+                log.error("The enchantment {} does not have a description. Please add one using the key {}", ench.getRegistryName(), descKey);
+            }
+        }
+    }
+    
+    private void onTooltipDisplayed (ItemTooltipEvent event) {
         
         final ItemStack stack = event.getItemStack();
         
