@@ -4,8 +4,8 @@
     "_comment": "Enchantment Tooltip",
     "tooltip.enchdesc.name": "Enchantment",
     "tooltip.enchdesc.addedby": "Added by",
-    "tooltip.enchdesc.missing": "No description found. Please ask the author of %s to add one. Localization key is %s",
-    "tooltip.enchdesc.activate": "Press %s%s%s for enchantment descriptions.",
+	"tooltip.enchdesc.activate": "Press %s%s%s for enchantment descriptions.",
+	"enchdesc.fatalerror": "Error: See log file",
 
     "_comment": "Vanilla Enchantment Descriptions",
     "enchantment.minecraft.protection.desc": "Reduces damage from most sources.",

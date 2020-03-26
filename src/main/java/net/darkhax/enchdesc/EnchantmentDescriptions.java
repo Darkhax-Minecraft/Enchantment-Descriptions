@@ -69,22 +69,32 @@ public class EnchantmentDescriptions {
     
     private void onTooltipDisplayed (ItemTooltipEvent event) {
         
-        final ItemStack stack = event.getItemStack();
+        try {
+            
+            final ItemStack stack = event.getItemStack();
+            
+            // Only show on enchanted books. Can be configured to allow all items.
+            if (!stack.isEmpty() && (!this.config.onlyShowOnEnchantedBooks() || stack.getItem() instanceof EnchantedBookItem)) {
+                
+                final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.keyBindSneak;
+                
+                if (!this.config.requiresKeybindPress() || InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
+                    
+                    this.insertDescriptionTooltips(event.getToolTip(), stack);
+                }
+                
+                else if (this.config.requiresKeybindPress()) {
+                    
+                    event.getToolTip().add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.activate", TextFormatting.LIGHT_PURPLE, I18n.format(keyBindSneak.getTranslationKey()), TextFormatting.GRAY)));
+                }
+            }
+        }
         
-        // Only show on enchanted books. Can be configured to allow all items.
-        if (!stack.isEmpty() && (!this.config.onlyShowOnEnchantedBooks() || stack.getItem() instanceof EnchantedBookItem)) {
+        catch (final Exception e) {
             
-            final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.keyBindSneak;
-            
-            if (!this.config.requiresKeybindPress() || InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
-                
-                this.insertDescriptionTooltips(event.getToolTip(), stack);
-            }
-            
-            else if (this.config.requiresKeybindPress()) {
-                
-                event.getToolTip().add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.activate", TextFormatting.LIGHT_PURPLE, I18n.format(keyBindSneak.getTranslationKey()), TextFormatting.GRAY)));
-            }
+            event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").applyTextStyle(TextFormatting.RED));
+            this.log.error("Ran into issues displaying tooltip for {}", event.getItemStack().toString());
+            this.log.catching(e);
         }
     }
     
