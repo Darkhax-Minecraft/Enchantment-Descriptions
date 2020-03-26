@@ -3,7 +3,7 @@
 
     "_comment": "Enchantment Tooltip",
     "tooltip.enchdesc.addedby": "Agregado por: %s",
-	"tooltip.enchdesc.activate": "Presione% s% s% s para descripciones de encantamiento.",
+	"tooltip.enchdesc.activate": "Presione %s %s %s para descripciones de encantamiento.",
 
     "_comment": "Descripciones de encantamiento de vanilla",
     "enchantment.minecraft.protection.desc": "Reduce el daño de la mayoría de las fuentes.",
