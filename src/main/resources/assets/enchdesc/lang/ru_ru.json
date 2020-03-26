@@ -2,9 +2,7 @@
     "_comment": "Enchantment Descriptions English Language File",
 
     "_comment": "Enchantment Tooltip",
-    "tooltip.enchdesc.name": "Зачарование",
-    "tooltip.enchdesc.addedby": "Добавлено",
-    "tooltip.enchdesc.missing": "Нет описания. Попросите автора %s добавить его. Ключ локализации %s",
+    "tooltip.enchdesc.addedby": "Добавлено: %s",
     "tooltip.enchdesc.activate": "Нажмите %s%s%s для описания зачарования.",
 
     "_comment": "Vanilla Enchantment Descriptions",

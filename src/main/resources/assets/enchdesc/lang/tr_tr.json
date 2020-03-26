@@ -2,9 +2,7 @@
     "_comment": "Enchantment Descriptions Turkish Language File",
 
     "_comment": "Enchantment Tooltip",
-    "tooltip.enchdesc": "Büyü",
-    "tooltip.enchdesc.addedby": "Ekleyen",
-    "tooltip.enchdesc.missing": "Açıklama bulunamadı. Lütfen %s yapımcısının açıklama eklemesini isteyiniz. Lokalizasyon tuşu %s",
+    "tooltip.enchdesc.addedby": "Ekleyen: %s",
     "tooltip.enchdesc.activate": "%s%s%s tuşuna basarak büyü açıklamalarını görün.",
 
     "_comment": "Vanilla Enchantment Descriptions",

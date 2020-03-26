@@ -2,10 +2,8 @@
     "_comment": "Verzauberungsbeschreibungen Deutsche Sprachdatei",
 
     "_comment": "Enchantment Tooltip",
-    "tooltip.enchdesc.name": "Verzauberung",
-    "tooltip.enchdesc.addedby": "Hinzugefügt von",
-    "tooltip.enchdesc.missing": "Keine Beschreibung gefunden. Bitten Sie den Autor von %s, einen hinzuzufügen. Lokalisierungsschlüssel ist %s",
-    "tooltip.enchdesc.activate": "Drücken Sie %s%s%s, um eine Verzauberungsbeschreibung zu erhalten.",
+    "tooltip.enchdesc.addedby": "Hinzugefügt von: %s",
+	"tooltip.enchdesc.activate": "Drücken Sie %s%s%s, um eine Verzauberungsbeschreibung zu erhalten.",
 
     "_comment": "Vanilla Verzauberungsbeschreibungen",
     "enchantment.minecraft.protection.desc": "Reduziert den Schaden aus den meisten Quellen.",

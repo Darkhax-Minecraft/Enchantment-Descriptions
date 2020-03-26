@@ -2,10 +2,8 @@
 	"_comment": "Fichier de langue Française",
 
     "_comment": "Infobulle d'enchantement",
-    "tooltip.enchdesc.name": "Enchantement",
-    "tooltip.enchdesc.addedby": "Ajouté par",
-    "tooltip.enchdesc.missing": "Aucune description trouvée. Merci de demander à l'auteur de %s d'en ajouter une. La clé de localisation est %s",
-    "tooltip.enchdesc.activate": "Appuyez sur %s%s%s pour les descriptions d'enchantement.",
+    "tooltip.enchdesc.addedby": "Ajouté par: %s",
+    "tooltip.enchdesc.activate": "Appuyez sur %s%s%s pour les descriptions d'enchantement.",
 
     "_comment": "Descriptions d'enchantement vanille",
     "enchantment.minecraft.protection.desc": "Réduit les dégâts de la plupart des sources.",

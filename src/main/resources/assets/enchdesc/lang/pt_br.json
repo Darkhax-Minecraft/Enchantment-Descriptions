@@ -2,9 +2,7 @@
     "_comment": "Enchantment Descriptions English Language File",
 
     "_comment": "Enchantment Tooltip",
-    "tooltip.enchdesc.name": "Encantamento",
-    "tooltip.enchdesc.addedby": "Adicionado por",
-    "tooltip.enchdesc.missing": "Sem descrição encontrada. Por favor, peça o autor do %s para adicionar. A chave para localização é %s",
+    "tooltip.enchdesc.addedby": "Adicionado por: %s",
     "tooltip.enchdesc.activate": "Prescione %s%s%s para visualizar a descrição do encantamento.",
 
     "_comment": "Vanilla Enchantment Descriptions",
