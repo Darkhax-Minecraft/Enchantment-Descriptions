@@ -2,6 +2,7 @@ package net.darkhax.enchdesc;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
@@ -16,6 +17,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,11 +28,9 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
-@Mod(EnchantmentDescriptions.MOD_ID)
-@EventBusSubscriber(modid = EnchantmentDescriptions.MOD_ID, value = Dist.CLIENT)
+@Mod("enchdesc")
+@EventBusSubscriber(modid = "enchdesc", value = Dist.CLIENT)
 public class EnchantmentDescriptions {
-    
-    public static final String MOD_ID = "enchdesc";
     
     @SubscribeEvent
     public static void onTooltipDisplayed (ItemTooltipEvent event) {
@@ -45,14 +45,31 @@ public class EnchantmentDescriptions {
             // Check if the sneak key is pressed down. If so show the descriptions.
             if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
                 
-                final List<Enchantment> enchants = getEnchantments(event.getItemStack());
+            	final ListIterator<Enchantment> enchants = getEnchantments(event.getItemStack()).listIterator();
                 
                 // Add descriptions for all the enchantments.
-                for (final Enchantment enchant : enchants) {
+                while (enchants.hasNext()) {
                     
-                    tooltip.add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.name") + ": " + I18n.format(enchant.getName())));
-                    tooltip.add(new StringTextComponent(TextFormatting.GRAY + getDescription(enchant)));
-                    tooltip.add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + getModName(enchant)));
+                	final Enchantment enchant = enchants.next();
+                	final ListIterator<ITextComponent> tooltips = event.getToolTip().listIterator();
+                	
+                	while (tooltips.hasNext()) {
+                		
+                		final ITextComponent component = tooltips.next();
+                		
+                		if (component instanceof TranslationTextComponent && ((TranslationTextComponent)component).getKey().equals(enchant.getName())) {
+                			
+                			tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + getDescription(enchant)));
+                            tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + getModName(enchant)));
+                            
+                            if (enchants.hasNext()) {
+                            	
+                                tooltips.add(new StringTextComponent(""));
+                            }
+                            
+                            break;
+                		}
+                	}
                 }
             }
             
