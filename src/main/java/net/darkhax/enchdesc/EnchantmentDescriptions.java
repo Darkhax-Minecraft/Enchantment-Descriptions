@@ -1,19 +1,18 @@
 package net.darkhax.enchdesc;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
 import java.util.ListIterator;
+
+import javax.annotation.Nullable;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.settings.KeyBinding;
 import net.minecraft.client.util.InputMappings;
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundNBT;
-import net.minecraft.nbt.ListNBT;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -25,7 +24,6 @@ import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistryEntry;
 
 @Mod("enchdesc")
@@ -35,117 +33,73 @@ public class EnchantmentDescriptions {
     @SubscribeEvent
     public static void onTooltipDisplayed (ItemTooltipEvent event) {
         
-        // Check if the player is not null, some people fire this event before things have been registered.
+        final ItemStack stack = event.getItemStack();
+        
+        // Check if the player is not null, some people fire this event before things
+        // have been registered.
         // Also check if the item is an enchanted book.
-        if (event.getPlayer() != null && !event.getItemStack().isEmpty() && event.getItemStack().getItem() instanceof EnchantedBookItem) {
+        if (event.getPlayer() != null && !stack.isEmpty() && stack.getItem() instanceof EnchantedBookItem) {
             
-            final List<ITextComponent> tooltip = event.getToolTip();
             final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.keyBindSneak;
             
             // Check if the sneak key is pressed down. If so show the descriptions.
             if (InputMappings.isKeyDown(Minecraft.getInstance().getMainWindow().getHandle(), keyBindSneak.getKey().getKeyCode())) {
                 
-            	final ListIterator<Enchantment> enchants = getEnchantments(event.getItemStack()).listIterator();
+                final Iterator<Enchantment> enchants = EnchantmentHelper.getEnchantments(stack).keySet().iterator();
                 
                 // Add descriptions for all the enchantments.
                 while (enchants.hasNext()) {
                     
-                	final Enchantment enchant = enchants.next();
-                	final ListIterator<ITextComponent> tooltips = event.getToolTip().listIterator();
-                	
-                	while (tooltips.hasNext()) {
-                		
-                		final ITextComponent component = tooltips.next();
-                		
-                		if (component instanceof TranslationTextComponent && ((TranslationTextComponent)component).getKey().equals(enchant.getName())) {
-                			
-                			tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + getDescription(enchant)));
-                            tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + getModName(enchant)));
+                    final Enchantment enchant = enchants.next();
+                    final ListIterator<ITextComponent> tooltips = event.getToolTip().listIterator();
+                    
+                    while (tooltips.hasNext()) {
+                        
+                        final ITextComponent component = tooltips.next();
+                        
+                        if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
+                            
+                            tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").applyTextStyle(TextFormatting.DARK_GRAY));
+                            
+                            final ModContainer mod = getOwner(enchant);
+                            
+                            if (mod != null) {
+                                
+                                tooltips.add(new StringTextComponent(TextFormatting.DARK_GRAY + I18n.format("tooltip.enchdesc.addedby") + ": " + TextFormatting.BLUE + mod.getModInfo().getDisplayName()));
+                            }
                             
                             if (enchants.hasNext()) {
-                            	
+                                
                                 tooltips.add(new StringTextComponent(""));
                             }
                             
                             break;
-                		}
-                	}
+                        }
+                    }
                 }
             }
             
             // Let the player know they can press sneak to see stuff.
             else {
-                tooltip.add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.activate", TextFormatting.LIGHT_PURPLE, I18n.format(keyBindSneak.getTranslationKey()), TextFormatting.GRAY)));
+                event.getToolTip().add(new StringTextComponent(TextFormatting.GRAY + I18n.format("tooltip.enchdesc.activate", TextFormatting.LIGHT_PURPLE, I18n.format(keyBindSneak.getTranslationKey()), TextFormatting.GRAY)));
             }
         }
     }
     
     /**
-     * Get the translated description for an enchantment.
+     * Gets the ModContainer which owns a registered thing.
      * 
-     * @param enchantment The enchantment to get a description for.
-     * @return A translated description for the enchantment.
+     * @param registerable The thing to get the owner of.
+     * @return The owner of the thing. Will be null if no owner can be found.
      */
-    private static String getDescription (Enchantment enchantment) {
-        
-        final String key = getTranslationKey(enchantment);
-        String description = I18n.format(key);
-        
-        if (description.startsWith("enchantment.")) {
-            description = I18n.format("tooltip.enchdesc.missing", getModName(enchantment), key);
-        }
-        
-        return description;
-    }
-    
-    /**
-     * Get the list of enchantments from an enchanted book itemstack.
-     * 
-     * @param stack The stack to get enchantments from.
-     * @return The enchantments on the item.
-     */
-    private static List<Enchantment> getEnchantments (ItemStack stack) {
-        
-        final ListNBT nbttaglist = EnchantedBookItem.getEnchantments(stack);
-        final List<Enchantment> enchantments = new ArrayList<>();
-        
-        for (int i = 0; i < nbttaglist.size(); ++i) {
-            final CompoundNBT nbttagcompound = nbttaglist.getCompound(i);
-            final Enchantment enchantment = ForgeRegistries.ENCHANTMENTS.getValue(ResourceLocation.tryCreate(nbttagcompound.getString("id")));
-            if (enchantment != null) {
-                enchantments.add(enchantment);
-            }
-        }
-        
-        return enchantments;
-    }
-    
-    /**
-     * Gets the owner mod name from any registerable object.
-     * 
-     * @param registerable The object to get the owner name.
-     * @return The name of the mod that owns the registerable.
-     */
-    private static String getModName (IForgeRegistryEntry<?> registerable) {
+    @Nullable
+    public static ModContainer getOwner (IForgeRegistryEntry<?> registerable) {
         
         if (registerable != null && registerable.getRegistryName() != null) {
             
-            final String modID = registerable.getRegistryName().getNamespace();
-            final ModContainer mod = ModList.get().getModContainerById(modID).orElse(null);
-            return mod != null ? mod.getModInfo().getDisplayName() : modID;
+            return ModList.get().getModContainerById(registerable.getRegistryName().getNamespace()).orElse(null);
         }
         
-        return "NULL";
-    }
-    
-    /**
-     * Gets the raw translation string for an enchantment.
-     * 
-     * @param enchant The enchantment to get the name of.
-     * @return The translation key for the enchantment.
-     */
-    private static String getTranslationKey (Enchantment enchant) {
-        
-        return enchant != null && enchant.getRegistryName() != null ? String.format("enchantment.%s.%s.desc", enchant.getRegistryName().getNamespace(), enchant.getRegistryName().getPath()) : "NULL";
+        return null;
     }
 }
