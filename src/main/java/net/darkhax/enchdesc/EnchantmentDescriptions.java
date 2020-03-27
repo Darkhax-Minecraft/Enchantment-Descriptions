@@ -48,7 +48,7 @@ public class EnchantmentDescriptions {
             final ItemStack stack = event.getItemStack();
             
             // Only show on enchanted books. Can be configured to allow all items.
-            if (!stack.isEmpty() && (!this.config.onlyShowOnEnchantedBooks() || stack.getItem() instanceof EnchantedBookItem)) {
+            if (!stack.isEmpty() && !EnchantmentHelper.getEnchantments(stack).isEmpty() && (!this.config.onlyShowOnEnchantedBooks() || stack.getItem() instanceof EnchantedBookItem)) {
                 
                 final KeyBinding keyBindSneak = Minecraft.getInstance().gameSettings.keyBindSneak;
                 
