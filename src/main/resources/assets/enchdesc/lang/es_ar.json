@@ -1,9 +1,10 @@
 {
-    "_comment": "Descripciones de encantamientos Archivo de idioma Español-Argentina",
+    "_comment": "Descripciones de encantamientos Archivo de idioma Español (Argentina)",
 
     "_comment": "Enchantment Tooltip",
     "tooltip.enchdesc.addedby": "Agregado por: %s",
-	  "tooltip.enchdesc.activate": "Presione %s %s %s para descripciones de encantamiento.",
+	"tooltip.enchdesc.activate": "Presione %s %s %s para descripciones de encantamiento.",
+	"enchdesc.fatalerror": "Error: ver archivo de registro",
 
     "_comment": "Descripciones de encantamiento de vanilla",
     "enchantment.minecraft.protection.desc": "Reduce el daño de la mayoría de las fuentes.",
@@ -36,17 +37,11 @@
     "enchantment.minecraft.binding_curse.desc": "Impide que el objeto encantado se elimine de una ranura de armadura.",
     "enchantment.minecraft.vanishing_curse.desc": "Destruye el objeto encantado si mueres con él en tu inventario.",
     "enchantment.minecraft.sweeping.desc": "Aumenta el daño de los ataques de barrido.",
-
-    "_comment": "Ender Core",
-    "enchantment.endercore.xpboost.desc": "Los mobs otorgan más XP cuando mueren.",
-    "enchantment.endercore.autosmelt.desc": "Los bloques minados se fundirán automáticamente.",
-
-    "_comment": "Extra Utilities 2",
-    "enchantment.extrautils2.xu.kaboomerang.desc": "El Boomerang puede romper / cosechar bloques.",
-    "enchantment.extrautils2.xu.zoomerang.desc": "El Boomerang se mueve más rápido.",
-    "enchantment.extrautils2.xu.burnerang.desc": "El Boomerang hace daño de fuego.",
-    "enchantment.extrautils2.xu.bladerang.desc": "El Boomerang hace daño extra.",
-
-    "_comment": "Cosas al azar",
-    "enchantment.randomthings.magnetic.desc": "Atrae los objetos minados un poco más cerca de ti."
+	"enchantment.minecraft.loyalty.desc": "El tridente vuelve a su dueño tras ser lanzado, cuanto más nivel tenga el encantamiento mayor sera la velocidad de retorno.",
+    "enchantment.minecraft.impaling.desc": "Aumento de daño adicional a las criaturas generadas naturalmente del océano.",
+    "enchantment.minecraft.riptide.desc": "El tridente lanza al jugador consigo mismo cuando lo arroja. Sin embargo, este efecto solo funciona cuando está parado en bloques de agua o durante la lluvia.",
+    "enchantment.minecraft.channeling.desc": "El tridente canalizará un rayo hacia un enemigo. Sin embargo, este efecto solo ocurrirá durante tormentas eléctricas.",
+	"enchantment.minecraft.multishot.desc": "Dispara 3 flechas a costa de una; solo se puede recuperar una flecha.",
+	"enchantment.minecraft.quick_charge.desc": "Disminuye el tiempo de carga de la ballesta.",
+	"enchantment.minecraft.piercing.desc": "Las flechas pasan a través de múltiples entidades."
 }
