@@ -16,6 +16,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.item.EnchantedBookItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.text.IFormattableTextComponent;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.util.text.TextFormatting;
@@ -23,11 +24,11 @@ import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.ModContainer;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 
 @Mod("enchdesc")
 public class EnchantmentDescriptions {
@@ -37,8 +38,11 @@ public class EnchantmentDescriptions {
     
     public EnchantmentDescriptions() {
         
-        ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
-        DistExecutor.runWhenOn(Dist.CLIENT, () -> () -> MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed));
+    	if (FMLEnvironment.dist == Dist.CLIENT) {
+    		
+            ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
+            MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed);
+    	}
     }
     
     private void onTooltipDisplayed (ItemTooltipEvent event) {
@@ -66,7 +70,7 @@ public class EnchantmentDescriptions {
         
         catch (final Exception e) {
             
-            event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").applyTextStyle(TextFormatting.RED));
+            event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").func_240699_a_(TextFormatting.RED));
             this.log.error("Ran into issues displaying tooltip for {}", event.getItemStack());
             this.log.catching(e);
         }
@@ -87,14 +91,20 @@ public class EnchantmentDescriptions {
                 
                 if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
                     
-                    tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").applyTextStyle(TextFormatting.DARK_GRAY));
+                    tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").func_240699_a_(TextFormatting.DARK_GRAY));
                     
                     final ModContainer mod = ModUtils.getOwner(enchant);
                     
                     if (this.config.shouldShowOwner() && mod != null) {
                         
-                        final ITextComponent modName = ModUtils.getModName(mod).applyTextStyle(TextFormatting.BLUE);
-                        tooltips.add(new TranslationTextComponent("tooltip.enchdesc.addedby", modName).applyTextStyle(TextFormatting.DARK_GRAY));
+                        final ITextComponent modName = ModUtils.getModName(mod);
+                        
+                        if (modName instanceof IFormattableTextComponent) {
+                        	
+                        	((IFormattableTextComponent) modName).func_240699_a_(TextFormatting.BLUE);
+                        }
+                        
+                        tooltips.add(new TranslationTextComponent("tooltip.enchdesc.addedby", modName).func_240699_a_(TextFormatting.DARK_GRAY));
                     }
                     
                     if (this.config.shouldAddNewlines() && enchants.hasNext()) {

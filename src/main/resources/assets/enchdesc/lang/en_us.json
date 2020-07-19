@@ -39,5 +39,6 @@
   "enchantment.minecraft.channeling.desc": "Allows the trident to summon lightning bolts during thunderstorms.",
   "enchantment.minecraft.multishot.desc": "Fires additional arrows in random directions.",
   "enchantment.minecraft.quick_charge.desc": "Increases the reload speed of crossbows.",
-  "enchantment.minecraft.piercing.desc": "Allows projectiles to pierc through mobs."
+  "enchantment.minecraft.piercing.desc": "Allows projectiles to pierc through mobs.",
+  "enchantment.minecraft.soul_speed.desc": "Increases movement speed on soul blocks."
 }
