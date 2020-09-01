@@ -70,7 +70,7 @@ public class EnchantmentDescriptions {
         
         catch (final Exception e) {
             
-            event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").func_240699_a_(TextFormatting.RED));
+            event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").mergeStyle(TextFormatting.RED));
             this.log.error("Ran into issues displaying tooltip for {}", event.getItemStack());
             this.log.catching(e);
         }
@@ -91,7 +91,7 @@ public class EnchantmentDescriptions {
                 
                 if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
                     
-                    tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").func_240699_a_(TextFormatting.DARK_GRAY));
+                    tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").mergeStyle(TextFormatting.DARK_GRAY));
                     
                     final ModContainer mod = ModUtils.getOwner(enchant);
                     
@@ -101,10 +101,10 @@ public class EnchantmentDescriptions {
                         
                         if (modName instanceof IFormattableTextComponent) {
                         	
-                        	((IFormattableTextComponent) modName).func_240699_a_(TextFormatting.BLUE);
+                        	((IFormattableTextComponent) modName).mergeStyle(TextFormatting.BLUE);
                         }
                         
-                        tooltips.add(new TranslationTextComponent("tooltip.enchdesc.addedby", modName).func_240699_a_(TextFormatting.DARK_GRAY));
+                        tooltips.add(new TranslationTextComponent("tooltip.enchdesc.addedby", modName).mergeStyle(TextFormatting.DARK_GRAY));
                     }
                     
                     if (this.config.shouldAddNewlines() && enchants.hasNext()) {
