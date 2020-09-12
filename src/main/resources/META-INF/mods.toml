@@ -1,11 +1,11 @@
 modLoader="javafml"
-loaderVersion="[33,)"
+loaderVersion="[34,)"
 issueTrackerURL="https://github.com/darkhax-minecraft/enchantment-descriptions/issues"
 license="LGPL v2.1"
 
 [[mods]]
 modId="enchdesc"
-updateJSONURL="https://updates.blamejared.com/get?n=enchantmentdescriptions&gv=1.16.2"
+updateJSONURL="https://updates.blamejared.com/get?n=enchantmentdescriptions&gv=1.16.3"
 version="${version}"
 displayName="${mod_name}"
 displayURL="${mod_download}"
@@ -19,20 +19,20 @@ ${mod_description}
 [[dependencies.enchdesc]]
     modId="forge"
     mandatory=true
-    versionRange="[33,)"
+    versionRange="[34,)"
     ordering="NONE"
     side="CLIENT"
 
 [[dependencies.enchdesc]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.16.2]"
+    versionRange="[1.16.3]"
     ordering="NONE"
     side="CLIENT"
 	
 [[dependencies.enchdesc]]
     modId="bookshelf"
     mandatory=true
-    versionRange="[7.0,)"
+    versionRange="[8,)"
     ordering="AFTER"
     side="CLIENT"
