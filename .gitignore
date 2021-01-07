@@ -4,17 +4,18 @@
 *.ipr
 *.iws
 out/
-.idea/
 
 #ForgeGradle
 build/
 .gradle/
 run/
+/libs
+/logs
 
 #Eclipse
 .classpath
 .metadata/
 .project
 .settings/
-/bin/
 *.launch
+/bin/

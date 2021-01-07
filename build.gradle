@@ -1,277 +1,49 @@
-buildscript {
-    repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        maven { url 'https://plugins.gradle.org/m2/' }
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
-        classpath 'gradle.plugin.com.matthewprenger:CurseGradle:1.4.0'
-		classpath group: 'com.diluv.schoomp', name: 'Schoomp', version: '1.1.0'
-    }
+plugins {
+    id 'fabric-loom' version '0.4-SNAPSHOT'
 }
 
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'com.matthewprenger.cursegradle'
-apply plugin: 'maven-publish' 
-apply plugin: 'eclipse'
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/secrets.gradle'
-apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/markdown-git-changelog.gradle'
-apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/minecraft/artifacts.gradle'
-apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/minecraft/maven_nomcp.gradle'
-apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/patreon.gradle'
-
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
-import com.diluv.schoomp.Webhook
-import com.diluv.schoomp.message.Message
-import com.diluv.schoomp.message.embed.Embed
-import com.diluv.schoomp.message.embed.Footer
-
-if (project.hasProperty('secretFile')) {
-    loadSecrets(new File((String) findProperty('secretFile')))
-}
-
-version = "${mod_version}" + getBuildNumber()
-archivesBaseName = "${mod_name}-${minecraft_version}"
-
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
-
-minecraft {
-
-    mappings channel: 'snapshot', version: "${mcp_version}".toString()
-	
-    if (project.hasProperty('mod_at')) {
-    
-        accessTransformer = file(findProperty('mod_at'))
-    }
-	
-    runs {
-        client {
-		
-            workingDirectory project.file('run')
-			taskName "${mod_name}".replaceAll("\\s","") + 'Client'
-
-            mods {
-                enchdesc {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-			taskName "${mod_name}".replaceAll("\\s","") + 'Server'
-			
-            mods {
-                enchdesc {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
+archivesBaseName = "${project.mod_name}-fabric-${project.minecraft_version}"
+version = project.mod_version
 
 repositories {
 
     maven {
-
-        url 'http://maven.mcmoddev.com'
+    
+        url "https://www.cursemaven.com"
+        
+        content {
+        
+            includeGroup "curse.maven"
+        }
     }
 }
 
 dependencies {
 
-    minecraft "net.minecraftforge:forge:${forge_version}"
-    
-    compile fg.deobf("net.darkhax.bookshelf:Bookshelf-1.16.4:${bookshelf_version}")
-}
-
-jar {
-    manifest {
-        attributes([
-            'Timestamp': System.currentTimeMillis(),
-            'Specification-Title': "${mod_name}",
-            'Specification-Vendor': "${mod_vendor}",
-            'Specification-Version': "${version}",
-            'Implementation-Title': project.archivesBaseName,
-            'Implementation-Version': project.version,
-            'Implementation-Vendor' :"${mod_vendor}",
-            'Implementation-Timestamp': new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-            'Built-On-Java': "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
-            'Built-On': "${forge_version}"
-        ])
-    }
-}
-
-String getBuildNumber() {
-
-    return System.getenv('BUILD_NUMBER') ? System.getenv('BUILD_NUMBER') : System.getenv('TRAVIS_BUILD_NUMBER') ? System.getenv('TRAVIS_BUILD_NUMBER') : '0';
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    modImplementation "curse.maven:tooltipfix-411557:3087328"
 }
 
 processResources {
 
+    inputs.property "version", project.version
+
     from(sourceSets.main.resources.srcDirs) {
-        include 'META-INF/mods.toml'
-
-        def credits = "Thanks to my supporters on Patreon. "
-
-        def patreonSupporters = new ArrayList<String>()
-
-        for (entry in getPledges()) {
-
-            def pledge = entry.getValue();
-
-            if (pledge.isValid()) {
-
-                patreonSupporters.add(pledge.getDisplayName())
-            }
-        }
-
-        credits += patreonSupporters.join(', ')
-
-        expand 'version': project.version, 'mod_name': mod_name, 'mod_download': mod_download, 'mod_credits': credits, 'mod_authors': mod_authors, 'mod_description': mod_description
+        include "fabric.mod.json"
+        expand "version": project.version
     }
 
     from(sourceSets.main.resources.srcDirs) {
-    
-        exclude 'META-INF/mods.toml'
+        exclude "fabric.mod.json"
     }
 }
 
-curseforge {
-
-    apiKey = findProperty('curse_auth') ?: 0 
-    def versions = "${curse_versions}".split(', ')
-    project {
-
-        id = "${curse_project}"
-        releaseType = 'alpha'
-        changelog = getGitChangelog() + "\n\nLike the mod? Consider following me on [Twitter](https://twitter.com/darkhaxdev) and joining the [Discord](https://discord.darkhax.net)\n\nHuge thanks to my supporters on [Patreon](https://www.patreon.com/Darkhax?MCChangelog?${mod_name})\n\n" + getPledgeLog()
-        changelogType = 'markdown'
-
-        versions.each {
-
-            addGameVersion "${it}"
-        }
-
-        if (project.hasProperty('curse_requirements') || project.hasProperty('curse_optionals')) {
-
-            mainArtifact(jar) {
-
-                relations {
-
-                    if (project.hasProperty('curse_requirements')) {
-                        def requirements = "${curse_requirements}".split(', ')
-                        requirements.each {
-
-                            requiredLibrary "${it}"
-                        }
-                    }
-
-                    if (project.hasProperty('curse_optionals')) {
-                        def optionals = "${curse_optionals}".split(', ')
-                        optionals.each {
-
-                            optionalLibrary "${it}"
-                        }
-                    }
-                }
-            }
-        }
-
-        addArtifact(sourcesJar)
-        addArtifact(javadocJar)
-        addArtifact(deobfJar)
-    }
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
 }
-
-tasks.getByName("curseforge").doLast {
-    
-    try {
-    
-        // Reads the file ID given to us by CurseForge
-        def newFileId = tasks.getByName("curseforge${curse_project}").property('mainArtifact').fileID
-    
-        def webhook = new Webhook(findProperty('discordCFWebhook'), "${project.findProperty('mod_name')} Gradle Upload");
-        
-        def message = new Message();        
-        message.setUsername(findProperty('mod_name'));
-        message.setContent("${project.findProperty('mod_name')} ${version} for Minecraft ${findProperty('minecraft_version')} has been released! The download will be public soon.");
-        
-        def embed = new Embed();
-        embed.addField('Download', "${project.findProperty('curse_page')}/files/$newFileId", false);
-        embed.addField('Change Log', "${getGitChangelog() ?: 'Unavailable :('}", false);
-        embed.setColor(0xFF8000);           
-        message.addEmbed(embed);
-
-        webhook.sendMessage(message);
-    }
-    
-    catch (IOException e) {
-        println 'Failed to push to the Discord webhook.'
-    }
-}
-
-task updateVersionTracker {
-
-    onlyIf {
-    
-        project.hasProperty('versionTrackerAPI')
-    }
-    
-    doLast {
-        def body = [
-            'author': "${project.findProperty('mod_vendor')}",
-            'projectName': "${project.findProperty('mod_name').toLowerCase()}",
-            'gameVersion': "${project.findProperty('minecraft_version')}",
-            'projectVersion': "${version}",
-            'homepage': "${project.findProperty('mod_download')}",
-            'uid': "${project.findProperty('versionTrackerKey')}"
-        ]
-    
-        // Opens a connection to the version tracker API and writes the payload JSON.
-        def req = new URL(project.findProperty('versionTrackerAPI')).openConnection()
-        req.setRequestMethod('POST')
-        req.setRequestProperty('Content-Type', 'application/json; charset=UTF-8')
-        req.setRequestProperty('User-Agent', "${project.findProperty('mod_name')} Tracker Gradle")
-        req.setDoOutput(true)
-        req.getOutputStream().write(JsonOutput.toJson(body).getBytes("UTF-8"))
-
-        // We need to attempt a read in order to actually send the message.
-        println "VersionCheck Status code: ${req.getResponseCode()}"
-        println "VersionCheck Response: ${req.getInputStream().getText()}"
-    }
-}
-
-// Jar Signing
-import net.minecraftforge.gradle.common.task.SignJar
-
-task signJar(type: SignJar, dependsOn: jar) {
-
-    onlyIf {
-    
-        project.hasProperty('keyStore')
-    }
-    
-    if (project.hasProperty('keyStore')) {
-    
-        project.logger.info('Signing jar ' + jar.archivePath.getName());
-    
-        keyStore = project.findProperty('keyStore')
-        alias = project.findProperty('keyStoreAlias')
-        storePass = project.findProperty('keyStorePass')
-        keyPass = project.findProperty('keyStoreKeyPass')
-        inputFile = jar.archivePath
-        outputFile = jar.archivePath
-    }
-
-    else {
-    
-        project.logger.warn('Could not sign ' + jar.archivePath.getName() + '. No keyStore property could be found')
-    }
-}
-
-build.dependsOn signJar
