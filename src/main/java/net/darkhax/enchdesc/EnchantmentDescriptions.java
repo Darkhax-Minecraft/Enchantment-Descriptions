@@ -30,19 +30,21 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig.Type;
 import net.minecraftforge.fml.loading.FMLEnvironment;
 
-@Mod("enchdesc")
+@Mod(EnchantmentDescriptions.MOD_ID)
 public class EnchantmentDescriptions {
     
+    public static final String MOD_ID = "enchdesc";
+    public static final Logger LOG = LogManager.getLogger("Enchantment Descriptions");
+    
     private final Configuration config = new Configuration();
-    private final Logger log = LogManager.getLogger("Enchantment Descriptions");
     
     public EnchantmentDescriptions() {
         
-    	if (FMLEnvironment.dist == Dist.CLIENT) {
-    		
+        if (FMLEnvironment.dist == Dist.CLIENT) {
+            
             ModLoadingContext.get().registerConfig(Type.CLIENT, this.config.getSpec());
             MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed);
-    	}
+        }
     }
     
     private void onTooltipDisplayed (ItemTooltipEvent event) {
@@ -71,8 +73,8 @@ public class EnchantmentDescriptions {
         catch (final Exception e) {
             
             event.getToolTip().add(new TranslationTextComponent("enchdesc.fatalerror").mergeStyle(TextFormatting.RED));
-            this.log.error("Ran into issues displaying tooltip for {}", event.getItemStack());
-            this.log.catching(e);
+            EnchantmentDescriptions.LOG.error("Ran into issues displaying tooltip for {}", event.getItemStack());
+            EnchantmentDescriptions.LOG.catching(e);
         }
     }
     
@@ -100,8 +102,8 @@ public class EnchantmentDescriptions {
                         final ITextComponent modName = ModUtils.getModName(mod);
                         
                         if (modName instanceof IFormattableTextComponent) {
-                        	
-                        	((IFormattableTextComponent) modName).mergeStyle(TextFormatting.BLUE);
+                            
+                            ((IFormattableTextComponent) modName).mergeStyle(TextFormatting.BLUE);
                         }
                         
                         tooltips.add(new TranslationTextComponent("tooltip.enchdesc.addedby", modName).mergeStyle(TextFormatting.DARK_GRAY));
