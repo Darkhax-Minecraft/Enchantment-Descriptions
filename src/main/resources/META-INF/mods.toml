@@ -9,7 +9,6 @@ updateJSONURL="https://updates.blamejared.com/get?n=enchantmentdescriptions&gv=1
 version="${version}"
 displayName="${mod_name}"
 displayURL="${mod_download}"
-logoFile="logo.png"
 credits="${mod_credits}"
 authors="${mod_authors}"
 description='''
