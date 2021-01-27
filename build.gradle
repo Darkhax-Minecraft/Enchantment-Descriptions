@@ -91,7 +91,7 @@ dependencies {
 
     minecraft "net.minecraftforge:forge:${forge_version}"
     
-    compile fg.deobf("net.darkhax.bookshelf:Bookshelf-1.16.4:${bookshelf_version}")
+    compile fg.deobf("net.darkhax.bookshelf:Bookshelf-1.16.5:${bookshelf_version}")
     compile fg.deobf("mezz.jei:jei-1.16.4:${jei_version}")
 }
 
