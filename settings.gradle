@@ -8,3 +8,5 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
+rootProject.name="EnchantmentDescriptionsFabric-1.16.4"
