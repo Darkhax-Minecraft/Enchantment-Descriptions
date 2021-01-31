@@ -9,9 +9,11 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions",
-    "sources": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions"
+    "sources": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions",
+    "issues": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/issues"
   },
   "license": "LGPL v2.1",
+  "icon": "assets/enchdesc/textures/logo.png",
   "environment": "*",
   "entrypoints": {
     "client": [
@@ -22,5 +24,8 @@
     "fabricloader": ">=0.7.4",
     "fabric": "*",
     "minecraft": "1.16.x"
+  },
+  "custom": {
+      "modmenu:clientsideOnly": true
   }
 }
