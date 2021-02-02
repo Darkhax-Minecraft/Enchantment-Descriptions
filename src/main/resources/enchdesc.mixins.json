@@ -1,0 +1,10 @@
+{
+	"required": true,
+	"package": "net.darkhax.enchdesc.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"refmap": "enchdesc.refmap.json",
+	"client": [
+		"MixinLanguageManager"
+	],
+	"minVersion": "0.8"
+}
