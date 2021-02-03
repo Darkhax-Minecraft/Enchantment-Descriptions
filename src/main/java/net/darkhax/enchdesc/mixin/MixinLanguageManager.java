@@ -20,6 +20,9 @@ public class MixinLanguageManager {
      * enchantment registry for enchantments that do not have a description and raises a
      * warning. Client reload listeners are not suitable for this as they are asynchronous and
      * frequently result in incorrect or outdated views of the language map.
+     * 
+     * Additionally, using FMLLoadCompleteEvent for a one-time print out is also unreliable as
+     * the language listener can and often does complete after FMLLoadComplete.
      */
     @Inject(method = "onResourceManagerReload(Lnet/minecraft/resources/IResourceManager;)V", at = @At("RETURN"))
     private void onResourceManagerReload (IResourceManager resourceManager, CallbackInfo callback) {
