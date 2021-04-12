@@ -3,10 +3,14 @@ package net.darkhax.enchdesc.jei;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
+import mezz.jei.Internal;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.recipe.category.extensions.IRecipeCategoryExtension;
+import mezz.jei.ingredients.IngredientFilter;
+import mezz.jei.ingredients.IngredientManager;
 import net.darkhax.bookshelf.util.ModUtils;
 import net.darkhax.enchdesc.EnchantmentDescriptions;
 import net.minecraft.block.Blocks;
@@ -82,7 +86,10 @@ public class EnchantmentInfoEntry implements IRecipeCategoryExtension {
     
     public List<ItemStack> getCompatibleItems () {
         
-        return this.compatibleItems;
+        final IngredientManager manager = Internal.getIngredientManager();
+        final IngredientFilter filter = Internal.getIngredientFilter();
+        
+        return this.compatibleItems.stream().filter(s -> manager.isIngredientVisible(s, filter)).collect(Collectors.toList());
     }
     
     public void getTooltip (int slotIndex, boolean input, ItemStack stack, List<ITextComponent> tooltip) {

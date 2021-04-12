@@ -78,15 +78,11 @@ public class CategoryEnchantmentInfo implements IRecipeCategory<EnchantmentInfoE
         final IGuiItemStackGroup stacks = layout.getItemStacks();
         
         final List<List<ItemStack>> slotContents = Arrays.asList(NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create(), NonNullList.create());
+        final List<ItemStack> compatible = recipe.getCompatibleItems();
         
-        for (int slotId = 0; slotId < recipe.getCompatibleItems().size(); slotId++) {
+        for (int slotId = 0; slotId < compatible.size(); slotId++) {
             
-            if (slotId >= recipe.getCompatibleItems().size()) {
-                
-                break;
-            }
-            
-            slotContents.get(slotId % slotContents.size()).add(recipe.getCompatibleItems().get(slotId));
+            slotContents.get(slotId % slotContents.size()).add(compatible.get(slotId));
         }
         
         for (int slotId = 0; slotId < slotContents.size(); slotId++) {
