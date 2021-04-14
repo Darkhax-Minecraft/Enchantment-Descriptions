@@ -13,6 +13,7 @@ import mezz.jei.ingredients.IngredientFilter;
 import mezz.jei.ingredients.IngredientManager;
 import net.darkhax.bookshelf.util.ModUtils;
 import net.darkhax.enchdesc.EnchantmentDescriptions;
+import net.darkhax.enchdesc.EnchantmentDescriptionsClient;
 import net.minecraft.block.Blocks;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentData;
@@ -40,7 +41,7 @@ public class EnchantmentInfoEntry implements IRecipeCategoryExtension {
         
         this.enchantment = enchantment;
         this.name = new TranslationTextComponent(enchantment.getName()).mergeStyle(TextFormatting.BLACK);
-        this.description = new TranslationTextComponent(enchantment.getName() + ".desc").mergeStyle(TextFormatting.BLACK);
+        this.description = EnchantmentDescriptionsClient.getDescription(enchantment).deepCopy().mergeStyle(TextFormatting.BLACK);
         this.maxLevel = enchantment.getMaxLevel();
         this.incompatibleEnchantments = getIncompatibleEnchantments(enchantment);
         this.books = getEnchantedBooks(enchantment);

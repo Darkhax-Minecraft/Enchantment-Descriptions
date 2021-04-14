@@ -1,8 +1,10 @@
 package net.darkhax.enchdesc;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.Map;
 
 import net.darkhax.bookshelf.util.ModUtils;
 import net.minecraft.client.Minecraft;
@@ -32,6 +34,8 @@ public class EnchantmentDescriptionsClient {
     private final KeyBinding keybind;
     private final Configuration config;
     
+    private static final Map<Enchantment, IFormattableTextComponent> descriptions = new HashMap<>();
+    
     public EnchantmentDescriptionsClient() {
         
         this.keybind = new KeyBinding("key.enchdesc.show", KeyConflictContext.GUI, Type.KEYSYM, 340, "key.enchdesc.title");
@@ -40,6 +44,11 @@ public class EnchantmentDescriptionsClient {
         ModLoadingContext.get().registerConfig(ModConfig.Type.CLIENT, this.config.getSpec());
         MinecraftForge.EVENT_BUS.addListener(this::onTooltipDisplayed);
         ClientRegistry.registerKeyBinding(this.keybind);
+    }
+    
+    public static final IFormattableTextComponent getDescription (Enchantment ench) {
+        
+        return descriptions.computeIfAbsent(ench, e -> new TranslationTextComponent(e.getName() + ".desc").mergeStyle(TextFormatting.DARK_GRAY));
     }
     
     private void onTooltipDisplayed (ItemTooltipEvent event) {
@@ -86,7 +95,7 @@ public class EnchantmentDescriptionsClient {
                 
                 if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
                     
-                    tooltips.add(new TranslationTextComponent(enchant.getName() + ".desc").mergeStyle(TextFormatting.DARK_GRAY));
+                    tooltips.add(getDescription(enchant));
                     
                     final ModContainer mod = ModUtils.getOwner(enchant);
                     
