@@ -48,7 +48,17 @@ public class EnchantmentDescriptionsClient {
     
     public static final IFormattableTextComponent getDescription (Enchantment ench) {
         
-        return descriptions.computeIfAbsent(ench, e -> new TranslationTextComponent(e.getName() + ".desc").mergeStyle(TextFormatting.DARK_GRAY));
+        return descriptions.computeIfAbsent(ench, e -> {
+            
+            IFormattableTextComponent description = new TranslationTextComponent(e.getName() + ".desc").mergeStyle(TextFormatting.DARK_GRAY);
+            
+            if (!I18n.hasKey(e.getName() + ".desc") && I18n.hasKey(e.getName() + ".description")) {
+                
+                description = new TranslationTextComponent(e.getName() + ".description").mergeStyle(TextFormatting.DARK_GRAY);
+            }
+            
+            return description;
+        });
     }
     
     private void onTooltipDisplayed (ItemTooltipEvent event) {
