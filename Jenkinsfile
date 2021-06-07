@@ -7,10 +7,13 @@ pipeline {
     stages {
         
         stage('Build') {
-        
-            steps {
+
+            tools {
             
-                jdk 'jdk-16.0.1+9'
+                jdk "jdk-16.0.1+9"
+            }
+            
+            steps {
                 
                 withCredentials([
                     file(credentialsId: 'mod_build_secrets', variable: 'ORG_GRADLE_PROJECT_secretFile'),
