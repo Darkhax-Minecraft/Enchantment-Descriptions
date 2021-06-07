@@ -156,3 +156,18 @@ String getBuildNumber() {
 
     return System.getenv('BUILD_NUMBER') ? System.getenv('BUILD_NUMBER') : System.getenv('TRAVIS_BUILD_NUMBER') ? System.getenv('TRAVIS_BUILD_NUMBER') : '0';
 }
+        
+jar {
+    manifest {
+        attributes([
+            'Timestamp': System.currentTimeMillis(),
+            'Built-On-Java': "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+            'Built-On-Minecraft': project.findProperty('minecraft_version'),
+            'Built-On-Fabric': project.findProperty('loader_version'),
+            'Built-On-Mapping': "yarn-${project.findProperty('yarn_mappings')}",
+            'Built-On-Gradle': gradle.gradleVersion,
+            'Built-On-Loom': buildscript.configurations.classpath.dependencies.find({ it.name.contains('fabric-loom') }).version,
+            'ModLoader': "fabric-${project.findProperty('loader_version')}",
+        ])
+    }
+}
