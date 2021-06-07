@@ -10,6 +10,8 @@ pipeline {
         
             steps {
             
+                jdk 'jdk-16.0.1+9'
+                
                 withCredentials([
                     file(credentialsId: 'mod_build_secrets', variable: 'ORG_GRADLE_PROJECT_secretFile'),
                     file(credentialsId: 'java_keystore', variable: 'ORG_GRADLE_PROJECT_keyStore')
