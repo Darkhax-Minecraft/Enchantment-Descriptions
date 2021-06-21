@@ -65,5 +65,11 @@
   "enchantment.betterend.end_veil.desc": "When applied to helmet, allows the player to stare directly into the eyes of endermen.",
   
   "_comment": "Monster Of The Ocean Depths",
-  "enchantment.zoob.from_the_abyss.desc": "Gives you regeneration if you attack a land mob with axe or sword. Massively damages the weapon if you attack a water mob." 
+  "enchantment.zoob.from_the_abyss.desc": "Gives you regeneration if you attack a land mob with axe or sword. Massively damages the weapon if you attack a water mob.",
+
+  "_comment": "Curses",
+  "enchantment.curses.poverty.desc": "Has a chance to prevent loot from dropping when an entity is killed.",
+  "enchantment.curses.fragility.desc": "Has a chance to break the item when useds.",
+  "enchantment.curses.instability.desc": "Causes an explosion if the wearer is on fire or the item damages a burning enemy.",
+  "enchantment.curses.death.desc": "Instantly kills anyone who equips or holds an item with this curse."  
 }
