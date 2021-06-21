@@ -3,6 +3,10 @@
 pipeline {
 
     agent any
+
+    tools {
+        jdk "jdk8u292-b10"
+    }
     
     stages {
         
@@ -11,13 +15,14 @@ pipeline {
             steps {
             
                 withCredentials([
-                    file(credentialsId: 'mod_build_secrets', variable: 'ORG_GRADLE_PROJECT_secretFile'),
-                    file(credentialsId: 'java_keystore', variable: 'ORG_GRADLE_PROJECT_keyStore')
+                    file(credentialsId: 'build_secrets', variable: 'ORG_GRADLE_PROJECT_secretFile'),
+                    file(credentialsId: 'java_keystore', variable: 'ORG_GRADLE_PROJECT_keyStore'),
+                    file(credentialsId: 'gpg_key', variable: 'ORG_GRADLE_PROJECT_pgpKeyRing')
                 ]) {
             
                     echo 'Building project.'
                     sh 'chmod +x gradlew'
-                    sh './gradlew clean build publish curseforge --stacktrace --warn'
+                    sh './gradlew clean build publish curseforge postTweet --stacktrace --warn'
                 }
             }
         }

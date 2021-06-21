@@ -1,21 +1,33 @@
-#IntelliJ IDEA
-*.class
+# gradle
+
+.gradle/
+build/
+out/
+classes/
+
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
 *.iml
 *.ipr
 *.iws
-out/
 
-#ForgeGradle
-build/
-.gradle/
-run/
-/libs
-/logs
+# vscode
 
-#Eclipse
-.classpath
-.metadata/
-.project
 .settings/
-*.launch
-/bin/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/

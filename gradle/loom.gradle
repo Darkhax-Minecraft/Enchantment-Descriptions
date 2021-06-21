@@ -1,0 +1,78 @@
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
+archivesBaseName = "${mod_name}-Fabric-${minecraft_version}"
+
+dependencies {
+
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+loom {
+
+    if (project.hasProperty('mixin_id')) {
+    
+        refmapName = "${mixin_id}.refmap.json"
+    }
+}
+
+processResources {
+
+	inputs.property 'version', project.version
+
+    def buildProps = project.properties.clone()
+    
+    if (project.ext.has('patreon') && project.ext.patreon.pledges && !project.ext.patreon.pledges.isEmpty()) {
+        
+        def supporters = new ArrayList<String>()
+
+        for (entry in project.ext.patreon.pledges) {
+
+            def pledge = entry.getValue();
+
+            if (pledge.isValid()) {
+
+                supporters.add(pledge.getDisplayName())
+            }
+        }
+            
+        buildProps.put('modCredits', "${project.ext.modCredits} and the supporters on Patreon: ${supporters.join(', ')}") 
+    }
+        
+	filesMatching('fabric.mod.json') {
+    
+		expand buildProps
+	}
+    
+    filesMatching('pack.mcmeta') {
+    
+		expand buildProps
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+
+	it.options.encoding = 'UTF-8'
+}
+
+java {
+
+    withJavadocJar()
+	withSourcesJar()
+}
+
+jar {
+    manifest {
+        attributes([
+            'Timestamp': System.currentTimeMillis(),
+            'Built-On-Java': "${System.getProperty('java.vm.version')} (${System.getProperty('java.vm.vendor')})",
+            'Built-On-Minecraft': project.findProperty('minecraft_version'),
+            'Built-On-Fabric': project.findProperty('loader_version'),
+            'Built-On-Mapping': "yarn-${project.findProperty('yarn_mappings')}",
+            'Built-On-Gradle': gradle.gradleVersion,
+            'ModLoader': "fabric-${project.findProperty('loader_version')}",
+        ])
+    }
+}

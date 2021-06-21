@@ -1,16 +1,19 @@
 {
   "schemaVersion": 1,
-  "id": "enchantmentdescriptions",
+  "id": "enchdesc",
   "version": "${version}",
-  "name": "Enchantment Descriptions",
-  "description": "Adds descriptions for enchantments on their enchanted book item.",
+  "name": "${modName}",
+  "description": "${modDescription}",
   "authors": [
-    "Darkhax"
+    "${modAuthor}"
+  ],
+  "contributors": [
+    "${modCredits}"
   ],
   "contact": {
-    "homepage": "https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions",
-    "sources": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions",
-    "issues": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/issues"
+    "homepage": "${modHomepage}",
+    "sources": "${modSource}",
+    "issues": "${modIssues}"
   },
   "license": "LGPL v2.1",
   "icon": "assets/enchdesc/textures/logo.png",
@@ -24,8 +27,5 @@
     "fabricloader": ">=0.7.4",
     "fabric": "*",
     "minecraft": "1.16.x"
-  },
-  "custom": {
-      "modmenu:clientsideOnly": true
   }
 }

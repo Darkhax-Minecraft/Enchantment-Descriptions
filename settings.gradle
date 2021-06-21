@@ -1,6 +1,5 @@
 pluginManagement {
     repositories {
-        jcenter()
         maven {
             name = 'Fabric'
             url = 'https://maven.fabricmc.net/'
@@ -8,5 +7,3 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-
-rootProject.name="EnchantmentDescriptionsFabric-1.16.5"
