@@ -52,5 +52,9 @@
     "enchantment.extrautils2.xu.bladerang.desc": "Le boomerang fait des dégâts supplémentaires.",
 
     "_comment": "Random Things",
-    "enchantment.randomthings.magnetic.desc": "Permet de rapprocher les objets extraits de la mine."
+    "enchantment.randomthings.magnetic.desc": "Permet de rapprocher les objets extraits de la mine.",
+   
+    "_comment": "Travel Anchors",
+    "enchantment.travel_anchors.teleportation.desc": "Permet de se téléporter comme avec le bâton de voyage.",
+    "enchantment.travel_anchors.range.desc": "Augmente la portée maximale de votre téléportation."
 }
