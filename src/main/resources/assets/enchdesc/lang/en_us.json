@@ -71,5 +71,21 @@
   "enchantment.curses.poverty.desc": "Has a chance to prevent loot from dropping when an entity is killed.",
   "enchantment.curses.fragility.desc": "Has a chance to break the item when useds.",
   "enchantment.curses.instability.desc": "Causes an explosion if the wearer is on fire or the item damages a burning enemy.",
-  "enchantment.curses.death.desc": "Instantly kills anyone who equips or holds an item with this curse."  
+  "enchantment.curses.death.desc": "Instantly kills anyone who equips or holds an item with this curse.",
+ 
+  "_comment": "Mo'Enchantments",
+  "enchantment.moenchantments.autosmelt.desc" : "Automatically smelts drops.",
+  "enchantment.moenchantments.curseofender.desc" : "Gives abilities similar to an enderman.",
+  "enchantment.moenchantments.potionretension.desc" : "Stores potions in the item for use later.",   
+  "enchantment.moenchantments.tamedprotection.desc" : "Prevents the weapon from damaging your pets.",
+  "enchantment.moenchantments.treefeller.desc" : "Chops down large portions of trees.",
+  "enchantment.moenchantments.veinminer.desc" : "Mines all similar blocks nearby.",
+  "enchantment.moenchantments.soulbound.desc" : "The item will not drop when you die.",
+  "enchantment.moenchantments.arrow_chaos.desc" : "Gives projectiles a random effect.",
+  "enchantment.moenchantments.bowinaccuracy.desc" : "Decreases projectile accuracy.",
+  "enchantment.moenchantments.bowaccuracy.desc" : "Increases projectile accuracy.",
+  "enchantment.moenchantments.grapnel.desc": "Pulls targets toward the damage source.",
+  "enchantment.moenchantments.slippery.desc": "The item may slip out of your hand.",
+  "enchantment.moenchantments.blackhole.desc": "Places drops into your inventory.",
+  "enchantment.moenchantments.filterfeeder.desc": "Foods with negative effects will give positive effects instead."
 }
