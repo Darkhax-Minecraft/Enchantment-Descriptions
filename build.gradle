@@ -136,6 +136,7 @@ java {
 publishing {
     publications {
 		mavenJava(MavenPublication) {
+            artifactId project.archivesBaseName
 			artifact(remapJar) {
 				builtBy remapJar
 			}
