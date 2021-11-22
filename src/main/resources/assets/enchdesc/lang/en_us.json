@@ -1,5 +1,6 @@
 {
-  "_comment": "Vanilla Enchantment Descriptions",
+  "enchdesc.tooltip.addedby": "[FUTURE USE] Added by: %s",
+  "enchdesc.tooltip.activate": "Press %s for enchantment descriptions.",
   "enchantment.minecraft.protection.desc": "Reduces damage from most sources.",
   "enchantment.minecraft.fire_protection.desc": "Reduces the effects of fire damage. Also reduces the burn time when set on fire.",
   "enchantment.minecraft.feather_falling.desc": "Reduces fall damage and ender pearl teleportation damage.",

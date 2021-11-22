@@ -8,7 +8,7 @@ buildscript {
 }
 
 plugins {
-    id 'fabric-loom' version '0.8-SNAPSHOT'
+    id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'com.matthewprenger.cursegradle' version '1.4.0'
     id 'maven-publish'
 }
@@ -17,12 +17,9 @@ apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Co
 apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/markdown-git-changelog.gradle'
 apply from: 'https://raw.githubusercontent.com/MinecraftModDevelopment/Gradle-Collection/master/generic/patreon.gradle'
 
-import groovy.json.JsonSlurper
-import groovy.json.JsonOutput
 import com.diluv.schoomp.Webhook
 import com.diluv.schoomp.message.Message
 import com.diluv.schoomp.message.embed.Embed
-import com.diluv.schoomp.message.embed.Footer
 
 if (project.hasProperty('secretFile')) {
     loadSecrets(new File((String) findProperty('secretFile')))
@@ -35,20 +32,15 @@ archivesBaseName = "${project.mod_name}-fabric-${project.minecraft_version}"
 version = project.mod_version + ".${getBuildNumber()}"
 
 repositories {
-
     maven {
-    
         url "https://www.cursemaven.com"
-        
         content {
-        
             includeGroup "curse.maven"
         }
     }
 }
 
 dependencies {
-
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
@@ -56,76 +48,67 @@ dependencies {
 }
 
 processResources {
-
     inputs.property "version", project.version
-
     filesMatching("fabric.mod.json") {
-    
         expand "version": project.version
     }
 }
 
 tasks.withType(JavaCompile) {
-
     it.options.encoding = 'UTF-8'
     it.options.release = 16
 }
 
 
 curseforge {
-
-    apiKey = findProperty('curse_auth') ?: 0 
+    apiKey = findProperty('curse_auth') ?: 0
     def versions = "${curse_versions}".split(', ')
 
     project {
-
         id = "${curse_project}"
         releaseType = 'beta'
         changelog = getGitChangelog() + "\n\nLike the mod? Consider following me on [Twitter](https://twitter.com/darkhaxdev) and joining the [Discord](https://discord.darkhax.net)\n\nHuge thanks to my supporters on [Patreon](https://www.patreon.com/Darkhax?MCChangelog?${mod_name})\n\n" + getPledgeLog()
         changelogType = 'markdown'
         addGameVersion "Fabric"
-        
-        versions.each {
 
+        versions.each {
             addGameVersion "${it}"
         }
 
         mainArtifact(file("${project.buildDir}/libs/${archivesBaseName}-${version}.jar"))
-        
+
         afterEvaluate {
             uploadTask.dependsOn(remapJar)
         }
     }
-    
+
     options {
-        forgeGradleIntegration = false;
+        forgeGradleIntegration = false
     }
 }
 
 tasks.getByName("curseforge").doLast {
-
     try {
-    
         // Reads the file ID given to us by CurseForge
         def newFileId = tasks.getByName("curseforge${curse_project}").property('mainArtifact').fileID
-    
-        def webhook = new Webhook(findProperty('discordCFWebhook'), "${project.findProperty('mod_name')} Gradle Upload");
-        
-        def message = new Message();        
-        message.setUsername(findProperty('mod_name'));
-        message.setContent("${project.findProperty('mod_name')} ${version} (Fabric) for Minecraft ${findProperty('minecraft_version')} has been released! The download will be public soon.");
-        
-        def embed = new Embed();
-        embed.addField('Download', "${project.findProperty('curse_page')}/files/$newFileId", false);
-        embed.addField('Change Log', "${getGitChangelog() ?: 'Unavailable :('}", false);
-        embed.setColor(0xFF8000);           
-        message.addEmbed(embed);
 
-        webhook.sendMessage(message);
+        def webhook = new Webhook(findProperty('discordCFWebhook'), "${project.findProperty('mod_name')} Gradle Upload")
+
+        def message = new Message()
+        message.setUsername(findProperty('mod_name'))
+        message.setContent("${project.findProperty('mod_name')} ${version} (Fabric) for Minecraft ${findProperty('minecraft_version')} has been released! The download will be public soon.")
+
+        def embed = new Embed()
+        embed.addField('Download', "${project.findProperty('curse_page')}/files/$newFileId", false)
+        embed.addField('Change Log', "${getGitChangelog() ?: 'Unavailable :('}", false)
+        embed.setColor(0xFF8000)
+        message.addEmbed(embed)
+
+        webhook.sendMessage(message)
     }
-    
-    catch (IOException e) {
-        println 'Failed to push to the Discord webhook.'
+
+    catch (IOException ignored) {
+        System.out.println 'Failed to push to the Discord webhook.'
     }
 }
 
@@ -153,11 +136,10 @@ publishing {
     }
 }
 
-String getBuildNumber() {
-
-    return System.getenv('BUILD_NUMBER') ? System.getenv('BUILD_NUMBER') : System.getenv('TRAVIS_BUILD_NUMBER') ? System.getenv('TRAVIS_BUILD_NUMBER') : '0';
+static String getBuildNumber() {
+    return System.getenv('BUILD_NUMBER') ? System.getenv('BUILD_NUMBER') : System.getenv('TRAVIS_BUILD_NUMBER') ? System.getenv('TRAVIS_BUILD_NUMBER') : '0'
 }
-        
+
 jar {
     manifest {
         attributes([

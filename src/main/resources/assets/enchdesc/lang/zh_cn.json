@@ -1,7 +1,6 @@
 {
-  "_comment": "原版附魔描述",
-  "tooltip.enchdesc.addedby": "来源: %s",
-  "tooltip.enchdesc.activate": "按下%s%s%s查看附魔描述.",
+  "enchdesc.tooltip.addedby": "来源: %s",
+  "enchdesc.tooltip.activate": "按下%s查看附魔描述.",
   "enchantment.minecraft.protection.desc": "减少大多数伤害.",
   "enchantment.minecraft.fire_protection.desc": "减少火焰伤害,也减少了燃烧时间.",
   "enchantment.minecraft.feather_falling.desc": "减少摔落伤害和来源于末影珍珠的传送伤害.",
@@ -38,5 +37,6 @@
   "enchantment.minecraft.channeling.desc": "允许三叉戟在雷雨中召唤闪电.",
   "enchantment.minecraft.multishot.desc": "向随机方向发射额外的箭.",
   "enchantment.minecraft.quick_charge.desc": "增加弩的装弹速度.",
-  "enchantment.minecraft.piercing.desc": "允许投射物穿透怪物."
+  "enchantment.minecraft.piercing.desc": "允许投射物穿透怪物.",
+  "_comment": "Soul speed and riptide enchantments missing"
 }

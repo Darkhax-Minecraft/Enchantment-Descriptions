@@ -1,5 +1,6 @@
 {
-  "_comment": "Opisy zaklęć i klątw z Vanilli",	
+  "enchdesc.tooltip.addedby": "Dodane przez: %s",
+  "enchdesc.tooltip.activate": "Naciśnij klawisz %s, aby wyświetlić opisy zaklęć",
   "enchantment.minecraft.protection.desc": "Zmniejsza obrażenia od większości źródeł.",
   "enchantment.minecraft.fire_protection.desc": "Zmniejsza skutki obrażeń od ognia. Skraca również czas palenia w przypadku podpalenia.",
   "enchantment.minecraft.feather_falling.desc": "Zmniejsza obrażenia od upadku i obrażenia związane z teleportacją przy pomocy pereł.",

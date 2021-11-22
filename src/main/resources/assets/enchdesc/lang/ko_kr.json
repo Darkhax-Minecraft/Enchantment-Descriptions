@@ -1,9 +1,6 @@
 {
-  "_comment": "원본 마법 부여 설명문",
-  
-  "tooltip.enchdesc.addedby": "출처: %s",
-  "tooltip.enchdesc.activate": "마법의 설명문을 표시하려면 %s%s%s 키 를 누르십시오.",
-  
+  "enchdesc.tooltip.addedby": "출처: %s",
+  "enchdesc.tooltip.activate": "마법의 설명문을 표시하려면 %s 키 를 누르십시오.",
   "enchantment.minecraft.protection.desc": "대부분의 피해를 줄입니다.",
   "enchantment.minecraft.fire_protection.desc": "불에 의한 피해를 줄입니다. 또한 몸에 붙은 불이 타는 시간도 줄입니다.",
   "enchantment.minecraft.feather_falling.desc": "낙하에 의한 피해와 엔더 진주 순간이동 피해를 줄입니다.",
@@ -40,5 +37,6 @@
   "enchantment.minecraft.channeling.desc": "삼지창이 비와 천둥이 치는 날씨일 때 벼락을 불러일으킬 수 있게 만듭니다..",
   "enchantment.minecraft.multishot.desc": "무작위 방향으로 추가 화살을 쏩니다.",
   "enchantment.minecraft.quick_charge.desc": "쇠뇌의 재장전 속도를 향상시킵니다.",
-  "enchantment.minecraft.piercing.desc": "투사체가 몹을 뚫고 지나가게 만듭니다."
+  "enchantment.minecraft.piercing.desc": "투사체가 몹을 뚫고 지나가게 만듭니다.",
+  "_comment": "Soul speed enchantment missing"
 }

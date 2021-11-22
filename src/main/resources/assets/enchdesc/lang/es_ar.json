@@ -1,10 +1,6 @@
 {
-  "_comment": "Descripciones de encantamientos Archivo de idioma Español (Argentina)",
-  "_comment": "Enchantment Tooltip",
-  "tooltip.enchdesc.addedby": "Agregado por: %s",
-  "tooltip.enchdesc.activate": "Presione %s %s %s para descripciones de encantamiento.",
-  "enchdesc.fatalerror": "Error: ver archivo de registro",
-  "_comment": "Descripciones de encantamiento de vanilla",
+  "enchdesc.tooltip.addedby": "Agregado por: %s",
+  "enchdesc.tooltip.activate": "Presione %s para descripciones de encantamiento.",
   "enchantment.minecraft.protection.desc": "Reduce el daño de la mayoría de las fuentes.",
   "enchantment.minecraft.fire_protection.desc": "Reduce los efectos del daño por fuego. También reduce el tiempo de combustión cuando se prende fuego.",
   "enchantment.minecraft.feather_falling.desc": "Reduce el daño por caida y daño de teletransportacion de perlas de ender.",
@@ -41,5 +37,6 @@
   "enchantment.minecraft.channeling.desc": "El tridente canalizará un rayo hacia un enemigo. Sin embargo, este efecto solo ocurrirá durante tormentas eléctricas.",
   "enchantment.minecraft.multishot.desc": "Dispara 3 flechas a costa de una; solo se puede recuperar una flecha.",
   "enchantment.minecraft.quick_charge.desc": "Disminuye el tiempo de carga de la ballesta.",
-  "enchantment.minecraft.piercing.desc": "Las flechas pasan a través de múltiples entidades."
+  "enchantment.minecraft.piercing.desc": "Las flechas pasan a través de múltiples entidades.",
+  "_comment": "Soul speed enchantment missing"
 }

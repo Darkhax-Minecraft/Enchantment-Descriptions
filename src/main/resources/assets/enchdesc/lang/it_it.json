@@ -1,8 +1,6 @@
 {
-  "_comment": "Descrizione Incantesimi Vanilla",	
-  "tooltip.enchdesc.addedby": "Aggiunto da: %s",
-  "tooltip.enchdesc.activate": "Leggi la descrizione dell'incantesimo con %s%s%s.",
-  "enchdesc.fatalerror": "Errore: Vedere file di log",
+  "enchdesc.tooltip.addedby": "Aggiunto da: %s",
+  "enchdesc.tooltip.activate": "Leggi la descrizione dell'incantesimo con %s.",
   "enchantment.minecraft.protection.desc": "Riduce il danno subito dalla maggior parte delle fonti.",
   "enchantment.minecraft.fire_protection.desc": "Riduce gli effetti del danno da fuoco e la sua durata.",
   "enchantment.minecraft.feather_falling.desc": "Riduce il danno da caduta e da teletrasporto con le Perle di ender.",
