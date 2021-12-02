@@ -19,45 +19,49 @@ import java.util.Set;
 
 @Environment(EnvType.CLIENT)
 public class EnchantmentDescriptions implements ClientModInitializer {
-  @Override
-  public void onInitializeClient() {
-    ItemTooltipCallback.EVENT.register(EnchantmentDescriptions::onTooltipDisplayed);
-  }
+    @Override
+    public void onInitializeClient() {
+        ItemTooltipCallback.EVENT.register(EnchantmentDescriptions::onTooltipDisplayed);
+    }
 
-  private static void onTooltipDisplayed(ItemStack stack, TooltipContext context, List<Text> lines) {
-    Set<Enchantment> enchants = EnchantmentHelper.get(stack).keySet();
-    if (
-            stack.getItem() instanceof EnchantedBookItem &&
-                    !enchants.isEmpty()
-    ) {
-      if (Screen.hasShiftDown()) {
-        insertDescriptionTooltips(lines, enchants);
-      } else {
-        lines.add(
-                new TranslatableText(
+    private static void onTooltipDisplayed(ItemStack stack, TooltipContext context, List<Text> lines) {
+        // Get the enchantments on the stack and ignore the values
+        Set<Enchantment> enchants = EnchantmentHelper.get(stack).keySet();
+        if (
+            stack.getItem() instanceof EnchantedBookItem && // Check that the item is an enchanted book
+                !enchants.isEmpty() // And make sure it actually has enchantments
+        ) {
+            // If shift is held
+            if (Screen.hasShiftDown()) {
+                // Insert the tooltips
+                insertDescriptionTooltips(lines, enchants);
+            // If not, show a 'press shift to activate' message
+            } else {
+                lines.add(
+                    new TranslatableText(
                         "enchdesc.tooltip.activate",
                         "shift"
-                ).formatted(Formatting.DARK_GRAY)
-        );
-      }
-    }
-  }
-
-  private static void insertDescriptionTooltips(List<Text> lines, Set<Enchantment> enchants) {
-    for (Enchantment enchant : enchants) {
-      for (Text tooltipLine : lines) {
-        if (
-                tooltipLine instanceof TranslatableText &&
-                        ((TranslatableText) tooltipLine).getKey().equals(enchant.getTranslationKey())
-        ) {
-          lines.add(
-                  lines.indexOf(tooltipLine) + 1,
-                  new TranslatableText(enchant.getTranslationKey() + ".desc")
-                          .formatted(Formatting.DARK_GRAY)
-          );
-          break;
+                    ).formatted(Formatting.DARK_GRAY)
+                );
+            }
         }
-      }
     }
-  }
+
+    private static void insertDescriptionTooltips(List<Text> lines, Set<Enchantment> enchants) {
+        for (Enchantment enchant : enchants) {
+            for (Text tooltipLine : lines) {
+                if (
+                    tooltipLine instanceof TranslatableText &&
+                    ((TranslatableText) tooltipLine).getKey().equals(enchant.getTranslationKey())
+                ) {
+                    lines.add(
+                        lines.indexOf(tooltipLine) + 1, // Add the description below the enchantment
+                        new TranslatableText(enchant.getTranslationKey() + ".desc")
+                            .formatted(Formatting.DARK_GRAY)
+                    );
+                    break;
+                }
+            }
+        }
+    }
 }
