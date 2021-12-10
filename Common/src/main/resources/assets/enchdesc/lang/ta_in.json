@@ -1,8 +1,8 @@
 {
-  "_comment": "Vanilla Enchantment Descriptions",	
+  "_comment": "Vanilla Enchantment Descriptions",
   "tooltip.enchdesc.addedby": "வழங்கியவர்: %s",
   "tooltip.enchdesc.activate": "கிளிக் %s%s%s மந்திரிக்கும் விளக்கங்களுக்கு.",
-  "enchdesc.fatalerror": "Error: See log file",	
+  "enchdesc.fatalerror": "Error: See log file",
   "enchantment.minecraft.protection.desc": "பெரும்பாலான மூலங்களிலிருந்து சேதத்தை குறைக்கிறது.",
   "enchantment.minecraft.fire_protection.desc": "தீ சேதத்தின் விளைவுகளை குறைக்கிறது. தீ வைக்கும் போது எரியும் நேரத்தையும் குறைக்கிறது.",
   "enchantment.minecraft.feather_falling.desc": "வீழ்ச்சி சேதத்தை குறைக்கிறது மற்றும் தொலைப்பேசி சேதத்தை குறைக்கிறது",

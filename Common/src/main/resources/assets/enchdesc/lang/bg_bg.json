@@ -1,8 +1,8 @@
 {
-  "_comment": "Vanilla Enchantment Descriptions",	
+  "_comment": "Vanilla Enchantment Descriptions",
   "tooltip.enchdesc.addedby": "Добабен от: %s",
   "tooltip.enchdesc.activate": "Натисни %s%s%s за описание на омагьосването.",
-  "enchdesc.fatalerror": "Грешка: Провери логивия файл",	
+  "enchdesc.fatalerror": "Грешка: Провери логивия файл",
   "enchantment.minecraft.protection.desc": "Намалява щетите от повечето източници.",
   "enchantment.minecraft.fire_protection.desc": "Намаляава ефектите на огнени щети. Също така намалява продължителноста на изгаряне.",
   "enchantment.minecraft.feather_falling.desc": "Намалява щетите от падане и щетите след телепортване с перли от края.",

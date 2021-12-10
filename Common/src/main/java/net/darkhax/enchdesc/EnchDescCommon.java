@@ -18,7 +18,7 @@ public class EnchDescCommon {
     private static final Map<Enchantment, Component> TOOLTIP_CACHE = new HashMap<>();
 
     public static void onItemTooltip(ItemStack stack, TooltipFlag context, List<Component> tooltip) {
-    
+
         if (!stack.isEmpty() && stack.hasTag()) {
 
             final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();

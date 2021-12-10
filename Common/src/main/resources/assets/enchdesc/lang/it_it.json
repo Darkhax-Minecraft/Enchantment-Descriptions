@@ -1,5 +1,5 @@
 {
-  "_comment": "Descrizione Incantesimi Vanilla",	
+  "_comment": "Descrizione Incantesimi Vanilla",
   "tooltip.enchdesc.addedby": "Aggiunto da: %s",
   "tooltip.enchdesc.activate": "Leggi la descrizione dell'incantesimo con %s%s%s.",
   "enchdesc.fatalerror": "Errore: Vedere file di log",

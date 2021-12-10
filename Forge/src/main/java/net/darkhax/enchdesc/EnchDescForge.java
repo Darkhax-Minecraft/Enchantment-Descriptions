@@ -8,7 +8,7 @@ import java.util.function.Consumer;
 
 @Mod(Constants.MOD_ID)
 public class EnchDescForge {
-    
+
     public EnchDescForge() {
 
         final Consumer<ItemTooltipEvent> listener = event -> EnchDescCommon.onItemTooltip(event.getItemStack(), event.getFlags(), event.getToolTip());
