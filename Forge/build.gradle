@@ -62,6 +62,8 @@ minecraft {
 dependencies {
 
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+    implementation fg.deobf("mezz.jei:jei-1.18:${jei_version}")
+    implementation fg.deobf("curse.maven:catalogue-459701:${catalogue_version}")
     compileOnly project(":Common")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.4-SNAPSHOT:processor'

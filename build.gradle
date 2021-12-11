@@ -58,6 +58,16 @@ subprojects {
             name = 'Mod Menu'
             url = 'https://maven.terraformersmc.com/releases/'
         }
+        
+        maven {
+            name = 'Progwm16 / JEI'
+            url = 'https://dvs1.progwml6.com/files/maven'
+        }
+        
+        maven {
+            name = 'Curse Maven'
+            url = 'https://www.cursemaven.com'
+        }
     }
 }
 
