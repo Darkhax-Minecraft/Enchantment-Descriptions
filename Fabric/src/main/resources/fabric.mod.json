@@ -16,7 +16,7 @@
     "sources": "${mod_source}",
     "issues": "${mod_issues}"
   },
-  "icon": "assets/${modid}/textures/logo.png",
+  "icon": "assets/${mod_id}/textures/logo.png",
   "license": "${mod_license}",
   "environment": "client",
   "entrypoints": {
