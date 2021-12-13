@@ -13,7 +13,7 @@ public class DescriptionManager {
 
     private static final Map<Enchantment, MutableComponent> descriptions = new HashMap<>();
 
-    public static MutableComponent getDescription (Enchantment ench) {
+    public static MutableComponent getDescription(Enchantment ench) {
 
         return descriptions.computeIfAbsent(ench, e -> {
 

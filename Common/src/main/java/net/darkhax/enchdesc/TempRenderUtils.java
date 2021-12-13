@@ -10,19 +10,19 @@ import java.util.List;
 
 public class TempRenderUtils {
 
-    public static void renderLinesWrapped (PoseStack matrix, int x, int y, Component text, int textWidth) {
+    public static void renderLinesWrapped(PoseStack matrix, int x, int y, Component text, int textWidth) {
 
         final Font font = Minecraft.getInstance().font;
         renderLinesWrapped(matrix, font, x, y, font.lineHeight, 0, text, textWidth);
     }
 
-    public static void renderLinesWrapped (PoseStack matrix, Font fontRenderer, int x, int y, int spacing, int defaultColor, Component text, int textWidth) {
+    public static void renderLinesWrapped(PoseStack matrix, Font fontRenderer, int x, int y, int spacing, int defaultColor, Component text, int textWidth) {
 
         // trimStringToWidth is actually wrapToWidth
         renderLinesWrapped(matrix, fontRenderer, x, y, spacing, defaultColor, fontRenderer.split(text, textWidth));
     }
 
-    public static void renderLinesWrapped (PoseStack matrix, Font fontRenderer, int x, int y, int spacing, int defaultColor, List<FormattedCharSequence> lines) {
+    public static void renderLinesWrapped(PoseStack matrix, Font fontRenderer, int x, int y, int spacing, int defaultColor, List<FormattedCharSequence> lines) {
 
         for (int lineNum = 0; lineNum < lines.size(); lineNum++) {
 
