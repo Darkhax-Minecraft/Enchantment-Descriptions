@@ -18,6 +18,9 @@
   "entrypoints": {
     "main": [
       "net.darkhax.enchdesc.EnchDescFabric"
+    ],
+    "rei": [
+      "net.darkhax.enchdesc.addons.rei.EnchDescREI"
     ]
   },
   "depends": {

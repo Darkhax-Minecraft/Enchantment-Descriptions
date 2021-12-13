@@ -8,6 +8,7 @@ public class EnchDescFabric implements ModInitializer {
     @Override
     public void onInitialize() {
 
+
         ItemTooltipCallback.EVENT.register(EnchDescCommon::onItemTooltip);
     }
 }
