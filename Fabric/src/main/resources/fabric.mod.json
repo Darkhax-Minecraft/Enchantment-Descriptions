@@ -13,7 +13,8 @@
   ],
   "contact": {
     "homepage": "${mod_homepage}",
-    "sources": "${mod_source}"
+    "sources": "${mod_source}",
+    "issues": "${mod_issues}"
   },
   "license": "${mod_license}",
   "environment": "client",
