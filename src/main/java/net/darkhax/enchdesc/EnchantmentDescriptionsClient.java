@@ -98,13 +98,16 @@ public class EnchantmentDescriptionsClient {
             
             final Enchantment enchant = enchants.next();
             final ListIterator<ITextComponent> tooltips = tips.listIterator();
-            
+
+            boolean didInsert = false;
+
             while (tooltips.hasNext()) {
                 
                 final ITextComponent component = tooltips.next();
                 
                 if (component instanceof TranslationTextComponent && ((TranslationTextComponent) component).getKey().equals(enchant.getName())) {
-                    
+
+                    didInsert = true;
                     tooltips.add(getDescription(enchant));
                     
                     final ModContainer mod = ModUtils.getOwner(enchant);
@@ -123,11 +126,18 @@ public class EnchantmentDescriptionsClient {
                     
                     if (this.config.shouldAddNewlines() && enchants.hasNext()) {
                         
-                        tooltips.add(new StringTextComponent(""));
+                        tooltips.add(new StringTextComponent(" "));
                     }
                     
                     break;
                 }
+            }
+
+            if (!didInsert) {
+
+                tooltips.add(new StringTextComponent(" "));
+                tooltips.add(new TranslationTextComponent(enchant.getName()));
+                tooltips.add(getDescription(enchant));
             }
         }
     }
