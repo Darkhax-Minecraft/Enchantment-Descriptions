@@ -112,6 +112,8 @@ dependencies {
     compile fg.deobf("net.darkhax.bookshelf:Bookshelf-1.16.5:${bookshelf_version}")
     compile fg.deobf("mezz.jei:jei-1.16.4:${jei_version}")
     runtimeOnly fg.deobf("curse.maven:randomenchantments-319076:3122996")
+    runtimeOnly fg.deobf("curse.maven:quark-243121:3538744")
+    runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3326041")
 }
 
 jar {
