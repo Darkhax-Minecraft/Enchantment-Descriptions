@@ -20,11 +20,11 @@ modId = "forge"
 mandatory = true
 versionRange = "[39,)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"
 
 [[dependencies.${ mod_id }]]
 modId = "minecraft"
 mandatory = true
 versionRange = "[1.18,1.19)"
 ordering = "NONE"
-side = "BOTH"
+side = "CLIENT"
