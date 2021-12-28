@@ -20,7 +20,7 @@
   "license": "${mod_license}",
   "environment": "client",
   "entrypoints": {
-    "main": [
+    "client": [
       "net.darkhax.enchdesc.EnchDescFabric"
     ],
     "rei": [
@@ -28,7 +28,7 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.12",
+    "fabricloader": ">=0.11",
     "fabric": "*",
     "minecraft": "1.18.x",
     "java": ">=17"
