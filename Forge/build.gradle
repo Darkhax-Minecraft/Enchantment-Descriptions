@@ -243,3 +243,31 @@ if (!canTweet) {
 
     project.logger.warn("Skipping Twitter plugin. APIKey: ${project.hasProperty('twitter_api_key')} ${project.hasProperty('twitter_api_key_secret')} AccessToken: ${project.hasProperty('twitter_access_token')} ${project.hasProperty('twitter_access_token_secret')}")
 }
+
+// Forge's Jar Signer
+def canSignJar = project.hasProperty('keyStore') && project.hasProperty('keyStorePass') && project.hasProperty('keyStoreKeyPass') && project.hasProperty('keyStoreAlias')
+
+task signJar(type: net.minecraftforge.gradle.common.tasks.SignJar, dependsOn: jar) {
+    
+    onlyIf {
+    
+        canSignJar
+    }
+    
+    if (canSignJar) {
+    
+        keyStore = project.findProperty('keyStore')
+        alias = project.findProperty('keyStoreAlias')
+        storePass = project.findProperty('keyStorePass')
+        keyPass = project.findProperty('keyStoreKeyPass')
+        inputFile = jar.archivePath
+        outputFile = jar.archivePath
+        
+        build.dependsOn signJar
+    }
+    
+    else {
+    
+        project.logger.warn('Jar signing is disabled for this build. One or more keyStore properties are not specified.')
+    }
+}
