@@ -66,7 +66,7 @@ dependencies {
     implementation fg.deobf("curse.maven:catalogue-459701:${catalogue_version}")
     compileOnly project(":Common")
 
-    annotationProcessor 'org.spongepowered:mixin:0.8.4-SNAPSHOT:processor'
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 }
 
 tasks.withType(JavaCompile) {
