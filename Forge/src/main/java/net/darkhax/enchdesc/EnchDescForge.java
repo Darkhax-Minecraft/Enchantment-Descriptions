@@ -9,8 +9,6 @@ import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.forgespi.Environment;
 import net.minecraftforge.network.NetworkConstants;
 
-import java.util.function.Consumer;
-
 @Mod(Constants.MOD_ID)
 public class EnchDescForge {
 
