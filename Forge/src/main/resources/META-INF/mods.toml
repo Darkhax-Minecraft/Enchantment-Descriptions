@@ -28,3 +28,10 @@ mandatory = true
 versionRange = "[1.18,1.19)"
 ordering = "NONE"
 side = "CLIENT"
+
+[[dependencies.${ mod_id }]]
+modId = "bookshelf"
+mandatory = true
+versionRange = "[13.0.6,)"
+ordering = "NONE"
+side = "CLIENT"

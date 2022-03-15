@@ -19,6 +19,7 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
     modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
     modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
+    modImplementation "net.darkhax.bookshelf:Bookshelf-Fabric-1.18.2:${project.ext.bookshelf_version}"
 
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":Common")
@@ -126,6 +127,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.changelogType = 'markdown'
     mainFile.changelog = project.ext.mod_changelog
     mainFile.addJavaVersion('Java 17')
+    mainFile.addRequirement('bookshelf')
 
     // Append Patreon Supporters
     def patreonInfo = project.findProperty('patreon')

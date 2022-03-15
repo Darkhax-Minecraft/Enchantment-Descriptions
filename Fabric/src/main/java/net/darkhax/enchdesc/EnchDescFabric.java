@@ -9,7 +9,6 @@ public class EnchDescFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        EnchDescCommon common = new EnchDescCommon(FabricLoader.getInstance().getConfigDir());
-        ItemTooltipCallback.EVENT.register(common::onItemTooltip);
+        new EnchDescCommon(FabricLoader.getInstance().getConfigDir());
     }
 }
