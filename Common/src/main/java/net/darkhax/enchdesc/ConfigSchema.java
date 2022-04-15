@@ -35,7 +35,7 @@ public class ConfigSchema {
                 Constants.LOG.info("Loaded config file.");
             }
 
-            catch (IOException e) {
+            catch (Exception e) {
 
                 Constants.LOG.error("Could not read config file {}. Defaults will be used.", configFile.getAbsolutePath());
                 Constants.LOG.catching(e);
@@ -54,7 +54,7 @@ public class ConfigSchema {
             Constants.LOG.info("Saved config file.");
         }
 
-        catch (IOException e) {
+        catch (Exception e) {
 
             Constants.LOG.error("Could not write config file '{}'!", configFile.getAbsolutePath());
             Constants.LOG.catching(e);
