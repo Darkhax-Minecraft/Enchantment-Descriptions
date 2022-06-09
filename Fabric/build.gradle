@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.11-SNAPSHOT'
+    id 'fabric-loom' version '0.12-SNAPSHOT'
     id 'net.darkhax.curseforgegradle' version '1.0.10'
     id 'net.darkhax.tweedle' version '1.0.5'
     id 'idea'
@@ -17,9 +17,7 @@ dependencies {
     
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
-    modImplementation "com.terraformersmc:modmenu:${modmenu_version}"
-    modImplementation "me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}"
-    modImplementation "net.darkhax.bookshelf:Bookshelf-Fabric-1.18.2:${project.ext.bookshelf_version}"
+    modImplementation "net.darkhax.bookshelf:Bookshelf-Fabric-${project.ext.minecraft_version}:${project.ext.bookshelf_version}"
 
     implementation group: 'com.google.code.findbugs', name: 'jsr305', version: '3.0.1'
     implementation project(":Common")

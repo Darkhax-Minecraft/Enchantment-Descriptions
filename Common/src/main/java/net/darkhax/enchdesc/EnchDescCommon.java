@@ -4,7 +4,7 @@ import net.darkhax.bookshelf.api.Services;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -41,7 +41,7 @@ public class EnchDescCommon {
 
                             for (Component line : tooltip) {
 
-                                if (line instanceof TranslatableComponent translatable && translatable.getKey().equals(enchantment.getDescriptionId())) {
+                                if (line.getContents() instanceof TranslatableContents translatable && translatable.getKey().equals(enchantment.getDescriptionId())) {
 
                                     tooltip.add(tooltip.indexOf(line) + 1, DescriptionManager.getDescription(enchantment));
                                     break;
