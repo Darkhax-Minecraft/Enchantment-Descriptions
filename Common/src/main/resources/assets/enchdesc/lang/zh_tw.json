@@ -38,6 +38,7 @@
   "enchantment.minecraft.quick_charge.desc": "增加弩的裝填速度。",
   "enchantment.minecraft.piercing.desc": "使投射物能貫穿生物。",
   "enchantment.minecraft.soul_speed.desc": "增加於靈魂方塊上的移動速度。",
+  "enchantment.minecraft.swift_sneak.desc": "增加於潛行時的移動速度。",
   
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "相容物品",
