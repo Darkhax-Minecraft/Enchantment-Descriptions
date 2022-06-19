@@ -86,11 +86,9 @@ public class EnchantmentInfoEntry implements IRecipeCategoryExtension {
     }
     
     public List<ItemStack> getCompatibleItems () {
-        
-        final IngredientManager manager = Internal.getIngredientManager();
+
         final IngredientFilter filter = Internal.getIngredientFilter();
-        
-        return this.compatibleItems.stream().filter(s -> manager.isIngredientVisible(s, filter)).collect(Collectors.toList());
+        return this.compatibleItems.stream().filter(filter::isIngredientVisible).collect(Collectors.toList());
     }
     
     public void getTooltip (int slotIndex, boolean input, ItemStack stack, List<ITextComponent> tooltip) {
