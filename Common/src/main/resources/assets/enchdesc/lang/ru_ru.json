@@ -38,6 +38,7 @@
   "enchantment.minecraft.quick_charge.desc": "Увеличивает скорость перезарядки арбалетов.",
   "enchantment.minecraft.piercing.desc": "Позволяет снарядам пробивать существ насквозь.",
   "enchantment.minecraft.soul_speed.desc": "Увеличивает скорость передвижения на блоках душ.",
+  "enchantment.minecraft.swift_sneak.desc": "Увеличивает скорость передвижения при подкрадывании.",
   
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Совместимые предметы",
