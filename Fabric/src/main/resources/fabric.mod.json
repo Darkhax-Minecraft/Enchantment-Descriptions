@@ -25,11 +25,11 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.14",
+    "fabricloader": ">=0.14.8",
     "fabric": "*",
     "minecraft": "1.19.x",
     "java": ">=17",
-    "bookshelf": ">=14.0.2"
+    "bookshelf": ">=15.0.1"
   },
   "custom": {
     "modmenu": {
