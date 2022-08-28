@@ -25,6 +25,9 @@ public class ConfigSchema {
     @Expose
     public boolean requireKeybindPress = false;
 
+    @Expose
+    public int indentSize = 0;
+
     public static ConfigSchema load(File configFile) {
 
         ConfigSchema config = new ConfigSchema();

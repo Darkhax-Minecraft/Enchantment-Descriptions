@@ -15,6 +15,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import org.apache.commons.lang3.StringUtils;
 
 import java.nio.file.Path;
 import java.util.List;
@@ -50,7 +51,14 @@ public class EnchDescCommon {
 
                                     if (line.getContents() instanceof TranslatableContents translatable && translatable.getKey().equals(enchantment.getDescriptionId())) {
 
-                                        tooltip.add(tooltip.indexOf(line) + 1, DescriptionManager.getDescription(enchantment));
+                                        Component descriptionText = DescriptionManager.getDescription(enchantment);
+
+                                        if (config.indentSize > 0) {
+
+                                            descriptionText = Component.literal(StringUtils.repeat(' ', config.indentSize)).append(descriptionText);
+                                        }
+
+                                        tooltip.add(tooltip.indexOf(line) + 1, descriptionText);
                                         break;
                                     }
                                 }
