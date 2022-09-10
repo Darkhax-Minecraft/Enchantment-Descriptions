@@ -22,6 +22,9 @@ public class ConfigSchema {
     @Expose
     public boolean onlyDisplayInEnchantingTable = false;
 
+    @Expose
+    public boolean requireKeybindPress = false;
+
     public static ConfigSchema load(File configFile) {
 
         ConfigSchema config = new ConfigSchema();

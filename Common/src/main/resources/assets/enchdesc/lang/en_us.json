@@ -38,7 +38,9 @@
   "enchantment.minecraft.quick_charge.desc": "Increases the reload speed of crossbows.",
   "enchantment.minecraft.piercing.desc": "Allows projectiles to pierce through mobs.",
   "enchantment.minecraft.soul_speed.desc": "Increases movement speed on soul blocks.",
-  
+
+  "enchdesc.activate.message": "Hold shift to view enchantment descriptions.",
+
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items",
   

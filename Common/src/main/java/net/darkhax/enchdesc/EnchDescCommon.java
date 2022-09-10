@@ -1,7 +1,9 @@
 package net.darkhax.enchdesc;
 
 import net.darkhax.bookshelf.api.Services;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
@@ -33,21 +35,29 @@ public class EnchDescCommon {
 
                 if (!config.onlyDisplayInEnchantingTable || Minecraft.getInstance().screen instanceof EnchantmentScreen) {
 
-                    final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();
+                    if (!config.requireKeybindPress || Screen.hasShiftDown()) {
 
-                    if (!enchantments.isEmpty()) {
+                        final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();
 
-                        for (Enchantment enchantment : enchantments) {
+                        if (!enchantments.isEmpty()) {
 
-                            for (Component line : tooltip) {
+                            for (Enchantment enchantment : enchantments) {
 
-                                if (line instanceof TranslatableComponent translatable && translatable.getKey().equals(enchantment.getDescriptionId())) {
+                                for (Component line : tooltip) {
 
-                                    tooltip.add(tooltip.indexOf(line) + 1, DescriptionManager.getDescription(enchantment));
-                                    break;
+                                    if (line instanceof TranslatableComponent translatable && translatable.getKey().equals(enchantment.getDescriptionId())) {
+
+                                        tooltip.add(tooltip.indexOf(line) + 1, DescriptionManager.getDescription(enchantment));
+                                        break;
+                                    }
                                 }
                             }
                         }
+                    }
+
+                    else {
+
+                        tooltip.add(new TranslatableComponent("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY));
                     }
                 }
             }
