@@ -35,7 +35,7 @@ public class EnchDescCommon {
 
         if (this.config.enableMod && !stack.isEmpty() && stack.hasTag()) {
 
-            if (!config.onlyDisplayOnBooks || stack.getItem() instanceof EnchantedBookItem) {
+            if ((!config.onlyDisplayOnBooks && stack.isEnchanted()) || stack.getItem() instanceof EnchantedBookItem) {
 
                 if (!config.onlyDisplayInEnchantingTable || Minecraft.getInstance().screen instanceof EnchantmentScreen) {
 
