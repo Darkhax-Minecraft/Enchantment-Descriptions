@@ -39,7 +39,9 @@
   "enchantment.minecraft.piercing.desc": "Permite que projéteis atravessem mobs.",
   "enchantment.minecraft.soul_speed.desc": "Aumenta a velocidade de movimento em blocos de alma.",
   "enchantment.minecraft.swift_sneak.desc": "Aumenta a velocidade de movimento enquanto se esgueira.",
-  
+
+  "enchdesc.activate.message": "Segure shift para ver as descrições dos encantamentos.",
+
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Itens Compatíveis",
   
