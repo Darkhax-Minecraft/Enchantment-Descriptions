@@ -1,8 +1,7 @@
 plugins {
-    id 'fabric-loom' version '0.12-SNAPSHOT'
+    id 'fabric-loom' version '1.0-SNAPSHOT'
     id 'net.darkhax.curseforgegradle' version '1.0.10'
     id 'net.darkhax.tweedle' version '1.0.5'
-    id 'idea'
 }
 
 apply from: '../gradle/property_helper.gradle'
