@@ -8,10 +8,11 @@ import net.minecraft.world.item.enchantment.Enchantment;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class DescriptionManager {
 
-    private static final Map<Enchantment, MutableComponent> descriptions = new HashMap<>();
+    private static final Map<Enchantment, MutableComponent> descriptions = new ConcurrentHashMap<>();
 
     public static MutableComponent getDescription(Enchantment ench) {
 
