@@ -35,11 +35,11 @@ public class EnchDescCommon {
 
                 if (!config.onlyDisplayInEnchantingTable || Minecraft.getInstance().screen instanceof EnchantmentScreen) {
 
-                    if (!config.requireKeybindPress || Screen.hasShiftDown()) {
+                    final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();
 
-                        final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();
+                    if (!enchantments.isEmpty()) {
 
-                        if (!enchantments.isEmpty()) {
+                        if (!config.requireKeybindPress || Screen.hasShiftDown()) {
 
                             for (Enchantment enchantment : enchantments) {
 
@@ -53,11 +53,11 @@ public class EnchDescCommon {
                                 }
                             }
                         }
-                    }
 
-                    else {
+                        else {
 
-                        tooltip.add(new TranslatableComponent("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY));
+                            tooltip.add(new TranslatableComponent("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY));
+                        }
                     }
                 }
             }
