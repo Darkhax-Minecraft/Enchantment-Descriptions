@@ -1,12 +1,9 @@
 package net.darkhax.enchdesc;
 
-import com.mojang.blaze3d.platform.InputConstants;
 import net.darkhax.bookshelf.api.Services;
 import net.minecraft.ChatFormatting;
-import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.gui.screens.controls.KeyBindsScreen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
@@ -39,11 +36,11 @@ public class EnchDescCommon {
 
                 if (!config.onlyDisplayInEnchantingTable || Minecraft.getInstance().screen instanceof EnchantmentScreen) {
 
-                    if (!config.requireKeybindPress || Screen.hasShiftDown()) {
+                    final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();
 
-                        final Set<Enchantment> enchantments = EnchantmentHelper.getEnchantments(stack).keySet();
+                    if (!enchantments.isEmpty()) {
 
-                        if (!enchantments.isEmpty()) {
+                        if (!config.requireKeybindPress || Screen.hasShiftDown()) {
 
                             for (Enchantment enchantment : enchantments) {
 
@@ -64,11 +61,11 @@ public class EnchDescCommon {
                                 }
                             }
                         }
-                    }
 
-                    else {
+                        else {
 
-                        tooltip.add(Component.translatable("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY));
+                            tooltip.add(Component.translatable("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY));
+                        }
                     }
                 }
             }
