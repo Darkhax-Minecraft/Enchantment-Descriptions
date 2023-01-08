@@ -40,6 +40,8 @@
   "enchantment.minecraft.soul_speed.desc": "Збільшує швидкість пересування на блоках душ.",
   "enchantment.minecraft.swift_sneak.desc": "Збільшує швидкість пересування під час підкрадання.",
   
+  "enchdesc.activate.message": "Утримуйте Shift, щоб переглянути опис зачарування.",
+  
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Сумісні предмети",
   
