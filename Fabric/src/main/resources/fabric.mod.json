@@ -27,9 +27,9 @@
   "depends": {
     "fabricloader": ">=0.14.11",
     "fabric": "*",
-    "minecraft": "1.19.3",
+    "minecraft": "1.19.4",
     "java": ">=17",
-    "bookshelf": ">=17"
+    "bookshelf": ">=18"
   },
   "custom": {
     "modmenu": {
