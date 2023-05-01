@@ -7,7 +7,9 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -16,6 +18,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class EnchDescCommon {
@@ -56,6 +59,14 @@ public class EnchDescCommon {
                                         }
 
                                         tooltip.add(tooltip.indexOf(line) + 1, descriptionText);
+
+                                        int maxLevel = enchantment.getMaxLevel();
+
+                                        if (maxLevel > 1) {
+                                            // Write "Max Level: NUM" in the tooltip
+                                            tooltip.add(tooltip.indexOf(line) + 2, Component.literal("Max Level: " + maxLevel).withStyle(ChatFormatting.DARK_PURPLE));
+                                        }
+
                                         break;
                                     }
                                 }
