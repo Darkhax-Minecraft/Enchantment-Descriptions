@@ -56,30 +56,31 @@ public class EnchDescCommon {
 
                                         tooltip.add(tooltip.indexOf(line) + 1, descriptionText);
 
-                                        List<Item> applicableItems = new ArrayList<>();
+                                        if (config.showApplicableItems) {
+                                            List<Item> applicableItems = new ArrayList<>();
+                                            // vanilla list of items that can be enchanted (using diamond for armor/tools)
+                                            // turtle shell is included in helmet category
+                                            Item[] itemCategories = new Item[]{Items.DIAMOND_SWORD, Items.BOW,
+                                                    Items.CROSSBOW, Items.FISHING_ROD, Items.SHEARS, Items.TRIDENT,
+                                                    Items.DIAMOND_PICKAXE, Items.DIAMOND_AXE, Items.DIAMOND_SHOVEL,
+                                                    Items.DIAMOND_HELMET, Items.DIAMOND_CHESTPLATE, Items.DIAMOND_LEGGINGS,
+                                                    Items.DIAMOND_BOOTS, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND_HOE,
+                                                    Items.SHIELD, Items.ELYTRA, Items.FLINT_AND_STEEL, Items.CARROT_ON_A_STICK,
+                                                    Items.WARPED_FUNGUS_ON_A_STICK, Items.BRUSH, Items.COMPASS};
 
-                                        // vanilla list of items that can be enchanted (using diamond for armor/tools)
-                                        // turtle shell is included in helmet category
-                                        Item[] itemCategories = new Item[]{Items.DIAMOND_SWORD, Items.BOW,
-                                                Items.CROSSBOW, Items.FISHING_ROD, Items.SHEARS, Items.TRIDENT,
-                                                Items.DIAMOND_PICKAXE, Items.DIAMOND_AXE, Items.DIAMOND_SHOVEL,
-                                                Items.DIAMOND_HELMET, Items.DIAMOND_CHESTPLATE, Items.DIAMOND_LEGGINGS,
-                                                Items.DIAMOND_BOOTS, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND_HOE,
-                                                Items.SHIELD, Items.ELYTRA, Items.FLINT_AND_STEEL, Items.CARROT_ON_A_STICK,
-                                                Items.WARPED_FUNGUS_ON_A_STICK, Items.BRUSH, Items.COMPASS};
-
-                                        // iterate over all items in array
-                                        for (Item item : itemCategories) {
-                                            ItemStack itemStack = new ItemStack(item);
-                                            if (enchantment.canEnchant(itemStack) && !applicableItems.contains(item)) {
-                                                applicableItems.add(item);
+                                            for (Item item : itemCategories) {
+                                                // look for which items the enchantment can apply towards
+                                                ItemStack itemStack = new ItemStack(item);
+                                                if (enchantment.canEnchant(itemStack) && !applicableItems.contains(item)) {
+                                                    applicableItems.add(item);
+                                                }
                                             }
-                                        }
 
-                                        // add applicable items to tooltip
-                                        if (!applicableItems.isEmpty()) {
-                                            for (Item item : applicableItems) {
-                                                tooltip.add(tooltip.indexOf(line) + 2, Component.translatable(item.getDescriptionId()).withStyle(ChatFormatting.GOLD));
+                                            // add applicable items to tooltip
+                                            if (!applicableItems.isEmpty()) {
+                                                for (Item item : applicableItems) {
+                                                    tooltip.add(tooltip.indexOf(line) + 2, Component.translatable(item.getDescriptionId()).withStyle(ChatFormatting.GOLD));
+                                                }
                                             }
                                         }
 
