@@ -39,7 +39,8 @@
   "enchantment.minecraft.piercing.desc": "Mũi tên xuyên qua nhiều thực thể.",
   "enchantment.minecraft.soul_speed.desc": "Tăng tốc độ đi trên cát linh hồn và đất linh hồn..",
   "enchantment.minecraft.swift_sneak.desc": "Tăng tốc độ di chuyển khi đi rón rén.",
-  
+
+  "enchdesc.max_level": "Cấp độ tối đa: %s",
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items",
   

@@ -41,6 +41,7 @@
   "enchantment.minecraft.swift_sneak.desc": "Aumenta a velocidade de movimento enquanto se esgueira.",
 
   "enchdesc.activate.message": "Segure shift para ver as descrições dos encantamentos.",
+  "enchdesc.max_level": "Nível máximo: %s",
 
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Itens Compatíveis",

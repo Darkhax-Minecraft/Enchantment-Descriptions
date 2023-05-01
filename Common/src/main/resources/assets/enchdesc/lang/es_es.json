@@ -34,6 +34,9 @@
   "enchantment.minecraft.binding_curse.desc": "Impide que el objeto encantado se elimine de una ranura de armadura.",
   "enchantment.minecraft.vanishing_curse.desc": "Destruye el objeto encantado si mueres con él en tu inventario.",
   "enchantment.minecraft.sweeping.desc": "Aumenta el daño de los ataques de barrido.",
+
+  "enchdesc.max_level": "Nivel máximo: %s",
+
   "_comment": "Ender Core",
   "enchantment.endercore.xpboost.desc": "Las criaturas otorgan más experiencia cuando mueren.",
   "enchantment.endercore.autosmelt.desc": "Los bloques minados se fundirán automáticamente.",

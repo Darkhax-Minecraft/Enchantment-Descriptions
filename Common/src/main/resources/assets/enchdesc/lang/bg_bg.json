@@ -40,5 +40,7 @@
   "enchantment.minecraft.multishot.desc": "Стреля допълнителни стрели към различни посоки.",
   "enchantment.minecraft.quick_charge.desc": "Увечилава скоростта на презареждане на арбалети.",
   "enchantment.minecraft.piercing.desc": "Позволява снарядите да минават през мобовете.",
-  "enchantment.minecraft.soul_speed.desc": "Увеличава скоростта върху Пясък на душите."
+  "enchantment.minecraft.soul_speed.desc": "Увеличава скоростта върху Пясък на душите.",
+
+  "enchdesc.max_level": "Максимално ниво: %s"
 }

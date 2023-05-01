@@ -40,5 +40,7 @@
   "enchantment.minecraft.multishot.desc": "Fires additional arrows in random directions.",
   "enchantment.minecraft.quick_charge.desc": "Increases the reload speed of crossbows.",
   "enchantment.minecraft.piercing.desc": "Allows projectiles to pierce through mobs.",
-  "enchantment.minecraft.soul_speed.desc": "Increases movement speed on soul blocks."
+  "enchantment.minecraft.soul_speed.desc": "Increases movement speed on soul blocks.",
+
+  "enchdesc.max_level": "Max Level: %s"
 }

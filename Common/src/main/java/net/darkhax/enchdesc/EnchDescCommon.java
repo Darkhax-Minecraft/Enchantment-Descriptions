@@ -62,10 +62,9 @@ public class EnchDescCommon {
 
                                         if (config.showMaxLevel) {
                                             int maxLevel = enchantment.getMaxLevel();
-
                                             if (maxLevel > 1) {
                                                 // Write "Max Level: NUM" in the tooltip
-                                                tooltip.add(tooltip.indexOf(line) + 2, Component.literal("Max Level: " + maxLevel).withStyle(ChatFormatting.DARK_PURPLE));
+                                                tooltip.add(tooltip.indexOf(line) + 2, Component.translatable("enchdesc.max_level", maxLevel).withStyle(ChatFormatting.DARK_PURPLE));
                                             }
                                         }
 
