@@ -7,7 +7,10 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.apache.commons.lang3.StringUtils;
@@ -16,6 +19,8 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import static net.darkhax.enchdesc.Constants.itemCategories;
 
 public class EnchDescCommon {
 
@@ -56,17 +61,8 @@ public class EnchDescCommon {
 
                                         tooltip.add(tooltip.indexOf(line) + 1, descriptionText);
 
-                                        if (config.showApplicableItems) {
+                                        if (config.showApplicableItems && Screen.hasShiftDown()) {
                                             List<Item> applicableItems = new ArrayList<>();
-                                            // vanilla list of items that can be enchanted (using diamond for armor/tools)
-                                            // turtle shell is included in helmet category
-                                            Item[] itemCategories = new Item[]{Items.DIAMOND_SWORD, Items.BOW,
-                                                    Items.CROSSBOW, Items.FISHING_ROD, Items.SHEARS, Items.TRIDENT,
-                                                    Items.DIAMOND_PICKAXE, Items.DIAMOND_AXE, Items.DIAMOND_SHOVEL,
-                                                    Items.DIAMOND_HELMET, Items.DIAMOND_CHESTPLATE, Items.DIAMOND_LEGGINGS,
-                                                    Items.DIAMOND_BOOTS, Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND_HOE,
-                                                    Items.SHIELD, Items.ELYTRA, Items.FLINT_AND_STEEL, Items.CARROT_ON_A_STICK,
-                                                    Items.WARPED_FUNGUS_ON_A_STICK, Items.BRUSH, Items.COMPASS};
 
                                             for (Item item : itemCategories) {
                                                 // look for which items the enchantment can apply towards
@@ -76,7 +72,6 @@ public class EnchDescCommon {
                                                 }
                                             }
 
-                                            // add applicable items to tooltip
                                             if (!applicableItems.isEmpty()) {
                                                 for (Item item : applicableItems) {
                                                     tooltip.add(tooltip.indexOf(line) + 2, Component.translatable(item.getDescriptionId()).withStyle(ChatFormatting.GOLD));
