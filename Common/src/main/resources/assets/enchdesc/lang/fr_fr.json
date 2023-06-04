@@ -34,6 +34,7 @@
   "enchantment.minecraft.binding_curse.desc": "Empêche que l'objet enchanté soit retiré d'un emplacement d'armure.",
   "enchantment.minecraft.vanishing_curse.desc": "Détruit l'objet enchanté si vous mourez avec dans votre inventaire.",
   "enchantment.minecraft.sweeping.desc": "Augmente les dégâts infligés par les attaques par balayage.",
+  "enchantment.minecraft.swift_sneak.desc": "Augmente la vitesse de déplacement en étant accroupi.",
   "enchantment.minecraft.loyalty.desc": "Permet au trident de revenir automatiquement après avoir été lancé.",
   "enchantment.minecraft.impaling.desc": "Augmente les dégâts infligés aux joueurs et aux créatures aquatiques.",
   "enchantment.minecraft.riptide.desc": "Permet au trident de lancer le joueur en avant. Ne fonctionne que sous la pluie ou dans l'eau.",
