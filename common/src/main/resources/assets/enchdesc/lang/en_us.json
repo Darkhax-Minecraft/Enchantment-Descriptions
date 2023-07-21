@@ -54,5 +54,10 @@
   "enchantment.shieldsplus.ablaze.desc": "Sets attackers and projectiles on fire.",
   "enchantment.shieldsplus.lightweight.desc": "Allows the user to move faster when blocking.",
   "enchantment.shieldsplus.fast_recovery.desc": "Reduces shield cooldown times.",
-  "enchantment.shieldsplus.shield_bash.desc": "Gives the shield a bash attack."
+  "enchantment.shieldsplus.shield_bash.desc": "Gives the shield a bash attack.",
+
+  "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
+  "enchantment.grapplemod.wallrunenchantment.desc": "Allows the user to run on walls.",
+  "enchantment.grapplemod.doublejumpenchantment.desc": "Allows the user to jump twice.",
+  "enchantment.grapplemod.slidingenchantment.desc": "Allows the user to slide using built up momentum."
 }
