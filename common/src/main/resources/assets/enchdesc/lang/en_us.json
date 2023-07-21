@@ -40,8 +40,19 @@
   "enchantment.minecraft.soul_speed.desc": "Increases movement speed on soul blocks.",
   "enchantment.minecraft.swift_sneak.desc": "Increases movement speed while sneaking.",
   "enchdesc.activate.message": "Hold shift to view enchantment descriptions.",
+
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items",
+
   "__support_gofish": "Go Fish support https://www.curseforge.com/minecraft/mc-mods/go-fish",
-  "enchantment.gofish.deepfry.desc": "Reeling in certain fish will cook them."
+  "enchantment.gofish.deepfry.desc": "Reeling in certain fish will cook them.",
+
+  "__support_shield+": "Shields+ https://www.curseforge.com/minecraft/mc-mods/shieldsplus",
+  "enchantment.shieldsplus.recoil.desc": "Knocks back attackers and projectiles.",
+  "enchantment.shieldsplus.reflection.desc": "Reflects damage back at attackers.",
+  "enchantment.shieldsplus.reinforced.desc": "Increases amount of damage blocked by shields.",
+  "enchantment.shieldsplus.ablaze.desc": "Sets attackers and projectiles on fire.",
+  "enchantment.shieldsplus.lightweight.desc": "Allows the user to move faster when blocking.",
+  "enchantment.shieldsplus.fast_recovery.desc": "Reduces shield cooldown times.",
+  "enchantment.shieldsplus.shield_bash.desc": "Gives the shield a bash attack."
 }
