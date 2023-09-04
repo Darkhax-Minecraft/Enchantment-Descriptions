@@ -72,6 +72,8 @@
 
   "enchantment.attackspeedenchantment.faster_attack_speed.desc": "Increases weapon attack speed.",
   
+  "enchantment.origins.water_protection.desc": "Pretects the user from water contact damage.",
+  
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
 }
