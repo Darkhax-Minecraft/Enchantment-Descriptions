@@ -61,5 +61,7 @@
   "enchantment.exenchants.bad_doings.desc": "Sometimes gives the user a luck debuff.",
   "enchantment.exenchants.levitation_curse.desc": "Sometimes gives the user the levitation debuff.",
   "enchantment.exenchants.empowerment.desc": "Randomly gives the user a strength buff.",
-  "enchantment.exenchants.charge_up.desc": "Sometimes gives the user weakness followed by a big strength buff."
+  "enchantment.exenchants.charge_up.desc": "Sometimes gives the user weakness followed by a big strength buff.",
+
+  "enchantment.hunterillager.bounce.desc": "Increases how much boomerangs will bounce off walls.",
 }
