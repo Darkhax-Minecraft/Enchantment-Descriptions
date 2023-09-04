@@ -70,6 +70,8 @@
   "enchantment.coldenchants.smithing.desc": "Regenerates your durability with each exp orb you collect.",
   "enchantment.coldenchants.restfull.desc": "Wake up feeling refreshed with full Health and some nice buffs.",
 
+  "enchantment.attackspeedenchantment.faster_attack_speed.desc": "Increases weapon attack speed.",
+  
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
 }
