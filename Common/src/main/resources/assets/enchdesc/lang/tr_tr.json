@@ -41,6 +41,7 @@
   "enchantment.minecraft.swift_sneak.desc": "Eğilerek yürürken hareket hızını arttırır.",
 
   "enchdesc.activate.message": "Büyü açıklamalarını görüntülemek için shift tuşunu basılı tutun.",
+  "enchdesc.max_level": "Maksimum Seviye: %s",
 
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items",

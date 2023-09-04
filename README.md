@@ -1,7 +1,23 @@
-# [Enchantment-Descriptions](https://minecraft.curseforge.com/projects/enchantment-descriptions)
+# Enchantment-Descriptions (with tooltip improvements)
 
 When this mod is installed enchanted items will display a brief description of their enchantment effects in their
 tooltip.
+
+## This Fork
+
+Enchantment-Descriptions is originally created
+by [Darkhax](https://github.com/Darkhax-Minecraft/Enchantment-Descriptions) for both Fabric and Forge. This fork
+includes some minor changes to the hover over item tooltips.
+
+### My Changes
+
+- Enchantment tooltips now show the maximum level of the enchantment
+- When shift is held down, enchantment tooltips show every vanilla item that the enchantment can be applied to
+- Both of these changes can be disable in the config file
+
+### Example Image:
+
+![Example image](https://i.imgur.com/Sg6gVye.png)
 
 ## FaQ
 

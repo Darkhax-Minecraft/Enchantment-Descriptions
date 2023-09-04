@@ -37,5 +37,7 @@
   "enchantment.minecraft.multishot.desc": "Wystrzeliwuje dodatkowe strzały w podobnym kierunku.",
   "enchantment.minecraft.quick_charge.desc": "Zwiększa szybkość przeładowania kuszy.",
   "enchantment.minecraft.piercing.desc": "Pozwala pociskom przebić się przez moby.",
-  "enchantment.minecraft.soul_speed.desc": "Zwiększa prędkość ruchu po blokach dusz."
+  "enchantment.minecraft.soul_speed.desc": "Zwiększa prędkość ruchu po blokach dusz.",
+
+  "enchdesc.max_level": "Maksymalny poziom: %s"
 }

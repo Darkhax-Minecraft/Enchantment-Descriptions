@@ -8,6 +8,7 @@ import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.EnchantedBookItem;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -15,8 +16,11 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import org.apache.commons.lang3.StringUtils;
 
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+
+import static net.darkhax.enchdesc.Constants.itemCategories;
 
 public class EnchDescCommon {
 
@@ -56,13 +60,38 @@ public class EnchDescCommon {
                                         }
 
                                         tooltip.add(tooltip.indexOf(line) + 1, descriptionText);
+
+                                        if (config.showApplicableItems && Screen.hasShiftDown()) {
+                                            List<Item> applicableItems = new ArrayList<>();
+
+                                            for (Item item : itemCategories) {
+                                                // look for which items the enchantment can apply towards
+                                                ItemStack itemStack = new ItemStack(item);
+                                                if (enchantment.canEnchant(itemStack) && !applicableItems.contains(item)) {
+                                                    applicableItems.add(item);
+                                                }
+                                            }
+
+                                            if (!applicableItems.isEmpty()) {
+                                                for (Item item : applicableItems) {
+                                                    tooltip.add(tooltip.indexOf(line) + 2, Component.translatable(item.getDescriptionId()).withStyle(ChatFormatting.GOLD));
+                                                }
+                                            }
+                                        }
+
+                                        if (config.showMaxLevel) {
+                                            int maxLevel = enchantment.getMaxLevel();
+                                            if (maxLevel > 1) {
+                                                // Write "Max Level: NUM" in the tooltip
+                                                tooltip.add(tooltip.indexOf(line) + 2, Component.translatable("enchdesc.max_level", maxLevel).withStyle(ChatFormatting.DARK_PURPLE));
+                                            }
+                                        }
+
                                         break;
                                     }
                                 }
                             }
-                        }
-
-                        else {
+                        } else {
 
                             tooltip.add(Component.translatable("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY));
                         }

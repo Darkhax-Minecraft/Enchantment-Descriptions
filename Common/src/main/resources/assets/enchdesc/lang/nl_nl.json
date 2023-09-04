@@ -41,6 +41,7 @@
   "enchantment.minecraft.swift_sneak.desc": "Versnelt de bewegingssnelheid wanneer je sluipt.",
 
   "enchdesc.activate.message": "Hou shift in om de betovering beschrijvingen te zien.",
+  "enchdesc.max_level": "Maximaal niveau: %s",
 
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatibele voorwerpen",

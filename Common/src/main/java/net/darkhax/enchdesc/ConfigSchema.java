@@ -27,6 +27,12 @@ public class ConfigSchema {
     @Expose
     public int indentSize = 0;
 
+    @Expose
+    public boolean showMaxLevel = true;
+
+    @Expose
+    public boolean showApplicableItems = true;
+
     public static ConfigSchema load(File configFile) {
 
         ConfigSchema config = new ConfigSchema();
@@ -38,16 +44,12 @@ public class ConfigSchema {
 
                 config = GSON.fromJson(reader, ConfigSchema.class);
                 Constants.LOG.info("Loaded config file.");
-            }
-
-            catch (Exception e) {
+            } catch (Exception e) {
 
                 Constants.LOG.error("Could not read config file {}. Defaults will be used.", configFile.getAbsolutePath());
                 Constants.LOG.catching(e);
             }
-        }
-
-        else {
+        } else {
 
             Constants.LOG.info("Creating a new config file at {}.", configFile.getAbsolutePath());
             configFile.getParentFile().mkdirs();
@@ -57,9 +59,7 @@ public class ConfigSchema {
 
             GSON.toJson(config, writer);
             Constants.LOG.info("Saved config file.");
-        }
-
-        catch (Exception e) {
+        } catch (Exception e) {
 
             Constants.LOG.error("Could not write config file '{}'!", configFile.getAbsolutePath());
             Constants.LOG.catching(e);

@@ -40,5 +40,7 @@
   "enchantment.minecraft.multishot.desc": "Scaglia ulteriori frecce in direzioni casuali.",
   "enchantment.minecraft.quick_charge.desc": "Aumenta la velocit\u00e0 di ricarica delle balestre.",
   "enchantment.minecraft.piercing.desc": "Permette ai proiettili di perforare le creature, attraversandole.",
-  "enchantment.minecraft.soul_speed.desc": "Aumenta la velocit\u00e0 di movimento su blocchi di anime."
+  "enchantment.minecraft.soul_speed.desc": "Aumenta la velocit\u00e0 di movimento su blocchi di anime.",
+
+  "enchdesc.max_level": "Livello massimo: %s"
 }

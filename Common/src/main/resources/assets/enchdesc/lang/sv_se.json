@@ -39,7 +39,9 @@
   "enchantment.minecraft.piercing.desc": "Låter projektiler tränga sig igenom varelser.",
   "enchantment.minecraft.soul_speed.desc": "Ökar rörelsehastigheten på själblock.",
   "enchantment.minecraft.swift_sneak.desc": "Ökar rörelsehastigheten när man smyger.",
- 
+
+  "enchdesc.max_level": "Maxnivå: %s",
+
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Kompatibla föremål",
  

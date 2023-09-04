@@ -40,5 +40,7 @@
   "enchantment.minecraft.channeling.desc": "Ermöglicht dem Dreizack, bei Gewittern Blitzschläge zu beschwören.",
   "enchantment.minecraft.multishot.desc": "Feuert zusätzliche Pfeile in zufällige Richtungen ab.",
   "enchantment.minecraft.quick_charge.desc": "Erhöht die Nachladegeschwindigkeit von Armbrüsten.",
-  "enchantment.minecraft.piercing.desc": "Ermöglicht es Projektilen, Monster zu durchbohren."
+  "enchantment.minecraft.piercing.desc": "Ermöglicht es Projektilen, Monster zu durchbohren.",
+
+  "enchdesc.max_level": "Maximales Level: %s"
 }

@@ -41,6 +41,7 @@
   "enchantment.minecraft.swift_sneak.desc": "Збільшує швидкість пересування під час підкрадання.",
   
   "enchdesc.activate.message": "Утримуйте Shift, щоб переглянути опис зачарування.",
+  "enchdesc.max_level": "Максимальний рівень: %s",
   
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Сумісні предмети",

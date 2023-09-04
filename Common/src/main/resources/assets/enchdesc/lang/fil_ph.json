@@ -39,7 +39,9 @@
   "enchantment.minecraft.piercing.desc": "Pinapatagos ang mga panudla sa mga nilalang.",
   "enchantment.minecraft.soul_speed.desc": "Pinapablis ang paglalakad sa kaluluwang bloke.",
   "enchantment.minecraft.swift_sneak.desc": "Pinapablis ang pagyuko.",
-  
+
+  "enchdesc.max_level": "Maksimum na Antas: %s",
+
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Mga Compatible na Item",
   

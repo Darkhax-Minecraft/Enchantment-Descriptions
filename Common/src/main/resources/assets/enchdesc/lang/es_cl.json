@@ -39,5 +39,7 @@
   "enchantment.minecraft.piercing.desc": "Las flechas atraviesan múltiples entidades y escudos.",
   "enchantment.minecraft.soul_speed.desc": "Aumenta la velocidad al caminar sobre arena de almas o tierra de almas, pero daña las botas con el tiempo.",
   "__comment_jei": "JEI Compat",
-  "enchdesc.jei.compatible_items.title": "Items Compatibles"
+  "enchdesc.jei.compatible_items.title": "Items Compatibles",
+
+  "enchdesc.max_level": "Nivel máximo: %s"
 }

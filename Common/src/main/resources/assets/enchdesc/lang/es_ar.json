@@ -41,5 +41,7 @@
   "enchantment.minecraft.channeling.desc": "El tridente canalizará un rayo hacia un enemigo. Sin embargo, este efecto solo ocurrirá durante tormentas eléctricas.",
   "enchantment.minecraft.multishot.desc": "Dispara 3 flechas a costa de una; solo se puede recuperar una flecha.",
   "enchantment.minecraft.quick_charge.desc": "Disminuye el tiempo de carga de la ballesta.",
-  "enchantment.minecraft.piercing.desc": "Las flechas pasan a través de múltiples entidades."
+  "enchantment.minecraft.piercing.desc": "Las flechas pasan a través de múltiples entidades.",
+
+  "enchdesc.max_level": "Nivel máximo: %s"
 }
