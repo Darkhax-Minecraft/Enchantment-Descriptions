@@ -74,6 +74,9 @@
   
   "enchantment.origins.water_protection.desc": "Pretects the user from water contact damage.",
   
+  "enchantment.create.potato_recovery.desc": "Potato Cannon ammo has a chance to drop as an item rather than be consumed.",
+  "enchantment.create.capacity.desc": "Allows the Backtank to hold more pressurized air.",
+  
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
 }
