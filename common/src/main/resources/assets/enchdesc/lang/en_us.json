@@ -59,5 +59,7 @@
   "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
   "enchantment.grapplemod.wallrunenchantment.desc": "Allows the user to run on walls.",
   "enchantment.grapplemod.doublejumpenchantment.desc": "Allows the user to jump twice.",
-  "enchantment.grapplemod.slidingenchantment.desc": "Allows the user to slide using built up momentum."
+  "enchantment.grapplemod.slidingenchantment.desc": "Allows the user to slide using built up momentum.",
+  
+  "enchantment.hunterillager.bounce.desc": "Increases how much boomerangs will bounce off walls."
 }
