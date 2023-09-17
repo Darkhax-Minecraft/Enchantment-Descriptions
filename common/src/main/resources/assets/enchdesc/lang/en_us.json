@@ -75,5 +75,8 @@
 
   "__support_endless_biomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
   "enchantment.endlessbiomes.vwooping.desc": "Enemies that attack you may be teleported away.",
-  "enchantment.endlessbiomes.shared_pain": "When a mob is killed any excess damage will be dealt to nearby mobs."
+  "enchantment.endlessbiomes.shared_pain": "When a mob is killed any excess damage will be dealt to nearby mobs.",
+
+  "__support_stallwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
+  "enchantment.stalwart_dungeons.thunder_strike.desc": "Gives hammers the ability to summon lightning."
 }
