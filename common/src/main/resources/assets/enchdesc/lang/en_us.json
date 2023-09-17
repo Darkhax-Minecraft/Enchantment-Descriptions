@@ -71,5 +71,9 @@
 
   "__support_deeper_and_darker": "https://www.curseforge.com/minecraft/mc-mods/deeperdarker",
   "enchantment.deeperdarker.catalysis.desc": "Killing mobs will spread sculk nearby.",
-  "enchantment.deeperdarker.sculk_smite.desc": "Increases damage to sculk based mobs."
+  "enchantment.deeperdarker.sculk_smite.desc": "Increases damage to sculk based mobs.",
+
+  "__support_endless_biomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
+  "enchantment.endlessbiomes.vwooping.desc": "Enemies that attack you may be teleported away.",
+  "enchantment.endlessbiomes.shared_pain": "When a mob is killed any excess damage will be dealt to nearby mobs."
 }
