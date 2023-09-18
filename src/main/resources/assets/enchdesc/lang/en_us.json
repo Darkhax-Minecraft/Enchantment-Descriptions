@@ -84,10 +84,13 @@
   "__comment_illagers+": "https://www.curseforge.com/minecraft/mc-mods/illagers",
   "enchantment.illagers_plus.illagers_bane.desc": "Attacks do more damage against illager.",
 
-  "__comment_organics": "",
+  "__comment_organics": "https://www.curseforge.com/minecraft/mc-mods/organics",
   "enchantment.organics.digging.desc": "The tool will mine in a 3x3 area.",
   "enchantment.organics.meteorological_absorption.desc": "Gives the user beneficial effects in bad weather.",
   "enchantment.organics.ender_phasing.desc": "Prevents knockback while sneaking but makes you vulnerable to water.",
+
+  "__comment_mythic_botany": "https://www.curseforge.com/minecraft/mc-mods/mythicbotany",
+  "enchantment.mythicbotany.hammer_mobility.desc": "Increases the attack speed of hammers.",
 
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
