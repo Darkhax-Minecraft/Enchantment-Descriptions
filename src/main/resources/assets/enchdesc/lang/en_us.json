@@ -92,6 +92,10 @@
   "__comment_mythic_botany": "https://www.curseforge.com/minecraft/mc-mods/mythicbotany",
   "enchantment.mythicbotany.hammer_mobility.desc": "Increases the attack speed of hammers.",
 
+  "__comment_netheragriculture": "https://www.curseforge.com/minecraft/mc-mods/nether-agriculture",
+  "enchantment.netheragriculture.health_steal.desc": "Heals the user when attacking a mob.",
+  "enchantment.netheragriculture.poison_blade.desc": "Attacks will poison the target.",
+
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
 }
