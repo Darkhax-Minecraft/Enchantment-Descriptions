@@ -100,7 +100,26 @@
   "enchantment.grapplemod.wallrunenchantment.desc": "Allows the user to run on walls.",
   "enchantment.grapplemod.doublejumpenchantment.desc": "Allows the user to jump twice.",
   "enchantment.grapplemod.slidingenchantment.desc": "Allows the user to slide using built up momentum.",
-  
+
+  "__support_pyromancer": "https://www.curseforge.com/minecraft/mc-mods/pyromancer",
+  "enchantment.pyromancer.lightspeed.desc": "Increases attack speed but lowers the amount of damage.",
+  "enchantment.pyromancer.resilience.desc": "Slingshot projectiles will travel further.",
+  "enchantment.pyromancer.sturdiness.desc": "Attacks will partially bypass armor.",
+  "enchantment.pyromancer.undertaker.desc": "Attacks will stun burning enemies.",
+  "enchantment.pyromancer.hook.desc": "Attacks move you towards the target.",
+  "enchantment.pyromancer.tamer.desc": "Stuns nearby hoglins.",
+  "enchantment.pyromancer.yatagarasu.desc": "Attacks will spread damage from burning enemies.",
+  "enchantment.pyromancer.legerdemain.desc": "Slingshots may double projectiles.",
+  "enchantment.pyromancer.breakthrough.desc": "Attacking a shielded target will temporarily disable their shield.",
+  "enchantment.pyromancer.blazing_wounds.desc": "Attacking a burning target will make them burst with magma.",
+  "enchantment.pyromancer.scalding_spikes.desc": "Attacks will cause streams of fire to erupt from the target.",
+  "enchantment.pyromancer.volcanic_mark.desc": "Targets hit by the projectile will be weaker to melee attacks.",
+  "enchantment.pyromancer.rush.desc": "Increases damage if you are faster than the target.",
+  "enchantment.pyromancer.infernal_harvest.desc": "Attacks will ignite nearby enemies.",
+  "enchantment.pyromancer.two_handed.desc": "Increases damage when the offhand is empty.",
+  "enchantment.pyromancer.ashen_pages.desc": "Prevents recharging with blaze powder.",
+  "enchantment.pyromancer.goliath_slayer.desc": "Projectiles deal more damage to larger enemies.",
+
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
 }
