@@ -81,8 +81,13 @@
 
   "enchantment.hunterillager.bounce.desc": "Increases how much boomerangs will bounce off walls.",
 
-  "__commant_illagers+": "https://www.curseforge.com/minecraft/mc-mods/illagers",
+  "__comment_illagers+": "https://www.curseforge.com/minecraft/mc-mods/illagers",
   "enchantment.illagers_plus.illagers_bane.desc": "Attacks do more damage against illager.",
+
+  "__comment_organics": "",
+  "enchantment.organics.digging.desc": "The tool will mine in a 3x3 area.",
+  "enchantment.organics.meteorological_absorption.desc": "Gives the user beneficial effects in bad weather.",
+  "enchantment.organics.ender_phasing.desc": "Prevents knockback while sneaking but makes you vulnerable to water.",
 
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
