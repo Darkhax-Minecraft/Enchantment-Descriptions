@@ -80,7 +80,10 @@
   "enchantment.oriacs.flying_protection.desc": "Protects the user from damage received by flying into obstacles.",
 
   "enchantment.hunterillager.bounce.desc": "Increases how much boomerangs will bounce off walls.",
-  
+
+  "__commant_illagers+": "https://www.curseforge.com/minecraft/mc-mods/illagers",
+  "enchantment.illagers_plus.illagers_bane.desc": "Attacks do more damage against illager.",
+
   "__comment": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Compatible Items"
 }
