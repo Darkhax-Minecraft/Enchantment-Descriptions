@@ -51,6 +51,7 @@
   "enchantment.shieldsplus.recoil.desc": "Knocks back attackers and projectiles.",
   "enchantment.shieldsplus.reflection.desc": "Reflects damage back at attackers.",
   "enchantment.shieldsplus.reinforced.desc": "Increases amount of damage blocked by shields.",
+  "enchantment.shieldsplus.aegis.desc": "Reduces damage taken while blocking.",
   "enchantment.shieldsplus.ablaze.desc": "Sets attackers and projectiles on fire.",
   "enchantment.shieldsplus.lightweight.desc": "Allows the user to move faster when blocking.",
   "enchantment.shieldsplus.fast_recovery.desc": "Reduces shield cooldown times.",
