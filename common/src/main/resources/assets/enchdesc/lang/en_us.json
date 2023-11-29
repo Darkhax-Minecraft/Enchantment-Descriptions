@@ -60,23 +60,43 @@
   "enchantment.grapplemod.wallrunenchantment.desc": "Allows the user to run on walls.",
   "enchantment.grapplemod.doublejumpenchantment.desc": "Allows the user to jump twice.",
   "enchantment.grapplemod.slidingenchantment.desc": "Allows the user to slide using built up momentum.",
-  
+
+  "__support_hunterillager": "https://www.curseforge.com/minecraft/mc-mods/huntersreturn",
   "enchantment.hunterillager.bounce.desc": "Increases how much boomerangs will bounce off walls.",
   
-  "__support_better_archeology": "https://www.curseforge.com/minecraft/mc-mods/better-archeology",
+  "__support_betterarcheology": "https://www.curseforge.com/minecraft/mc-mods/better-archeology",
   "enchantment.betterarcheology.penetrating_strike.desc": "Some damage will bypass protection enchantments.",
   "enchantment.betterarcheology.seas_bounty.desc": "Allows you to catch more types of treasure.",
   "enchantment.betterarcheology.soaring_winds.desc": "Gives the elytra a boost when taking off.",
   "enchantment.betterarcheology.tunneling.desc": "Mines the block below the target block as well.",
 
-  "__support_deeper_and_darker": "https://www.curseforge.com/minecraft/mc-mods/deeperdarker",
+  "__support_deeperdarker": "https://www.curseforge.com/minecraft/mc-mods/deeperdarker",
   "enchantment.deeperdarker.catalysis.desc": "Killing mobs will spread sculk nearby.",
   "enchantment.deeperdarker.sculk_smite.desc": "Increases damage to sculk based mobs.",
 
-  "__support_endless_biomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
+  "__support_endlessbiomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
   "enchantment.endlessbiomes.vwooping.desc": "Enemies that attack you may be teleported away.",
   "enchantment.endlessbiomes.shared_pain": "When a mob is killed any excess damage will be dealt to nearby mobs.",
 
-  "__support_stallwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
-  "enchantment.stalwart_dungeons.thunder_strike.desc": "Gives hammers the ability to summon lightning."
+  "__support_stalwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
+  "enchantment.stalwart_dungeons.thunder_strike.desc": "Gives hammers the ability to summon lightning.",
+
+  "__support_dungeonsenchantments": "https://www.curseforge.com/minecraft/mc-mods/dungeons-enchantments",
+  "enchantment.dungeonsenchantments.thundering.desc": "Attacks strike the target with lightning.",
+  "enchantment.dungeonsenchantments.freezing.desc": "Attacks slow the target down.",
+  "enchantment.dungeonsenchantments.fuse_shot.desc": "Bows may shoot explosive arrows.",
+  "enchantment.dungeonsenchantments.deflect.desc": "Arrows may deflect back at the shooter.",
+  "enchantment.dungeonsenchantments.guarding_strike.desc": "Defeating enemies boosts your defence temporarily.",
+  "enchantment.dungeonsenchantments.leeching.desc": "Defeating enemies will heal the user.",
+  "enchantment.dungeonsenchantments.rush.desc": "Temporarily increases speed after the user is hurt.",
+  "enchantment.dungeonsenchantments.weakening.desc": "Attacks temporarily weaken the enemy.",
+  "enchantment.dungeonsenchantments.cowardice.desc": "Attacks do more damage when the users health is full.",
+  "enchantment.dungeonsenchantments.illagers_bane.desc": "Attacks do more damage against illagers.",
+  "enchantment.dungeonsenchantments.radiance.desc": "Heals nearby players.",
+  "enchantment.dungeonsenchantments.radiance_shot.desc": "Arrows heal nearby players.",
+  "enchantment.dungeonsenchantments.void_strike.desc": "Consecutive attacks do more damage.",
+  "enchantment.dungeonsenchantments.pain_cycle.desc": "Attacks hurt the user. Every fifth attack deals massive damage.",
+  "enchantment.dungeonsenchantments.ambush.desc": "Attacks deal extra damage to enemies that are not looking at you.",
+  "enchantment.dungeonsenchantments.exploding.desc": "Attacks also create an explosion.",
+  "enchantment.dungeonsenchantments.recycler.desc": "Being hit by projectiles sometimes produces arrows."
 }
