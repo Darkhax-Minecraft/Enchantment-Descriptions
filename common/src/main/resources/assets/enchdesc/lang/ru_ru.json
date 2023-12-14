@@ -39,8 +39,44 @@
   "enchantment.minecraft.piercing.desc": "Позволяет снарядам пробивать существ насквозь.",
   "enchantment.minecraft.soul_speed.desc": "Увеличивает скорость передвижения на блоках душ.",
   "enchantment.minecraft.swift_sneak.desc": "Увеличивает скорость передвижения при подкрадывании.",
+  "enchdesc.activate.message": "Удерживайте клавишу Shift, чтобы просмотреть описания чар.",
+  
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Совместимые предметы",
+  
   "__support_gofish": "Поддержка Go Fish https://www.curseforge.com/minecraft/mc-mods/go-fish",
   "enchantment.gofish.deepfry.desc": "Когда будет поймана определенная рыба, она будет приготовлена."
+
+  "__support_shield+": "Shields+ https://www.curseforge.com/minecraft/mc-mods/shieldsplus",
+  "enchantment.shieldsplus.recoil.desc": "Отбрасывает атакующих и снаряды.",
+  "enchantment.shieldsplus.reflection.desc": "Отражает урон обратно атакующим.",
+  "enchantment.shieldsplus.reinforced.desc": "Увеличивает количество урона, блокируемого щитами.",
+  "enchantment.shieldsplus.ablaze.desc": "Поджигает атакующих и снаряды.",
+  "enchantment.shieldsplus.lightweight.desc": "Позволяет пользователю двигаться быстрее при блокировании.",
+  "enchantment.shieldsplus.fast_recovery.desc": "Уменьшает время восстановления щита.",
+  "enchantment.shieldsplus.shield_bash.desc": "Дает щиту ударную атаку.",
+
+  "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
+  "enchantment.grapplemod.wallrunenchantment.desc": "Позволяет пользователю бегать по стенам.",
+  "enchantment.grapplemod.doublejumpenchantment.desc": "Позволяет пользователю прыгать дважды.",
+  "enchantment.grapplemod.slidingenchantment.desc": "Позволяет пользователю скользить, используя накопленный импульс.",
+  
+  "enchantment.hunterillager.bounce.desc": "Увеличивает степень отскока бумерангов от стен.",
+  
+  "__support_better_archeology": "https://www.curseforge.com/minecraft/mc-mods/better-archeology",
+  "enchantment.betterarcheology.penetrating_strike.desc": "Некоторый урон обойдет защитные чары.",
+  "enchantment.betterarcheology.seas_bounty.desc": "Позволяет поймать больше видов сокровищ.",
+  "enchantment.betterarcheology.soaring_winds.desc": "Придает элитрам импульс при взлете.",
+  "enchantment.betterarcheology.tunneling.desc": "Также минирует блок ниже целевого блока.",
+
+  "__support_deeper_and_darker": "https://www.curseforge.com/minecraft/mc-mods/deeperdarker",
+  "enchantment.deeperdarker.catalysis.desc": "Убийство мобов приведет к распространению скалк поблизости.",
+  "enchantment.deeperdarker.sculk_smite.desc": "Увеличивает урон мобам, основанным на скалках.",
+
+  "__support_endless_biomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
+  "enchantment.endlessbiomes.vwooping.desc": "Враги, напавшие на вас, могут быть телепортированы прочь.",
+  "enchantment.endlessbiomes.shared_pain": "Когда моб убит, любой дополнительный урон будет нанесен ближайшим мобам.",
+
+  "__support_stallwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
+  "enchantment.stalwart_dungeons.thunder_strike.desc": "Дает молотам возможность вызывать молнии."
 }
