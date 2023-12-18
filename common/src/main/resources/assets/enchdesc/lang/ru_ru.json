@@ -45,7 +45,7 @@
   "enchdesc.jei.compatible_items.title": "Совместимые предметы",
   
   "__support_gofish": "Поддержка Go Fish https://www.curseforge.com/minecraft/mc-mods/go-fish",
-  "enchantment.gofish.deepfry.desc": "Когда будет поймана определенная рыба, она будет приготовлена."
+  "enchantment.gofish.deepfry.desc": "Когда будет поймана определенная рыба, она будет приготовлена.",
 
   "__support_shield+": "Shields+ https://www.curseforge.com/minecraft/mc-mods/shieldsplus",
   "enchantment.shieldsplus.recoil.desc": "Отбрасывает атакующих и снаряды.",
