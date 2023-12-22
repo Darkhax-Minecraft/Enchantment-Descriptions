@@ -39,5 +39,11 @@
   "enchantment.minecraft.piercing.desc": "Allows projectiles to pierce through mobs.",
   "enchantment.minecraft.soul_speed.desc": "Increases movement speed on soul blocks.",
   "__comment_jei": "JEI Compat",
-  "enchdesc.jei.compatible_items.title": "Compatible Items"
+  "enchdesc.jei.compatible_items.title": "Compatible Items",
+  
+  "__support_create_stuff": "https://www.curseforge.com/minecraft/mc-mods/create-stuff-additions",
+  "enchantment.create_sa.gravity_gun.desc": "Allows the Block Picker to move and throw entities.",
+  "enchantment.create_sa.impact": "Allows the Grapplin Whisk to do a small burst of AOE damage.",
+  "enchantment.create_sa.digging.desc": "Allows the drill to dig a bigger hole.",
+  "enchantment.create_sa.hellfire": "Increases the damage of the flamethrower and place fire."
 }
