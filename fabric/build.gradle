@@ -164,5 +164,6 @@ modrinth {
     uploadFile.set(tasks.remapJar)
     dependencies {
         required.project("fabric-api")
+        required.project("bookshelf-lib")
     }
 }

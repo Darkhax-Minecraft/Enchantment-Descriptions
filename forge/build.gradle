@@ -224,6 +224,9 @@ modrinth {
     versionName.set("${mod_name}-Forge-${minecraft_version}-$version")
     versionType.set('release')
     uploadFile.set(tasks.jar)
+    dependencies {
+        required.project("bookshelf-lib")
+    }
 }
 
 // Forge's Jar Signer
