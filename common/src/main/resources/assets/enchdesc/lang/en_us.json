@@ -99,5 +99,11 @@
   "enchantment.dungeonsenchantments.pain_cycle.desc": "Attacks hurt the user. Every fifth attack deals massive damage.",
   "enchantment.dungeonsenchantments.ambush.desc": "Attacks deal extra damage to enemies that are not looking at you.",
   "enchantment.dungeonsenchantments.exploding.desc": "Attacks also create an explosion.",
-  "enchantment.dungeonsenchantments.recycler.desc": "Being hit by projectiles sometimes produces arrows."
+  "enchantment.dungeonsenchantments.recycler.desc": "Being hit by projectiles sometimes produces arrows.",
+  
+  "__support_create_stuff": "https://www.curseforge.com/minecraft/mc-mods/create-stuff-additions",
+  "enchantment.create_sa.gravity_gun.desc": "Allows the drill to move and throw blocks and entities.",
+  "enchantment.create_sa.impact": "Allows the Grapplin Whisk to do a small burst of AOE damage.",
+  "enchantment.create_sa.digging.desc": "Allows the drill to dig a bigger hole.",
+  "enchantment.create_sa.hellfire": "Increases the damage of the flamethrower and place fire."
 }
