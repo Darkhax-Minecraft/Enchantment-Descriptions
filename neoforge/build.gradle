@@ -134,6 +134,7 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.addJavaVersion('Java 17')
     mainFile.releaseType = 'release'
     mainFile.addGameVersion('Server', 'Client')
+    mainFile.addRequirement('bookshelf')
 
     // Append Patreon Supporters
     def patreonInfo = project.findProperty('patreon')
