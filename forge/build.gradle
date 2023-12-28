@@ -250,3 +250,9 @@ task signJar(type: net.minecraftforge.gradle.common.tasks.SignJar, dependsOn: ja
         project.logger.warn('Jar signing is disabled for this build. One or more keyStore properties are not specified.')
     }
 }
+
+sourceSets.each {
+    def dir = layout.buildDirectory.dir("sourcesSets/$it.name")
+    it.output.resourcesDir = dir
+    it.java.destinationDirectory = dir
+}
