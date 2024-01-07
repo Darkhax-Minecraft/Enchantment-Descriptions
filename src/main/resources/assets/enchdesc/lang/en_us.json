@@ -133,7 +133,7 @@
   
   "__support_create_stuff": "https://www.curseforge.com/minecraft/mc-mods/create-stuff-additions",
   "enchantment.create_sa.gravity_gun.desc": "Allows the Block Picker to move and throw entities.",
-  "enchantment.create_sa.impact": "Allows the Grapplin Whisk to do a small burst of AOE damage.",
+  "enchantment.create_sa.impact.desc": "Allows the Grapplin Whisk to do a small burst of AOE damage.",
   "enchantment.create_sa.digging.desc": "Allows the drill to dig a bigger hole.",
-  "enchantment.create_sa.hellfire": "Increases the damage of the flamethrower and place fire."
+  "enchantment.create_sa.hellfire.desc": "Increases the damage of the flamethrower and place fire."
 }
