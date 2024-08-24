@@ -27,6 +27,9 @@ public class ConfigSchema {
     @Expose
     public int indentSize = 0;
 
+    @Expose
+    public boolean displayMaxLevel = false;
+
     public static ConfigSchema load(File configFile) {
 
         ConfigSchema config = new ConfigSchema();

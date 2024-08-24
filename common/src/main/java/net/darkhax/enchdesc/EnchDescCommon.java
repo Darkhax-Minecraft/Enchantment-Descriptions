@@ -5,6 +5,7 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
+import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.world.item.EnchantedBookItem;
@@ -56,6 +57,19 @@ public class EnchDescCommon {
                                         }
 
                                         tooltip.add(tooltip.indexOf(line) + 1, descriptionText);
+
+                                        if (config.displayMaxLevel && enchantment.getMaxLevel() != 1) {
+                                            tooltip.set(tooltip.indexOf(line),
+                                                    Component.literal("").append(tooltip.get(tooltip.indexOf(line)))
+                                                            .append(CommonComponents.SPACE)
+                                                            .append("/")
+                                                            .append(CommonComponents.SPACE)
+                                                            .append(Component.translatable("enchantment.level."
+                                                                    + Integer
+                                                                            .toString(enchantment.getMaxLevel()))));
+
+                                        }
+
                                         break;
                                     }
                                 }
