@@ -192,5 +192,20 @@
   "enchantment.improved_exp.ore_detector.desc": "Using the right mouse button will tell the user about nearby ores.",
   "enchantment.improved_exp.flight.desc": "Allows the wearer to fly.",
   "enchantment.improved_exp.werewolf.desc": "Grants the wearer buffs based on the current moon phase.",
-  "enchantment.improved_exp.fear_of_height.desc": "The wearer will take damage if they are too high."
+  "enchantment.improved_exp.fear_of_height.desc": "The wearer will take damage if they are too high.",
+
+  "__support_dungeons_taverns": "Dungeons and Taverns https://www.curseforge.com/minecraft/mc-mods/dungeon-and-taverns",
+  "enchantment.dnt.antidote.desc": "Negates all damage from poison and deals it to the chestplate instead.",
+  "enchantment.dnt.conductivity_curse.desc": "Gives a chance to get struck by lightning during a thunderstorm.",
+  "enchantment.dnt.ghasted.desc": "Shoot a fire arrow which explodes upon landing, destroying the arrow in the process.",
+  "enchantment.dnt.gravity.desc": "Shoot an arrow which pulls all mobs around it upon landing, destroying the arrow in the process.",
+  "enchantment.dnt.illagers_bane.desc": "Deal extra damage to Illagers, Vexes, Witches and Ravagers.",
+  "enchantment.dnt.multishot.desc": "Shoot multiple arrows at once.",
+  "enchantment.dnt.outreach.desc": "Raises the block interaction range.",
+  "enchantment.dnt.photosynthesis.desc": "Repairs the item slowly when it is in direct view of the sun.",
+  "enchantment.dnt.piercing.desc": "Allows arrows to pierce through mobs.",
+  "enchantment.dnt.power.desc": "Increases the damage of arrows fired from the crossbow.",
+  "enchantment.dnt.traveler.desc": "Faster sprinting speed and step up full blocks.",
+  "enchantment.dnt.wax_wings.desc": "Negates durability damage from slow gliding, but increases the durability damage from gliding fast.",
+  "enchantment.dnt.wither_coated.desc": "Deals wither upon hitting the target, but doubles the durability damage."
 }
