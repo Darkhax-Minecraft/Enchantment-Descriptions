@@ -75,10 +75,12 @@ public class EnchdescMod {
                 entry.getKey().unwrapKey().ifPresent(key -> {
                     final Component fullName = Enchantment.getFullname(entry.getKey(), entry.getIntValue());
                     for (Component line : lines) {
-                        if (fullName.equals(line)) {
+                        if (fullName.getContents().equals(line.getContents())) {
                             final int index = lines.indexOf(line);
                             if (index != -1) {
                                 MutableComponent description = getDescription(entry.getKey(), key.location(), entry.getIntValue());
+                                description = getNewDescription(new DescriptionHolder(description, entry.getKey(), entry.getIntValue()));
+
                                 if (description != null) {
                                     ComponentUtils.mergeStyles(description, config.style);
                                     lines.add(index + 1, config.prefix.copy().append(description).append(config.suffix));
@@ -91,6 +93,16 @@ public class EnchdescMod {
             }
         }
     }
+
+    /**
+     * Mixin inject point to modify holder to make special custom desc base on level or oldDescription
+     */
+    @Nullable
+    private MutableComponent getNewDescription(DescriptionHolder holder) {
+
+        return holder.getDescription();
+    }
+
 
     @Nullable
     @OnlyFor(PhysicalSide.CLIENT)
