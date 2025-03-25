@@ -17,10 +17,18 @@ import java.util.List;
 @Mixin(ItemStack.class)
 public class MixinItemStack {
 
+    @Inject(method = "getTooltipLines(Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/TooltipFlag;)Ljava/util/List;", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;addToTooltip(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/item/Item$TooltipContext;Ljava/util/function/Consumer;Lnet/minecraft/world/item/TooltipFlag;)V", ordinal = 2))
+    public void beforeEnchantmentTooltips(Item.TooltipContext context, Player player, TooltipFlag flags, CallbackInfoReturnable<List<Component>> cbi) {
+        EnchdescMod.getInstance().setupContext((ItemStack) (Object) this);
+    }
+
     @Inject(method = "getTooltipLines(Lnet/minecraft/world/item/Item$TooltipContext;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/item/TooltipFlag;)Ljava/util/List;", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/item/ItemStack;addToTooltip(Lnet/minecraft/core/component/DataComponentType;Lnet/minecraft/world/item/Item$TooltipContext;Ljava/util/function/Consumer;Lnet/minecraft/world/item/TooltipFlag;)V", ordinal = 3, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
-    public void addEnchantmentTooltips(Item.TooltipContext context, Player player, TooltipFlag flags, CallbackInfoReturnable<List<Component>> cbi, List<Component> lines) {
-        if (EnchdescMod.hasInstance() && EnchdescMod.getInstance().hasInitialized()) {
-            EnchdescMod.getInstance().insertDescriptions((ItemStack) (Object) this, lines);
+    public void afterEnchantmentTooltips(Item.TooltipContext context, Player player, TooltipFlag flags, CallbackInfoReturnable<List<Component>> cbi, List<Component> lines) {
+        final ItemStack self = (ItemStack) (Object) this;
+        EnchdescMod.getInstance().revertContext(self);
+        final EnchdescMod mod = EnchdescMod.getInstance();
+        if (mod.canDisplayDescription(self) && !mod.isKeybindConditionMet()) {
+            lines.add(EnchdescMod.getInstance().getKeybindText());
         }
     }
 }

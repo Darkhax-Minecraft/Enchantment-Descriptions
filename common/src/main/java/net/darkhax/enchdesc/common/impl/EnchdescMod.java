@@ -1,9 +1,7 @@
 package net.darkhax.enchdesc.common.impl;
 
-import it.unimi.dsi.fastutil.objects.Object2IntMap;
-import net.darkhax.bookshelf.common.api.PhysicalSide;
-import net.darkhax.bookshelf.common.api.annotation.OnlyFor;
 import net.darkhax.bookshelf.common.api.service.Services;
+import net.darkhax.enchdesc.common.api.ContextProvider;
 import net.darkhax.pricklemc.common.api.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
@@ -14,7 +12,6 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
-import net.minecraft.network.chat.contents.PlainTextContents;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.EnchantedBookItem;
@@ -23,7 +20,7 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
+import java.util.function.Consumer;
 
 public class EnchdescMod {
 
@@ -43,57 +40,55 @@ public class EnchdescMod {
         hasInitialized = true;
     }
 
-
-    @OnlyFor(PhysicalSide.CLIENT)
-    public void insertDescriptions(ItemStack stack, List<Component> lines) {
-        if (this.hasInitialized && this.config.enabled && hasEnchantments(stack)) {
-            if (config.only_on_books && !(stack.getItem() instanceof EnchantedBookItem)) {
-                return;
+    public void setupContext(ItemStack stack) {
+        if (this.canDisplayDescription(stack) && this.isKeybindConditionMet()) {
+            if (stack.getEnchantments() instanceof ContextProvider provider) {
+                provider.enchdesc$setStack(stack);
             }
-            if (config.only_in_enchanting_table && !(Minecraft.getInstance().screen instanceof EnchantmentScreen)) {
-                return;
+            if (stack.get(DataComponents.STORED_ENCHANTMENTS) instanceof ContextProvider provider) {
+                provider.enchdesc$setStack(stack);
             }
-            if (config.require_keybind && !Screen.hasShiftDown()) {
-                if (config.activate_text.getContents() != PlainTextContents.EMPTY) {
-                    lines.add(config.activate_text);
-                }
-                return;
-            }
-            insertDescriptions(stack.getEnchantments(), lines);
-            insertDescriptions(stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY), lines);
         }
+    }
+
+    public void revertContext(ItemStack stack) {
+        if (stack.getEnchantments() instanceof ContextProvider provider) {
+            provider.enchdesc$setStack(ItemStack.EMPTY);
+        }
+        if (stack.get(DataComponents.STORED_ENCHANTMENTS) instanceof ContextProvider provider) {
+            provider.enchdesc$setStack(ItemStack.EMPTY);
+        }
+    }
+
+    public boolean canDisplayDescription(ItemStack stack) {
+        return hasInitialized &&
+               config.enabled &&
+               hasEnchantments(stack) &&
+               (!config.only_on_books || stack.getItem() instanceof EnchantedBookItem) &&
+               (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+    }
+
+    public Component getKeybindText() {
+        return this.config.activate_text;
+    }
+
+    public boolean isKeybindConditionMet() {
+        return !this.config.require_keybind || Screen.hasShiftDown();
     }
 
     private boolean hasEnchantments(ItemStack stack) {
         return !stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty() || !stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty();
     }
 
-    @OnlyFor(PhysicalSide.CLIENT)
-    private void insertDescriptions(ItemEnchantments enchantments, List<Component> lines) {
-        if (!enchantments.isEmpty()) {
-            for (Object2IntMap.Entry<Holder<Enchantment>> entry : enchantments.entrySet()) {
-                entry.getKey().unwrapKey().ifPresent(key -> {
-                    final Component fullName = Enchantment.getFullname(entry.getKey(), entry.getIntValue());
-                    for (Component line : lines) {
-                        if (fullName.equals(line)) {
-                            final int index = lines.indexOf(line);
-                            if (index != -1) {
-                                MutableComponent description = getDescription(entry.getKey(), key.location(), entry.getIntValue());
-                                if (description != null) {
-                                    ComponentUtils.mergeStyles(description, config.style);
-                                    lines.add(index + 1, config.prefix.copy().append(description).append(config.suffix));
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                });
-            }
+    public void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
+        final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().location(), level);
+        if (description != null) {
+            ComponentUtils.mergeStyles(description, config.style);
+            lines.accept(config.prefix.copy().append(description).append(config.suffix));
         }
     }
 
     @Nullable
-    @OnlyFor(PhysicalSide.CLIENT)
     private MutableComponent getDescription(Holder<Enchantment> enchantment, ResourceLocation id, int level) {
         MutableComponent description = getDescription("enchantment." + id.getNamespace() + "." + id.getPath() + ".", level);
         if (description == null && enchantment.value().description().getContents() instanceof TranslatableContents translatable) {
@@ -103,7 +98,6 @@ public class EnchdescMod {
     }
 
     @Nullable
-    @OnlyFor(PhysicalSide.CLIENT)
     private MutableComponent getDescription(String baseKey, int level) {
         for (String keyType : KEY_TYPES) {
             String key = baseKey + keyType;
@@ -116,14 +110,6 @@ public class EnchdescMod {
             }
         }
         return null;
-    }
-
-    public boolean hasInitialized() {
-        return this.hasInitialized;
-    }
-
-    public static boolean hasInstance() {
-        return instance != null;
     }
 
     public static EnchdescMod getInstance() {
