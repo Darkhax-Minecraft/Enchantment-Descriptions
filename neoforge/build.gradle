@@ -31,13 +31,7 @@ neoForge {
 }
 
 dependencies {
-    implementation group: 'net.darkhax.bookshelf', name: 'bookshelf-neoforge-1.21.1', version: bookshelf_version
-    implementation group: 'net.darkhax.pricklemc', name: 'prickle-neoforge-1.21.1', version: prickle_version
-    if (project.hasProperty('jei_version')) {
-        compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-        compileOnly("mezz.jei:jei-${minecraft_version}-neoforge-api:${jei_version}")
-        runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
-    }
+    implementation group: 'net.darkhax.pricklemc', name: "prickle-neoforge-${minecraft_version}", version: prickle_version
 }
 
 // CurseForge
@@ -51,8 +45,6 @@ task publishCurseForge(type: net.darkhax.curseforgegradle.TaskPublishCurseForge)
     mainFile.addJavaVersion('Java 21')
     mainFile.releaseType = 'release'
     mainFile.addModLoader('NeoForge')
-
-    mainFile.addRequirement('bookshelf')
     mainFile.addRequirement('prickle')
 
     if (rootProject.hasProperty('mod_client_only') && rootProject.findProperty('mod_client_only') == 'true') {
@@ -89,7 +81,6 @@ modrinth {
     uploadFile.set(tasks.jar)
 
     dependencies {
-        required.project("bookshelf-lib")
         required.project("prickle")
     }
 }

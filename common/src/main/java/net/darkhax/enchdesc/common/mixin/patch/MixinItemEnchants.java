@@ -3,7 +3,7 @@ package net.darkhax.enchdesc.common.mixin.patch;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
 import net.darkhax.enchdesc.common.api.ContextProvider;
-import net.darkhax.enchdesc.common.impl.EnchdescMod;
+import net.darkhax.enchdesc.common.impl.EnchantmentDescriptionsMod;
 import net.minecraft.core.Holder;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderSet;
@@ -42,14 +42,14 @@ public class MixinItemEnchants implements ContextProvider {
     @Inject(method = "addToTooltip", at = @At(value = "INVOKE", target = "Ljava/util/function/Consumer;accept(Ljava/lang/Object;)V", ordinal = 0, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
     public void sortedEnchantment(Item.TooltipContext context, Consumer<Component> tooltips, TooltipFlag flag, CallbackInfo cbi, HolderLookup.Provider lookup, HolderSet<Enchantment> sorted, Iterator<Holder<Enchantment>> iter, Holder<Enchantment> enchantment, int level) {
         if (!this.enchdesc$heldStack.isEmpty()) {
-            EnchdescMod.getInstance().insertDescriptions(enchantment, level, tooltips);
+            EnchantmentDescriptionsMod.insertDescriptions(enchantment, level, tooltips);
         }
     }
 
     @Inject(method = "addToTooltip", at = @At(value = "INVOKE", target = "Ljava/util/function/Consumer;accept(Ljava/lang/Object;)V", ordinal = 1, shift = At.Shift.AFTER), locals = LocalCapture.CAPTURE_FAILHARD)
     public void unsortedEnchantment(Item.TooltipContext context, Consumer<Component> tooltips, TooltipFlag flag, CallbackInfo cbi, HolderLookup.Provider lookup, HolderSet<Enchantment> sorted, ObjectIterator<Holder<Enchantment>> iter, Object2IntMap.Entry<Holder<Enchantment>> entry, Holder<Enchantment> enchantment) {
         if (!this.enchdesc$heldStack.isEmpty()) {
-            EnchdescMod.getInstance().insertDescriptions(enchantment, entry.getIntValue(), tooltips);
+            EnchantmentDescriptionsMod.insertDescriptions(enchantment, entry.getIntValue(), tooltips);
         }
     }
 }

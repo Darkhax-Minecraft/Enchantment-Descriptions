@@ -14,15 +14,8 @@ neoForge {
 dependencies {
     compileOnly group: 'org.spongepowered', name: 'mixin', version: '0.8.5'
     compileOnly group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.4.0'
-    
-    compileOnly group: 'net.darkhax.bookshelf', name: 'bookshelf-common-1.21.1', version: bookshelf_version
-    compileOnly group: 'net.darkhax.pricklemc', name: 'prickle-common-1.21.1', version: prickle_version
-    
+    compileOnly group: 'net.darkhax.pricklemc', name: "prickle-common-${minecraft_version}", version: prickle_version
     annotationProcessor group: 'io.github.llamalad7', name: 'mixinextras-common', version: '0.4.0'
-
-    if (project.hasProperty('jei_version')) {
-        compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
-    }
 }
 
 configurations {

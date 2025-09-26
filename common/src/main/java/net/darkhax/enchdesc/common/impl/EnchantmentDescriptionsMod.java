@@ -1,8 +1,8 @@
 package net.darkhax.enchdesc.common.impl;
 
-import net.darkhax.bookshelf.common.api.service.Services;
 import net.darkhax.enchdesc.common.api.ContextProvider;
 import net.darkhax.pricklemc.common.api.config.ConfigManager;
+import net.darkhax.pricklemc.common.api.util.CachedSupplier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
@@ -14,34 +14,22 @@ import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class EnchdescMod {
+public class EnchantmentDescriptionsMod {
 
     private static final String[] KEY_TYPES = {"desc", "description", "info"};
 
-    private static EnchdescMod instance;
-    private boolean hasInitialized = false;
-    private Config config;
+    public static final CachedSupplier<Config> config = CachedSupplier.cache(() -> ConfigManager.load(Constants.MOD_ID, new Config()));
 
-    public void init() {
-        if (hasInitialized) {
-            throw new IllegalStateException("The " + Constants.MOD_NAME + " has already been initialized.");
-        }
-        if (Services.PLATFORM.isPhysicalClient()) {
-            config = ConfigManager.load(Constants.MOD_ID, new Config());
-        }
-        hasInitialized = true;
-    }
-
-    public void setupContext(ItemStack stack) {
-        if (this.canDisplayDescription(stack) && this.isKeybindConditionMet()) {
+    public static void setupContext(ItemStack stack) {
+        if (canDisplayDescription(stack) && isKeybindConditionMet()) {
             if (stack.getEnchantments() instanceof ContextProvider provider) {
                 provider.enchdesc$setStack(stack);
             }
@@ -51,7 +39,7 @@ public class EnchdescMod {
         }
     }
 
-    public void revertContext(ItemStack stack) {
+    public static void revertContext(ItemStack stack) {
         if (stack.getEnchantments() instanceof ContextProvider provider) {
             provider.enchdesc$setStack(ItemStack.EMPTY);
         }
@@ -60,36 +48,37 @@ public class EnchdescMod {
         }
     }
 
-    public boolean canDisplayDescription(ItemStack stack) {
-        return hasInitialized &&
-               config.enabled &&
+    public static boolean canDisplayDescription(ItemStack stack) {
+        final Config cfg = config.get();
+        return cfg.enabled &&
                hasEnchantments(stack) &&
-               (!config.only_on_books || stack.getItem() instanceof EnchantedBookItem) &&
-               (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+               (!cfg.only_on_books || stack.getItem() == Items.ENCHANTED_BOOK) &&
+               (!cfg.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
     }
 
-    public Component getKeybindText() {
-        return this.config.activate_text;
+    public static Component getKeybindText() {
+        return config.get().activate_text;
     }
 
-    public boolean isKeybindConditionMet() {
-        return !this.config.require_keybind || Screen.hasShiftDown();
+    public static boolean isKeybindConditionMet() {
+        return !config.get().require_keybind || Screen.hasShiftDown();
     }
 
-    private boolean hasEnchantments(ItemStack stack) {
+    private static boolean hasEnchantments(ItemStack stack) {
         return !stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty() || !stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty();
     }
 
-    public void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
+    public static void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
         final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().location(), level);
         if (description != null) {
-            ComponentUtils.mergeStyles(description, config.style);
-            lines.accept(config.prefix.copy().append(description).append(config.suffix));
+            final Config cfg = config.get();
+            ComponentUtils.mergeStyles(description, cfg.style);
+            lines.accept(cfg.prefix.copy().append(description).append(cfg.suffix));
         }
     }
 
     @Nullable
-    private MutableComponent getDescription(Holder<Enchantment> enchantment, ResourceLocation id, int level) {
+    private static MutableComponent getDescription(Holder<Enchantment> enchantment, ResourceLocation id, int level) {
         MutableComponent description = getDescription("enchantment." + id.getNamespace() + "." + id.getPath() + ".", level);
         if (description == null && enchantment.value().description().getContents() instanceof TranslatableContents translatable) {
             description = getDescription(translatable.getKey() + ".", level);
@@ -98,7 +87,7 @@ public class EnchdescMod {
     }
 
     @Nullable
-    private MutableComponent getDescription(String baseKey, int level) {
+    private static MutableComponent getDescription(String baseKey, int level) {
         for (String keyType : KEY_TYPES) {
             String key = baseKey + keyType;
             if (I18n.exists(key)) {
@@ -110,12 +99,5 @@ public class EnchdescMod {
             }
         }
         return null;
-    }
-
-    public static EnchdescMod getInstance() {
-        if (instance == null) {
-            instance = new EnchdescMod();
-        }
-        return instance;
     }
 }
