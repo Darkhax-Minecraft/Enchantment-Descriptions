@@ -1,5 +1,5 @@
 <!-- name-start -->
-# EnchantmentDescriptions [![CurseForge Project](https://img.shields.io/curseforge/dt/250419?logo=curseforge&label=CurseForge&style=flat-square&labelColor=2D2D2D&color=555555)](https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions) [![Modrinth Project](https://img.shields.io/modrinth/dt/UVtY3ZAC?logo=modrinth&label=Modrinth&style=flat-square&labelColor=2D2D2D&color=555555)](https://modrinth.com/mod/enchantment-descriptions) [![Maven Project](https://img.shields.io/maven-metadata/v?style=flat-square&logoColor=D31A38&labelColor=2D2D2D&color=555555&label=Latest&logo=gradle&metadataUrl=https%3A%2F%2Fmaven.blamejared.com%2Fnet%2Fdarkhax%2Fenchdesc%2Fenchdesc-common-1.21.4%2Fmaven-metadata.xml)](https://maven.blamejared.com/net/darkhax/enchdesc)
+# EnchantmentDescriptions [![CurseForge Project](https://img.shields.io/curseforge/dt/250419?logo=curseforge&label=CurseForge&style=flat-square&labelColor=2D2D2D&color=555555)](https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions) [![Modrinth Project](https://img.shields.io/modrinth/dt/UVtY3ZAC?logo=modrinth&label=Modrinth&style=flat-square&labelColor=2D2D2D&color=555555)](https://modrinth.com/mod/enchantment-descriptions) [![Maven Project](https://img.shields.io/maven-metadata/v?style=flat-square&logoColor=D31A38&labelColor=2D2D2D&color=555555&label=Latest&logo=gradle&metadataUrl=https%3A%2F%2Fmaven.blamejared.com%2Fnet%2Fdarkhax%2Fenchdesc%2Fenchdesc-common-1.21.6%2Fmaven-metadata.xml)](https://maven.blamejared.com/net/darkhax/enchdesc)
 <!-- name-end -->
 <!-- description-start -->
 Adds descriptions of enchantment effects to their descriptions. The documentation for this mod can be found [here](https://docs.darkhax.net/mods/enchantment-descriptions/).
@@ -19,16 +19,16 @@ repositories {
 
 dependencies {
     // NeoForge
-    implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-neoforge-1.21.4', version: '21.4.0'
+    implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-neoforge-1.21.6', version: '21.6.0'
 
     // Forge
-    implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-forge-1.21.4', version: '21.4.0'
+    implementation group: 'net.darkhax.enchdesc', name: 'enchdesc-forge-1.21.6', version: '21.6.0'
 
     // Fabric & Quilt
-    modImplementation group: 'net.darkhax.enchdesc', name: 'enchdesc-fabric-1.21.4', version: '21.4.0'
+    modImplementation group: 'net.darkhax.enchdesc', name: 'enchdesc-fabric-1.21.6', version: '21.6.0'
 
     // Common / MultiLoader / Vanilla
-    compileOnly group: 'net.darkhax.enchdesc', name: 'enchdesc-common-1.21.4', version: '21.4.0'
+    compileOnly group: 'net.darkhax.enchdesc', name: 'enchdesc-common-1.21.6', version: '21.6.0'
 }
 ```
 <!-- maven-end -->
