@@ -4,7 +4,6 @@ import net.darkhax.enchdesc.common.mixin.patch.AccessorAbstractContainerScreen;
 import net.darkhax.pricklemc.common.api.config.ConfigManager;
 import net.darkhax.pricklemc.common.api.util.CachedSupplier;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Holder;
@@ -56,11 +55,11 @@ public class EnchantmentDescriptionsMod {
     }
 
     public static boolean isKeybindConditionMet() {
-        return !config.get().require_keybind || Screen.hasShiftDown();
+        return !config.get().require_keybind || Minecraft.getInstance().hasShiftDown();
     }
 
     public static void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
-        if (canDisplayDescription()) {
+        if (canDisplayDescription() && isKeybindConditionMet()) {
             final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().location(), level);
             if (description != null) {
                 final Config cfg = config.get();
