@@ -39,7 +39,7 @@
   "enchantment.minecraft.piercing.desc": "Стрелы пробивают сущностей насквозь, нанося урон всем поражённым целям ",
   "enchantment.minecraft.soul_speed.desc": "Увеличивает скорость передвижения на блоках душ",
   "enchantment.minecraft.swift_sneak.desc": "Увеличивает скорость передвижения крадучись",
-  "enchdesc.activate.message": "Удерживайте клавишу Shift, чтобы просмотреть описания чар.",
+  "enchdesc.activate.message": "Удерживайте клавишу Shift, чтобы просмотреть описания чар",
   
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Совместимости",
@@ -62,26 +62,26 @@
   "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
   "enchantment.grapplemod.wallrunenchantment.desc": "Позволяет бегать по стенам",
   "enchantment.grapplemod.doublejumpenchantment.desc": "Позволяет прыгать дважды",
-  "enchantment.grapplemod.slidingenchantment.desc": "Позволяет скользить, используя накопленный импульс.",
+  "enchantment.grapplemod.slidingenchantment.desc": "Позволяет скользить, используя накопленный импульс",
   
   "enchantment.hunterillager.bounce.desc": "Увеличивает количество отскоков бумеранга при попадании",
   
   "__support_better_archeology": "https://www.curseforge.com/minecraft/mc-mods/better-archeology",
   "enchantment.betterarcheology.penetrating_strike.desc": "Некоторый урон обойдет защитные чары",
   "enchantment.betterarcheology.seas_bounty.desc": "Позволяет поймать выудить видов сокровищ",
-  "enchantment.betterarcheology.soaring_winds.desc": "Придает элитрам импульс при взлете",
+  "enchantment.betterarcheology.soaring_winds.desc": "Придает элитрам импульс при взлёте",
   "enchantment.betterarcheology.tunneling.desc": "Также разрушает блок ниже целевого блока",
 
   "__support_deeper_and_darker": "https://www.curseforge.com/minecraft/mc-mods/deeperdarker",
   "enchantment.deeperdarker.catalysis.desc": "Распространяет скалк при убийстве существ",
-  "enchantment.deeperdarker.sculk_smite.desc": "Увеличивает урон по скалковым иобам",
+  "enchantment.deeperdarker.sculk_smite.desc": "Увеличивает урон по скалковым мобам",
 
   "__support_endless_biomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
   "enchantment.endlessbiomes.vwooping.desc": "С некоторым шансом телепортирует атакующих прочь",
   "enchantment.endlessbiomes.shared_pain": "После убийства существ, распределяет лишний урон ближайшим мобам",
 
   "__support_stallwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
-  "enchantment.stalwart_dungeons.thunder_strike.desc": "Дает молотам возможность вызывать молнии"
+  "enchantment.stalwart_dungeons.thunder_strike.desc": "Дает молотам возможность вызывать молнии",
   
   "__support_butcher": "https://modrinth.com/mod/butchery",
   "enchantment.butcher.butcherenchantment.desc": "Из некоторым существ будут выпадать их туши",
