@@ -3,7 +3,7 @@
   "enchantment.minecraft.protection.desc": "Уменьшает урон от большинства источников",
   "enchantment.minecraft.fire_protection.desc": "Уменьшает время горения и урон от огня и лавы",
   "enchantment.minecraft.feather_falling.desc": "Уменьшает урон от падения и использования эндер-жемчуга",
-  "enchantment.minecraft.blast_protection.desc": "Уменьшает урона отдачу и урон от взрывов",
+  "enchantment.minecraft.blast_protection.desc": "Уменьшает урон и отдачу и урон от взрывов",
   "enchantment.minecraft.projectile_protection.desc": "Уменьшает урон от снарядов, вроде стрел и огненных шаров",
   "enchantment.minecraft.respiration.desc": "Уменьшает потерю воздуха под водой, увеличивает время между приступами удушья",
   "enchantment.minecraft.aqua_affinity.desc": "Позволяет разрушать блоки под водой с той же скоростью, что и на суше",
@@ -21,7 +21,7 @@
   "enchantment.minecraft.power.desc": "Увеличивает скорость выпущенных стрел, соответственно увеличивая урон",
   "enchantment.minecraft.punch.desc": "Увеличивают силу отбрасывания стрел",
   "enchantment.minecraft.flame.desc": "Стрелы поджигают цель",
-  "enchantment.minecraft.infinity.desc": "Позволяет не расходовать обычные стрелы при стрельбе. Для стрельбы нужна хотя бы одна такая стрела",
+  "enchantment.minecraft.infinity.desc": "Позволяет стрелять бесконечно, не расходуя обычные стрелы. Для стрельбы в инвентаре должна быть хотя бы одна стрела",
   "enchantment.minecraft.luck_of_the_sea.desc": "Увеличивает шанс выудить сокровище",
   "enchantment.minecraft.lure.desc": "Уменьшает время ожидания клёва",
   "enchantment.minecraft.depth_strider.desc": "Увеличивает скорость плаванья и ходьбы под водой",
@@ -31,7 +31,7 @@
   "enchantment.minecraft.vanishing_curse.desc": "Уничтожает предмет в случае смерти",
   "enchantment.minecraft.sweeping.desc": "Увеличивает урон разящей атаки",
   "enchantment.minecraft.loyalty.desc": "Возвращает трезубец после броска",
-  "enchantment.minecraft.impaling.desc": "Увеличивает урон по водным мобам, вроде утопленников. Так же работает на сущностей, находящихся под дождём или в воде‌",
+  "enchantment.minecraft.impaling.desc": "Увеличивает урон по водным мобам, вроде утопленников. Работает и против сущностей, находящихся под дождём или в воде‌",
   "enchantment.minecraft.riptide.desc": "Тянет владельца влед за трезубцем, если тот находится в воде или под дождём",
   "enchantment.minecraft.channeling.desc": "Позволяет трезубцу вызывать молнии во время грозы при попадании в сущность",
   "enchantment.minecraft.multishot.desc": "При выстреле из арбалета запускает ещё 2 стрелы под другим углом",
@@ -39,13 +39,13 @@
   "enchantment.minecraft.piercing.desc": "Стрелы пробивают сущностей насквозь, нанося урон всем поражённым целям ",
   "enchantment.minecraft.soul_speed.desc": "Увеличивает скорость передвижения на блоках душ",
   "enchantment.minecraft.swift_sneak.desc": "Увеличивает скорость передвижения крадучись",
-  "enchdesc.activate.message": "Удерживайте клавишу Shift, чтобы просмотреть описания чар",
+  "enchdesc.activate.message": "Зажмите Shift, чтобы увидеть описание чар",
   
   "__comment_jei": "JEI Compat",
   "enchdesc.jei.compatible_items.title": "Совместимости",
   
   "__support_gofish": "Поддержка Go Fish https://www.curseforge.com/minecraft/mc-mods/go-fish",
-  "enchantment.gofish.deepfry.desc": "Некоторая рыба при поимке будет автоматически приготовлена",
+  "enchantment.gofish.deepfry.desc": "Автоматически готовит часть пойманной рыбы",
 
   "__support_shield+": "Shields+ https://www.curseforge.com/minecraft/mc-mods/shieldsplus",
   "enchantment.shieldsplus.recoil.desc": "Отталкивает атакующих и снаряды",
@@ -55,20 +55,20 @@
   "enchantment.shieldsplus.ablaze.desc": "Поджигает атакующих и снаряды",
   "enchantment.shieldsplus.lightweight.desc": "Позволяет двигаться быстрее при блокировании",
   "enchantment.shieldsplus.fast_recovery.desc": "Уменьшает время восстановления щита",
-  "enchantment.shieldsplus.shield_bash.desc": "Дает щиту ударную атаку",
-  "enchantment.shieldsplus.perfect_parry.desc": "Блокирование в момент получения урона обнуляет урон и оглушает атакующего",
-  "enchantment.shieldsplus.celestial_guardian.desc": "При получении смертельного урона во время блокирования, спасает владельца от гибели и даёт эффект сопротивления",
+  "enchantment.shieldsplus.shield_bash.desc": "Даёт щиту ударную атаку",
+  "enchantment.shieldsplus.perfect_parry.desc": "Блокирование в момент удара полностью парирует урон и оглушает атакующего",
+  "enchantment.shieldsplus.celestial_guardian.desc": "При получении смертельного урона во время блокирования, спасает владельца от гибели и даёт кратковременное сопротивление",
 
   "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
   "enchantment.grapplemod.wallrunenchantment.desc": "Позволяет бегать по стенам",
   "enchantment.grapplemod.doublejumpenchantment.desc": "Позволяет прыгать дважды",
-  "enchantment.grapplemod.slidingenchantment.desc": "Позволяет скользить, используя накопленный импульс",
+  "enchantment.grapplemod.slidingenchantment.desc": "Позволяет скользить по земле, используя набранную скорость",
   
-  "enchantment.hunterillager.bounce.desc": "Увеличивает количество отскоков бумеранга при попадании",
+  "enchantment.hunterillager.bounce.desc": "Бумеранг отскакивает между целями больше раз",
   
   "__support_better_archeology": "https://www.curseforge.com/minecraft/mc-mods/better-archeology",
-  "enchantment.betterarcheology.penetrating_strike.desc": "Некоторый урон обойдет защитные чары",
-  "enchantment.betterarcheology.seas_bounty.desc": "Позволяет поймать выудить видов сокровищ",
+  "enchantment.betterarcheology.penetrating_strike.desc": "Часть урона игнорирует защитные чары",
+  "enchantment.betterarcheology.seas_bounty.desc": "Увеличивает разнообразие выуживаемых сокровищ",
   "enchantment.betterarcheology.soaring_winds.desc": "Придает элитрам импульс при взлёте",
   "enchantment.betterarcheology.tunneling.desc": "Также разрушает блок ниже целевого блока",
 
@@ -78,13 +78,13 @@
 
   "__support_endless_biomes": "https://www.curseforge.com/minecraft/mc-mods/endless-biomes",
   "enchantment.endlessbiomes.vwooping.desc": "С некоторым шансом телепортирует атакующих прочь",
-  "enchantment.endlessbiomes.shared_pain": "После убийства существ, распределяет лишний урон ближайшим мобам",
+  "enchantment.endlessbiomes.shared_pain.desc": "После убийства существ, распределяет лишний урон ближайшим мобам",
 
   "__support_stallwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
   "enchantment.stalwart_dungeons.thunder_strike.desc": "Дает молотам возможность вызывать молнии",
   
   "__support_butcher": "https://modrinth.com/mod/butchery",
-  "enchantment.butcher.butcherenchantment.desc": "Из некоторым существ будут выпадать их туши",
+  "enchantment.butcher.butcherenchantment.desc": "Из некоторых существ будут выпадать их туши",
 
   "__support_blockswapper": "https://modrinth.com/mod/block-swapper",
   "enchantment.blockswapper.excavating.desc": "Позволяет заменять блоки на блоки воздуха",
