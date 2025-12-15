@@ -22,6 +22,9 @@ public class Config {
     @Value(comment = "This text will be displayed when the require_keybind option is enabled and the user has not held the keybind.")
     public Component activate_text = Component.translatable("enchdesc.activate.message").withStyle(ChatFormatting.DARK_GRAY);
 
+    @Value(comment = "Should the activate text be displayed?")
+    public boolean display_activate_text = true;
+
     @Value(comment = "Text that will be added to the start of each description. This can be used to add indents and other decorators.")
     public Component prefix = Component.empty();
 
