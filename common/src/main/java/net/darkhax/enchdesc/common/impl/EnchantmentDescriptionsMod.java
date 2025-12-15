@@ -7,6 +7,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
@@ -16,8 +17,10 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.jetbrains.annotations.Nullable;
 
+import javax.xml.crypto.Data;
 import java.util.function.Consumer;
 
 public class EnchantmentDescriptionsMod {
@@ -45,9 +48,13 @@ public class EnchantmentDescriptionsMod {
 
     public static boolean canDisplayDescription() {
         final Config cfg = config.get();
-        return cfg.enabled &&
-               (!cfg.only_on_books || getHoveredStack().getItem() == Items.ENCHANTED_BOOK) &&
-               (!cfg.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+        return cfg.enabled && hasEnchantments(getHoveredStack()) && (!cfg.only_on_books || getHoveredStack().getItem() == Items.ENCHANTED_BOOK) && (!cfg.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+    }
+
+    public static boolean hasEnchantments(ItemStack stack) {
+        final ItemEnchantments enchantments = stack.get(DataComponents.ENCHANTMENTS);
+        final ItemEnchantments stored = stack.get(DataComponents.STORED_ENCHANTMENTS);
+        return (enchantments != null && !enchantments.isEmpty()) || (stored != null && !stored.isEmpty());
     }
 
     public static Component getKeybindText() {
