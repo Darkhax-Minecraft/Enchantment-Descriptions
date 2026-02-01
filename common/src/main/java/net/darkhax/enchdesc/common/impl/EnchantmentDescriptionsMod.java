@@ -12,23 +12,28 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.ItemEnchantments;
 import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.xml.crypto.Data;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
 public class EnchantmentDescriptionsMod {
 
     public static final String MOD_ID = "enchdesc";
     public static final String MOD_NAME = "EnchantmentDescriptions";
+    public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
     public static final String[] KEY_TYPES = {"desc", "description", "info"};
     public static final CachedSupplier<Config> config = CachedSupplier.cache(() -> ConfigManager.load(MOD_ID, new Config()));
+    private static final Set<String> missingEnchants = ConcurrentHashMap.newKeySet();
 
     /**
      * Attempts to get the stack in the slot the player is currently hovering over. If the slot does not exist this will
@@ -67,7 +72,7 @@ public class EnchantmentDescriptionsMod {
 
     public static void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
         if (canDisplayDescription() && isKeybindConditionMet()) {
-            final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().location(), level);
+            final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().identifier(), level);
             if (description != null) {
                 final Config cfg = config.get();
                 ComponentUtils.mergeStyles(description, cfg.style);
@@ -77,7 +82,7 @@ public class EnchantmentDescriptionsMod {
     }
 
     @Nullable
-    private static MutableComponent getDescription(Holder<Enchantment> enchantment, ResourceLocation id, int level) {
+    private static MutableComponent getDescription(Holder<Enchantment> enchantment, Identifier id, int level) {
         MutableComponent description = getDescription("enchantment." + id.getNamespace() + "." + id.getPath() + ".", level);
         if (description == null && enchantment.value().description().getContents() instanceof TranslatableContents translatable) {
             description = getDescription(translatable.getKey() + ".", level);
@@ -96,6 +101,10 @@ public class EnchantmentDescriptionsMod {
             if (I18n.exists(key)) {
                 return Component.translatable(key);
             }
+        }
+        if (!missingEnchants.contains(baseKey)) {
+            LOG.warn("Enchantment {} does not have a description!", baseKey);
+            missingEnchants.add(baseKey);
         }
         return null;
     }

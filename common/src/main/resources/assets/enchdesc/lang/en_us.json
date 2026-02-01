@@ -42,6 +42,7 @@
   "enchantment.minecraft.breach.desc": "Increases the effectiveness of attacks against armored targets.",
   "enchantment.minecraft.density.desc": "Increases attack damage based on your fall distance.",
   "enchantment.minecraft.wind_burst.desc": "Smash attacks will launch the user back into the air.",
+  "enchantment.minecraft.lunge.desc": "The user lunges forward when using the spear.",
   "enchdesc.activate.message": "Hold shift to view enchantment descriptions.",
 
   "__comment_jei": "JEI Compat",
