@@ -27,7 +27,7 @@ public class EnchantmentExporter {
 
         final File outputFile = new File(
                 mc.gameDirectory,
-                "kubejs/assets/enchanted-descriptions/" + lang + "_generated.json"
+                "kubejs/assets/enchanted-descriptions/lang/" + lang + "_generated.json"
         );
         outputFile.getParentFile().mkdirs();
 
