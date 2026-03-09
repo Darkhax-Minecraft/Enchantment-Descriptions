@@ -17,18 +17,21 @@ public class DescriptionManager {
         this.config = config;
     }
 
+    public static String getKey(Enchantment ench) {
+
+        final String descKey = ench.getDescriptionId() + ".desc";
+
+        if (!I18n.exists(descKey) && I18n.exists(ench.getDescriptionId() + ".description")) {
+
+            return ench.getDescriptionId() + ".description";
+        }
+
+        return descKey;
+    }
+
     public MutableComponent get(Enchantment ench) {
 
-        return descriptions.computeIfAbsent(ench, e -> {
-
-            String descriptionKey = e.getDescriptionId() + ".desc";
-
-            if (!I18n.exists(descriptionKey) && I18n.exists(e.getDescriptionId() + ".description")) {
-
-                descriptionKey = e.getDescriptionId() + ".description";
-            }
-
-            return Component.translatable(descriptionKey).withStyle(config.style);
-        });
+        return descriptions.computeIfAbsent(ench, e ->
+            Component.translatable(getKey(e)).withStyle(config.style));
     }
 }

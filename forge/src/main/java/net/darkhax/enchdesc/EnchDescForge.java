@@ -1,5 +1,7 @@
 package net.darkhax.enchdesc;
 
+import net.darkhax.enchdesc.commands.ExportCommand;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
@@ -17,6 +19,7 @@ public class EnchDescForge {
         if (Environment.get().getDist().isClient()) {
 
             new EnchDescCommon(FMLPaths.CONFIGDIR.get());
+            MinecraftForge.EVENT_BUS.addListener(ExportCommand::onRegisterClientCommands);
         }
     }
 }
