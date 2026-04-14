@@ -1,43 +1,36 @@
 modLoader = "javafml"
-loaderVersion = "${neoforge_loader_version_range}"
-license = "${mod_license}"
-issueTrackerURL="${mod_repo}/issues"
+license = "LGPL 2.1"
+issueTrackerURL = "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions/issues"
 
 [[mods]]
-modId = "${mod_id}"
-version = "${version}"
-displayName = "${mod_name}"
-updateJSONURL = "https://updates.blamejared.com/get?n=${mod_id}&gv=${minecraft_version}&ml=${platform}"
-displayURL = "${curse_page}"
-logoFile="logo_${mod_id}.png"
+modId = "enchdesc"
+version = "26.1.2.0"
+displayName = "EnchantmentDescriptions"
+updateJSONURL = "https://updates.blamejared.com/get?n=enchdesc&gv=26.1.2&ml=neoforge"
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/enchantment-descriptions"
+logoFile = "logo_enchdesc.png"
 logoBlur = false
-credits = "This project is made possible with Patreon support from players like you. Thank you! ${patreon_pledges}"
-authors = "${mod_author}"
-description = "${mod_description}"
+credits = "This project is made possible with Patreon support from players like you. Thank you! lothrazar, techsquirrel, Keyana , Darkosto, Tobias Ward, noobanidus"
+authors = "Darkhax"
+description = "Adds descriptions of enchantment effects to their descriptions."
 
 [[mixins]]
-config = "${mod_id}.mixins.json"
+config = "enchdesc.common.mixins.json"
 
 [[mixins]]
-config = "${mod_id}.neoforge.mixins.json"
+config = "enchdesc.neoforge.mixins.json"
 
-[[dependencies.${mod_id}]]
-modId = "neoforge"
-type = "required"
-versionRange = "[${neoforge_version},)"
-ordering = "NONE"
-side = "BOTH"
-
-[[dependencies.${mod_id}]]
+[[dependencies.enchdesc]]
 modId = "minecraft"
 type = "required"
-versionRange = "${minecraft_version_range}"
+versionRange = "26.1"
 ordering = "NONE"
 side = "BOTH"
 
-[[dependencies.${mod_id}]]
-modId = "prickle"
+[[dependencies.enchdesc]]
+modId = "neoforge"
 type = "required"
-versionRange = "[${prickle_version},)"
+versionRange = "[26.1.0.1-beta,)"
 ordering = "NONE"
 side = "BOTH"
+

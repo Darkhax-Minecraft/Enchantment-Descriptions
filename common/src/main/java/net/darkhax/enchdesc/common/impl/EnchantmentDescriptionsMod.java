@@ -32,7 +32,7 @@ public class EnchantmentDescriptionsMod {
     public static final String MOD_NAME = "EnchantmentDescriptions";
     public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
     public static final String[] KEY_TYPES = {"desc", "description", "info"};
-    public static final CachedSupplier<Config> config = CachedSupplier.cache(() -> ConfigManager.load(MOD_ID, new Config()));
+    public static final Config config = ConfigManager.load(MOD_ID, new Config());
     private static final Set<String> missingEnchants = ConcurrentHashMap.newKeySet();
 
     /**
@@ -52,8 +52,7 @@ public class EnchantmentDescriptionsMod {
     }
 
     public static boolean canDisplayDescription() {
-        final Config cfg = config.get();
-        return cfg.enabled && hasEnchantments(getHoveredStack()) && (!cfg.only_on_books || getHoveredStack().getItem() == Items.ENCHANTED_BOOK) && (!cfg.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+        return config.enabled && hasEnchantments(getHoveredStack()) && (!config.only_on_books || getHoveredStack().getItem() == Items.ENCHANTED_BOOK) && (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
     }
 
     public static boolean hasEnchantments(ItemStack stack) {
@@ -63,20 +62,19 @@ public class EnchantmentDescriptionsMod {
     }
 
     public static Component getKeybindText() {
-        return config.get().activate_text;
+        return config.activate_text;
     }
 
     public static boolean isKeybindConditionMet() {
-        return !config.get().require_keybind || Minecraft.getInstance().hasShiftDown();
+        return !config.require_keybind || Minecraft.getInstance().hasShiftDown();
     }
 
     public static void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
         if (canDisplayDescription() && isKeybindConditionMet()) {
-            final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().identifier(), level);
+            MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().identifier(), level);
             if (description != null) {
-                final Config cfg = config.get();
-                ComponentUtils.mergeStyles(description, cfg.style);
-                lines.accept(cfg.prefix.copy().append(description).append(cfg.suffix));
+                description = ComponentUtils.mergeStyles(description, config.style);
+                lines.accept(config.prefix.copy().append(description).append(config.suffix));
             }
         }
     }

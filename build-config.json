@@ -1,0 +1,41 @@
+{
+  "mod": {
+    "name": "EnchantmentDescriptions",
+    "group": "net.darkhax.enchdesc",
+    "authors": [
+      "Darkhax"
+    ],
+    "id": "enchdesc",
+    "license": "LGPL 2.1",
+    "description": "Adds descriptions of enchantment effects to their descriptions.",
+    "repo": "https://github.com/Darkhax-Minecraft/Enchantment-Descriptions",
+    "client": true
+  },
+  "curseforge": {
+    "slug": "enchantment-descriptions",
+    "id": "250419"
+  },
+  "modrinth": {
+    "slug": "enchantment-descriptions",
+    "id": "UVtY3ZAC"
+  },
+  "dependencies": [
+    {
+      "name": "Prickle",
+      "type": "required",
+      "maven": {
+        "common": "net.darkhax.pricklemc:prickle-common-26.1.2:26.1.2.1",
+        "neoforge": "net.darkhax.pricklemc:prickle-neoforge-26.1.2:26.1.2.1",
+        "fabric": "net.darkhax.pricklemc:prickle-fabric-26.1.2:26.1.2.1"
+      },
+      "curseforge": {
+        "slug": "prickle",
+        "id": "1023259"
+      },
+      "modrinth": {
+        "slug": "prickle",
+        "id": "aaRl8GiW"
+      }
+    }
+  ]
+}
