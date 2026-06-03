@@ -23,6 +23,9 @@
     {
       "name": "Prickle",
       "type": "required",
+      "mod_id": {
+        "id": "prickle"
+      },
       "maven": {
         "common": "net.darkhax.pricklemc:prickle-common-26.1.2:26.1.2.1",
         "neoforge": "net.darkhax.pricklemc:prickle-neoforge-26.1.2:26.1.2.1",
