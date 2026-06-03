@@ -1,8 +1,6 @@
 package net.darkhax.enchdesc.common.impl;
 
-import net.darkhax.enchdesc.common.mixin.patch.AccessorAbstractContainerScreen;
 import net.darkhax.pricklemc.common.api.config.ConfigManager;
-import net.darkhax.pricklemc.common.api.util.CachedSupplier;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.client.resources.language.I18n;
@@ -13,7 +11,6 @@ import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
 import net.minecraft.resources.Identifier;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -34,25 +31,10 @@ public class EnchantmentDescriptionsMod {
     public static final String[] KEY_TYPES = {"desc", "description", "info"};
     public static final Config config = ConfigManager.load(MOD_ID, new Config());
     private static final Set<String> missingEnchants = ConcurrentHashMap.newKeySet();
-
-    /**
-     * Attempts to get the stack in the slot the player is currently hovering over. If the slot does not exist this will
-     * be empty.
-     *
-     * @return The item in the currently hovered slot.
-     */
-    public static ItemStack getHoveredStack() {
-        if (Minecraft.getInstance().screen instanceof AccessorAbstractContainerScreen accessor) {
-            final Slot slot = accessor.enchdesc$hoveredSlot();
-            if (slot != null && slot.hasItem()) {
-                return slot.getItem();
-            }
-        }
-        return ItemStack.EMPTY;
-    }
+    public static ItemStack CURRENT_STACK = ItemStack.EMPTY;
 
     public static boolean canDisplayDescription() {
-        return config.enabled && hasEnchantments(getHoveredStack()) && (!config.only_on_books || getHoveredStack().getItem() == Items.ENCHANTED_BOOK) && (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+        return config.enabled && hasEnchantments(CURRENT_STACK) && (!config.only_on_books || CURRENT_STACK.getItem() == Items.ENCHANTED_BOOK) && (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
     }
 
     public static boolean hasEnchantments(ItemStack stack) {
