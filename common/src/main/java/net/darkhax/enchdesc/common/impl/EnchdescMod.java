@@ -6,13 +6,16 @@ import net.darkhax.pricklemc.common.api.config.ConfigManager;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
+import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.contents.TranslatableContents;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
@@ -62,10 +65,10 @@ public class EnchdescMod {
 
     public boolean canDisplayDescription(ItemStack stack) {
         return hasInitialized &&
-               config.enabled &&
-               hasEnchantments(stack) &&
-               (!config.only_on_books || stack.getItem() instanceof EnchantedBookItem) &&
-               (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+                config.enabled &&
+                hasEnchantments(stack) &&
+                (!config.only_on_books || stack.getItem() instanceof EnchantedBookItem) &&
+                (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
     }
 
     public Component getKeybindText() {
@@ -80,8 +83,26 @@ public class EnchdescMod {
         return !stack.getOrDefault(DataComponents.ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty() || !stack.getOrDefault(DataComponents.STORED_ENCHANTMENTS, ItemEnchantments.EMPTY).isEmpty();
     }
 
+    @Nullable
+    private static ResourceKey<Enchantment> getKey(Holder<Enchantment> holder) {
+        return holder.unwrapKey().orElseGet(() -> {
+            if (!Services.PLATFORM.isPhysicalClient()) {
+                return null;
+            }
+            final ClientLevel level = Minecraft.getInstance().level;
+            if (level == null) {
+                return null;
+            }
+            return holder.unwrap().right().flatMap(e -> level.registryAccess().registry(Registries.ENCHANTMENT).flatMap(r -> r.getResourceKey(e))).orElse(null);
+        });
+    }
+
     public void insertDescriptions(Holder<Enchantment> enchantment, int level, Consumer<Component> lines) {
-        final MutableComponent description = getDescription(enchantment, enchantment.unwrapKey().orElseThrow().location(), level);
+        ResourceKey<Enchantment> key = getKey(enchantment);
+        if (key == null) {
+            return;
+        }
+        final MutableComponent description = getDescription(enchantment, key.location(), level);
         if (description != null) {
             ComponentUtils.mergeStyles(description, config.style);
             lines.accept(config.prefix.copy().append(description).append(config.suffix));
