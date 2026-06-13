@@ -51,10 +51,13 @@
   "enchantment.shieldsplus.recoil.desc": "Repousse les attaquants et les projectiles.",
   "enchantment.shieldsplus.reflection.desc": "Renvoie des dégâts aux attaquants.",
   "enchantment.shieldsplus.reinforced.desc": "Augmente les dégâts bloqués par le bouclier.",
+  "enchantment.shieldsplus.aegis.desc": "Réduit les dégâts après avoir bloqué.",
   "enchantment.shieldsplus.ablaze.desc": "Enflamme les attaquants et les projectiles.",
   "enchantment.shieldsplus.lightweight.desc": "Permet à l'utilisateur de se déplacer plus vite en bloquant.",
   "enchantment.shieldsplus.fast_recovery.desc": "Réduit le délai de récupération du bouclier.",
   "enchantment.shieldsplus.shield_bash.desc": "Donne une attaque bash au bouclier.",
+  "enchantment.shieldsplus.perfect_parry.desc": "Bloquer une attaque pile au bon moment nullifie les dégâts et étourdis l'attaquant.",
+  "enchantment.shieldsplus.celestial_guardian.desc": "Se faire tuer tout en bloquant octoie l'effet Absorption et vous garde en vie.",
 
   "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
   "enchantment.grapplemod.wallrunenchantment.desc": "Permet à l'utilisateur de courir sur les murs",
@@ -79,4 +82,13 @@
 
   "__support_stallwart_dungeons": "https://www.curseforge.com/minecraft/mc-mods/stalwart-dungeons",
   "enchantment.stalwart_dungeons.thunder_strike.desc": "Donne au marteau la capacité d'invoquer la foudre."
+
+  "__support_butcher": "https://modrinth.com/mod/butchery",
+  "enchantment.butcher.butcherenchantment.desc": "Tuer des enemies éligible laisse tomber leur cadavre.",
+
+  "__support_blockswapper": "https://modrinth.com/mod/block-swapper",
+  "enchantment.blockswapper.excavating.desc": "Autorise le remplacement de block par de l'air.",
+
+  "__support_cardiac": "https://modrinth.com/mod/cardiac",
+  "enchantment.cardiac.lifesteal.desc": "Tuer des enemies laisse tomber plus d'orbe de soin."
 }
