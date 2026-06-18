@@ -6,6 +6,7 @@ import net.minecraft.client.gui.screens.inventory.EnchantmentScreen;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponents;
+import net.minecraft.locale.Language;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.ComponentUtils;
 import net.minecraft.network.chat.MutableComponent;
@@ -34,7 +35,7 @@ public class EnchantmentDescriptionsMod {
     public static ItemStack CURRENT_STACK = ItemStack.EMPTY;
 
     public static boolean canDisplayDescription() {
-        return config.enabled && hasEnchantments(CURRENT_STACK) && (!config.only_on_books || CURRENT_STACK.getItem() == Items.ENCHANTED_BOOK) && (!config.only_in_enchanting_table || Minecraft.getInstance().screen instanceof EnchantmentScreen);
+        return config.enabled && hasEnchantments(CURRENT_STACK) && (!config.only_on_books || CURRENT_STACK.getItem() == Items.ENCHANTED_BOOK) && (!config.only_in_enchanting_table || Minecraft.getInstance().gui.screen() instanceof EnchantmentScreen);
     }
 
     public static boolean hasEnchantments(ItemStack stack) {
@@ -74,11 +75,11 @@ public class EnchantmentDescriptionsMod {
     private static MutableComponent getDescription(String baseKey, int level) {
         for (String keyType : KEY_TYPES) {
             String key = baseKey + keyType;
-            if (I18n.exists(key)) {
+            if (Language.getInstance().has(key)) {
                 return Component.translatable(key);
             }
             key = key + "." + level;
-            if (I18n.exists(key)) {
+            if (Language.getInstance().has(key)) {
                 return Component.translatable(key);
             }
         }
