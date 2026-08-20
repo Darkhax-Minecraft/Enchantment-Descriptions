@@ -29,7 +29,7 @@
   "enchantment.minecraft.mending.desc": "Tự động sửa chữa đồ hỏng khi hấp thụ kinh nghiệm, thay vì hấp thụ kinh nghiệm để tăng cấp thì phù phép này sẽ lấy kinh nghiệm đó để sửa chữa..",
   "enchantment.minecraft.binding_curse.desc": "Khi trang bị có phù phép này lúc người chơi mặc vào sẽ không thể tháo ra, trừ khi chết hoặc bị hỏng.",
   "enchantment.minecraft.vanishing_curse.desc": "Vật phẩm bị phá hủy khi người chơi chết thay vì bị rơi xuống mặt đất như bình thường.",
-  "enchantment.minecraft.sweeping.desc": "Tăng sát thương đòn đánh quét.",
+  "enchantment.minecraft.sweeping_edge.desc": "Tăng sát thương đòn đánh quét.",
   "enchantment.minecraft.loyalty.desc": "Làm cho đinh ba quay trở lại sau khi ném đi.",
   "enchantment.minecraft.impaling.desc": "Cây đinh ba gây thêm sát thương lên sinh vật dưới đại dương và người chơi.",
   "enchantment.minecraft.riptide.desc": "Bay theo cây đinh ba khi ném ra, chỉ hoạt động ở dưới nước hoặc trời mưa, bão.",

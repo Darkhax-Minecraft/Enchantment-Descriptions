@@ -29,7 +29,7 @@
   "enchantment.minecraft.mending.desc": "Répare la durabilité de l'armure et des outils avec de l'EXP.",
   "enchantment.minecraft.binding_curse.desc": "Empêche que l'objet enchanté soit retiré d'un emplacement d'armure.",
   "enchantment.minecraft.vanishing_curse.desc": "Détruit l'objet enchanté si vous mourez avec dans votre inventaire.",
-  "enchantment.minecraft.sweeping.desc": "Augmente les dégâts infligés par les attaques de zone.",
+  "enchantment.minecraft.sweeping_edge.desc": "Augmente les dégâts infligés par les attaques de zone.",
   "enchantment.minecraft.loyalty.desc": "Permet au trident de revenir automatiquement après avoir été lancé.",
   "enchantment.minecraft.impaling.desc": "Augmente les dégâts infligés aux créatures aquatiques.",
   "enchantment.minecraft.riptide.desc": "L'utilisation du trident sous la pluie ou dans l'eau propulse l'utilisateur vers l'avant.",
