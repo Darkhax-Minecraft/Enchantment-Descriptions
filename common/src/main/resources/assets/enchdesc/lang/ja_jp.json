@@ -29,7 +29,7 @@
   "enchantment.minecraft.mending.desc": "アイテムが経験値オーブで修復できるようになります。",
   "enchantment.minecraft.binding_curse.desc": "防具が外せなくなります。",
   "enchantment.minecraft.vanishing_curse.desc": "死亡時にこのエンチャントの付いているアイテムは完全に消滅します。",
-  "enchantment.minecraft.sweeping.desc": "範囲攻撃のダメージを増加させます。",
+  "enchantment.minecraft.sweeping_edge.desc": "範囲攻撃のダメージを増加させます。",
   "enchantment.minecraft.loyalty.desc": "投げたトライデントが手元に戻るようになります。",
   "enchantment.minecraft.impaling.desc": "水生Mobに対してのダメージを増加させます。",
   "enchantment.minecraft.riptide.desc": "トライデントを使った際に高速で突進します。天候が雨の時や水中でのみ使えます。",
