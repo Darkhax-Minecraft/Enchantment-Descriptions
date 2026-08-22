@@ -60,6 +60,8 @@
   "enchantment.shieldsplus.lightweight.desc": "Allows the user to move faster when blocking.",
   "enchantment.shieldsplus.fast_recovery.desc": "Reduces shield cooldown times.",
   "enchantment.shieldsplus.shield_bash.desc": "Gives the shield a bash attack.",
+  "enchantment.shieldsplus.perfect_parry.desc": "Blocking at the same time as taking damage completely negates the damage and stuns the attacker.",
+  "enchantment.shieldsplus.celestial_guardian.desc": "Getting killed while blocking will give an absorption effect and keep you alive.",
 
   "__support_grapplemod": "Grapple Mod https://www.curseforge.com/minecraft/mc-mods/grappling-hook-mod",
   "enchantment.grapplemod.wallrunenchantment.desc": "Allows the user to run on walls.",
@@ -193,5 +195,14 @@
   "enchantment.improved_exp.ore_detector.desc": "Using the right mouse button will tell the user about nearby ores.",
   "enchantment.improved_exp.flight.desc": "Allows the wearer to fly.",
   "enchantment.improved_exp.werewolf.desc": "Grants the wearer buffs based on the current moon phase.",
-  "enchantment.improved_exp.fear_of_height.desc": "The wearer will take damage if they are too high."
+  "enchantment.improved_exp.fear_of_height.desc": "The wearer will take damage if they are too high.",
+
+  "__support_butcher": "https://modrinth.com/mod/butchery",
+  "enchantment.butcher.butcherenchantment.desc": "Killing eligible mobs drops their corpse.",
+
+  "__support_blockswapper": "https://modrinth.com/mod/block-swapper",
+  "enchantment.blockswapper.excavating.desc": "Allows replacing of blocks with air.",
+
+  "__support_cardiac": "https://modrinth.com/mod/cardiac",
+  "enchantment.cardiac.lifesteal.desc": "Killing mobs drops more healing orbs."
 }
