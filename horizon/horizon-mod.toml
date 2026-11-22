@@ -1,0 +1,14 @@
+id = "enchdesc"
+name = "EnchantmentDescriptions"
+version = "26.3.0.2"
+description = "Provides a way for enchantments to display a description of what they do."
+authors = ["Darkhax"]
+license = "LGPL-2.1"
+# A wasm mod: Rust in src/, built to mod.wasm by `cargo horizon-mod build --wasm` against the SDK build Cargo.toml pins, beside data/ and assets/.
+api = "0.2"
+side = "client"
+capabilities = ["registries"]
+
+[wasm]
+sha512 = "224c256662a54f0b6e7334fb0900110a300b3374628e6343d18f68881baa2643ea592bee0ce4a8ba00c67f8af971699778c0cbeb34a9d96cb4cd3cc4298b352c"
+toolchain = "1.99.1 58cf8f9c35b355199727627d07ae34a4e2846d67"
